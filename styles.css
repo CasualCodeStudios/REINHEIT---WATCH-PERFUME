@@ -320,10 +320,10 @@ section {
 }
 
 .watch-item {
+    height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .4rem;
 }
 .to-hide{
     display: none;
@@ -343,7 +343,6 @@ section {
     width: 120px;
     height: 350px;
     object-fit: contain;
-    padding: 0.3rem;
     filter: drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.493));
 }
 
@@ -644,7 +643,6 @@ footer {
     }
     .watches{
         background: #fed;
-       min-height: 90vh;
     }
     .to-hide{
         display: block;
@@ -656,10 +654,10 @@ footer {
   .watches-grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
+    gap: 3rem;
     }
-    .watch-item{
-        padding: 1rem 0;
+    .watch-item:nth-child(2n){
+        padding-left: 10px;
     }
 
     .watch-item .product {
