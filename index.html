@@ -12,7 +12,24 @@
 <body>
 
 <!-- ===== HERO SECTION ===== -->
-<section id="hero">
+<section id="hero">\
+
+    <!-- menu btn - sidebar -->
+     <div class="menu-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+     </div>
+
+     <!-- SIDEBAR -->
+      <div class="side-bar" id="sidebar">
+        <ul class="side-nav">
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Contacts</a>
+        </ul>
+      </div>
+
     <div class="hero-content">
         <div class="top-logo">
             <img src="logo.png" alt="Reinheit logo" class="logo">
@@ -193,4 +210,37 @@
 </footer>
 
 </body>
+
+<!-- SCRIPTS -->
+<script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    function openSidebar() {
+        sidebar.classList.add('open');
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('open');
+    }
+
+    function toggleSidebar() {
+        sidebar.classList.toggle('open');
+    }
+
+    menuBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleSidebar();
+    });
+
+    document.addEventListener('click', function (e) {
+        if (sidebar.classList.contains('open') && !sidebar.contains(e.target)) {
+            closeSidebar();
+        }
+    });
+
+    sidebar.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeSidebar);
+    });
+</script>
 </html>
