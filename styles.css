@@ -656,7 +656,7 @@ footer {
   .watches-grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 5rem;
+    gap: 4rem;
     }
     .watch-item{
         padding: 1rem 0;
