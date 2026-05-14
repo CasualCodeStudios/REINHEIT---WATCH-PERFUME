@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop Reinheit Perfumes - Premium authentic fragrances. Elegantly packaged and delivered to you.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shop-styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Shop Perfumes — Reinheit</title>
+
+    <style>
+
+        /* ===SIDEBAR=== */
+
+.side-bar .side-nav a {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 300 !important;
+    letter-spacing: 6px !important;
+    font-size: 2.8rem !important;
+    position: relative;
+    transition: color 0.35s ease, letter-spacing 0.35s ease !important;
+}
+.side-bar .side-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.35s ease;
+}
+.side-bar .side-nav a:hover {
+    color: var(--gold) !important;
+    letter-spacing: 8px !important;
+}
+.side-bar .side-nav a:hover::after { 
+    width: 60%; 
+}
+    </style>
+
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+
+    <!-- menu btn - sidebar -->
+     <div class="menu-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+     </div>
+
+     <!-- SIDEBAR -->
+      <div class="side-bar" id="sidebar">
+        <ul class="side-nav">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="#">Contacts</a>
+        </ul>
+      </div>
+
+
+    <p class="hero-eyebrow">Reinheit Collections</p>
+    <h1>Experience the <em>Essence</em><br>of Luxury</h1>
+    <div class="hero-divider">
+        <span></span>
+        <i></i>
+        <span></span>
+    </div>
+    <a href="#perfumes" class="btn-discover">Discover Now</a>
+</section>
+
+<!-- FILTER -->
+<div class="filter-section reveal" id="perfumes">
+    <p class="filter-label">Filter by</p>
+    <div class="filter-tags">
+        <button class="filter-tag active" data-filter="all">All</button>
+        <button class="filter-tag" data-filter="women">For Her</button>
+        <button class="filter-tag" data-filter="men">For Him</button>
+        <button class="filter-tag" data-filter="unisex">Unisex</button>
+        <button class="filter-tag" data-filter="oud">Oud & Oriental</button>
+    </div>
+    <p class="results-count"><span id="count">6</span> fragrances</p>
+</div>
+
+<!-- SIGNATURE SCENTS -->
+<div class="section-header reveal">
+    <h2>Our Signature Scents</h2>
+    <div class="ornament"><span></span><i></i><span></span></div>
+    <p class="sub">Indulge in Sophistication</p>
+</div>
+
+<div class="featured-grid reveal">
+    <!-- BLACK OPIUM -->
+    <div class="featured-card" data-category="women">
+        <div class="img-wrap">
+            <div class="spotlight"></div>
+            <img src="perfume1.png" alt="Black Opium perfume">
+        </div>
+        <div class="card-body">
+            <p class="scent-family">Floral · Woody · Musky</p>
+            <h3 class="name">Black Opium</h3>
+            <p class="brand">Yves Saint Laurent</p>
+            <div class="card-divider"></div>
+            <p class="desc">"A bold, addictive opening of coffee and white flowers. Intoxicating and unforgettable."</p>
+            <button class="btn-shop" onclick="openWhatsApp('Black Opium by YSL')">Shop Now</button>
+        </div>
+    </div>
+    <!-- COCO CHANEL -->
+    <div class="featured-card" data-category="women">
+        <span class="badge badge-best">Bestseller</span>
+        <div class="img-wrap">
+            <div class="spotlight"></div>
+            <img src="perfume2.png" alt="Coco Chanel perfume">
+        </div>
+        <div class="card-body">
+            <p class="scent-family">Oriental · Spicy · Powdery</p>
+            <h3 class="name">Coco Chanel</h3>
+            <p class="brand">Chanel</p>
+            <div class="card-divider"></div>
+            <p class="desc">"Timeless elegance bottled. A symphony of rose, jasmine and warm amber."</p>
+            <button class="btn-shop" onclick="openWhatsApp('Coco Chanel')">Shop Now</button>
+        </div>
+    </div>
+    <!-- ATOOR -->
+    <div class="featured-card" data-category="unisex">
+        <span class="badge badge-new">New</span>
+        <div class="img-wrap">
+            <div class="spotlight"></div>
+            <img src="atoor.png" alt="Atoor Pour Homme perfume">
+        </div>
+        <div class="card-body">
+            <p class="scent-family">Oud · Amber · Sandalwood</p>
+            <h3 class="name">Atoor Pour Homme</h3>
+            <p class="brand">Arabian Collection</p>
+            <div class="card-divider"></div>
+            <p class="desc">"Deep, smoky oud wrapped in warm amber and cedarwood. A statement of heritage."</p>
+            <button class="btn-shop" onclick="openWhatsApp('Atoor Pour Homme')">Shop Now</button>
+        </div>
+    </div>
+</div>
+
+<!-- LUXURY BANNER -->
+<div class="luxury-banner reveal">
+    <div class="luxury-text">
+        <p class="eyebrow">Our Promise</p>
+        <h2>Luxury &amp; <em>Sensation</em></h2>
+        <p>At Reinheit, every bottle we carry is <strong>100% authentic</strong>. Crafted with the finest ingredients for an unforgettable experience — we ensure every fragrance arrives <strong>elegantly packaged</strong> and delivered swiftly to your door.</p>
+        <a href="#contact" class="btn-discover" style="align-self: flex-start;">Learn More</a>
+    </div>
+    <div class="luxury-img">
+        <!-- If you have a lifestyle photo, place it here. Otherwise this shows a rich dark gradient. -->
+        <div style="width:100%; height:100%; background: radial-gradient(ellipse at 60% 50%, rgba(189,151,48,0.12) 0%, #0c0a08 70%); display:flex; align-items:center; justify-content:center;">
+            <span style="font-family:'Dancing Script',cursive; font-size:3rem; color:rgba(189,151,48,0.25); text-align:center; padding:2rem;">Reinheit</span>
+        </div>
+        <p class="overlay-text">You deserve the best.</p>
+    </div>
+</div>
+
+<!-- ALL PERFUMES -->
+<section class="all-perfumes">
+    <div class="section-header reveal">
+        <h2>The Art of Perfume</h2>
+        <div class="ornament"><span></span><i></i><span></span></div>
+        <p class="sub">Complete Collection</p>
+    </div>
+
+    <div class="perfumes-grid" id="perfumes-grid">
+
+        <div class="perf-card reveal" data-category="women">
+            <span class="badge badge-best">Bestseller</span>
+            <div class="img-area">
+                <img src="perfume1.png" alt="Black Opium">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Black Opium</p>
+                <p class="brand">Yves Saint Laurent</p>
+                <button class="cta" onclick="openWhatsApp('Black Opium')">Enquire via WhatsApp →</button>
+            </div>
+        </div>
+
+        <div class="perf-card reveal" data-category="women">
+            <div class="img-area">
+                <img src="perfume2.png" alt="Coco Chanel">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Coco Chanel</p>
+                <p class="brand">Chanel</p>
+                <button class="cta" onclick="openWhatsApp('Coco Chanel')">Enquire via WhatsApp →</button>
+            </div>
+        </div>
+
+        <div class="perf-card reveal" data-category="unisex">
+            <span class="badge badge-new">New</span>
+            <div class="img-area">
+                <img src="atoor.png" alt="Atoor Pour Homme">
+            </div>
+            <div class="info">
+                <span class="tag">Unisex</span>
+                <p class="name">Atoor Pour Homme</p>
+                <p class="brand">Arabian Collection</p>
+                <button class="cta" onclick="openWhatsApp('Atoor Pour Homme')">Enquire via WhatsApp →</button>
+            </div>
+        </div>
+
+        <!-- Placeholder cards for a fuller grid feel — replace with real products -->
+        <div class="perf-card reveal" data-category="men">
+            <div class="img-area" style="background: radial-gradient(ellipse at 50% 80%, rgba(189,151,48,0.04), transparent);">
+                <img src="perfume1.png" alt="Placeholder" style="opacity:0.3; filter: drop-shadow(0 12px 24px rgba(0,0,0,0.6)) grayscale(1);">
+            </div>
+            <div class="info">
+                <span class="tag">For Him</span>
+                <p class="name">Coming Soon</p>
+                <p class="brand">New Arrival</p>
+                <button class="cta" onclick="openWhatsApp('upcoming fragrance')">Get Notified →</button>
+            </div>
+        </div>
+
+        <div class="perf-card reveal" data-category="women">
+            <div class="img-area" style="background: radial-gradient(ellipse at 50% 80%, rgba(189,151,48,0.04), transparent);">
+                <img src="perfume2.png" alt="Placeholder" style="opacity:0.3; filter: drop-shadow(0 12px 24px rgba(0,0,0,0.6)) grayscale(1);">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Coming Soon</p>
+                <p class="brand">New Arrival</p>
+                <button class="cta" onclick="openWhatsApp('upcoming fragrance')">Get Notified →</button>
+            </div>
+        </div>
+
+        <div class="perf-card reveal" data-category="oud">
+            <div class="img-area" style="background: radial-gradient(ellipse at 50% 80%, rgba(189,151,48,0.04), transparent);">
+                <img src="atoor.png" alt="Placeholder" style="opacity:0.3; filter: drop-shadow(0 12px 24px rgba(0,0,0,0.6)) grayscale(1);">
+            </div>
+            <div class="info">
+                <span class="tag">Oud &amp; Oriental</span>
+                <p class="name">Coming Soon</p>
+                <p class="brand">New Arrival</p>
+                <button class="cta" onclick="openWhatsApp('upcoming oud fragrance')">Get Notified →</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter reveal" id="contact">
+    <h2>The Art of Perfume</h2>
+    <p>Join our exclusive list for the latest arrivals and luxury updates.</p>
+    <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email" id="email-input">
+        <button onclick="handleSubscribe()">Subscribe</button>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">REI<span>NH</span>EIT</div>
+    <p class="foot-copy">© 2025 Reinheit Perfumes &amp; Watches. All rights reserved.</p>
+    <div class="foot-contact">
+        <strong>0758810778</strong> · Instagram: Reinheit Perfumes &amp; Watches
+    </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script>
+    
+    /* NAV scroll */
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+        document.getElementById('scrollTopBtn').classList.toggle('visible', window.scrollY > 300);
+    });
+
+    /* Scroll to top */
+    document.getElementById('scrollTopBtn').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* Reveal on scroll */
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add('visible'), i * 80);
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    /* Filter tags */
+    const filterTags = document.querySelectorAll('.filter-tag');
+    const cards = document.querySelectorAll('.perf-card, .featured-card');
+    const countEl = document.getElementById('count');
+
+    filterTags.forEach(tag => {
+        tag.addEventListener('click', () => {
+            filterTags.forEach(t => t.classList.remove('active'));
+            tag.classList.add('active');
+            const filter = tag.dataset.filter;
+            let visible = 0;
+            cards.forEach(card => {
+                const match = filter === 'all' || card.dataset.category === filter;
+                card.style.display = match ? '' : 'none';
+                if (match) visible++;
+            });
+            countEl.textContent = visible;
+        });
+    });
+
+    /* WhatsApp enquiry */
+    function openWhatsApp(product) {
+        const msg = encodeURIComponent(`Hello Reinheit! I'm interested in: ${product}. Could you share more details?`);
+        window.open(`https://wa.me/254758810778?text=${msg}`, '_blank');
+    }
+
+    /* Subscribe */
+    function handleSubscribe() {
+        const email = document.getElementById('email-input').value;
+        if (email && email.includes('@')) {
+            alert('Thank you for subscribing! We\'ll keep you updated on our latest arrivals.');
+            document.getElementById('email-input').value = '';
+        } else {
+            alert('Please enter a valid email address.');
+        }
+    }
+
+    /* Smooth anchor scroll */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+        });
+    });
+</script>
+<script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    function openSidebar() {
+        sidebar.classList.add('open');
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('open');
+    }
+
+    function toggleSidebar() {
+        sidebar.classList.toggle('open');
+    }
+
+    menuBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleSidebar();
+    });
+
+    document.addEventListener('click', function (e) {
+        if (sidebar.classList.contains('open') && !sidebar.contains(e.target)) {
+            closeSidebar();
+        }
+    });
+
+    sidebar.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeSidebar);
+    });
+</script>
+
+</body>
+</html>

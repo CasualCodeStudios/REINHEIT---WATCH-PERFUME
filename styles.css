@@ -160,15 +160,15 @@ section {
     text-align: center;
     position: fixed;
     top: 0;
-    right: -100%;
+    left: -100%;
     height: 540px;
-    background: linear-gradient(to left, #000, #000000c4, #00000000);
+    background: linear-gradient(to right, #000, #000000c4, #00000000);
     width: 50%;
-    z-index: 100;
-    transition: right 0.35s ease;
+    z-index: 99;
+    transition: left 0.5s ease;
 }
 .side-bar.open {
-    right: 0;
+    left: 0;
 }
 
 .side-bar .side-nav{
@@ -207,8 +207,7 @@ section {
 
 .hero-content h1 {
     font-size: clamp(2.8rem, 6vw, 5.2rem);
-    letter-spacing: 6px;
-    font-weight: 550;
+    font-weight: 900;
     line-height: 1.5;
     color: var(--gold);
     font-family: 'Georgia', serif;
@@ -220,7 +219,8 @@ section {
 }
 
 .hero-content .first-p {
-    font-size: clamp(0.95rem, 1.9vw, 1.9rem);
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: clamp(0.75rem, 1.7vw, 1.8rem);
     letter-spacing: 4px;
     font-weight: 400;
     color: var(--text-muted);
@@ -300,17 +300,18 @@ section {
 
 /* ===== MAIN CONTENT ===== */
 .main-content {
-    background: linear-gradient(to top, #ffffff, #00000000),url("content-bg.jpg") no-repeat center/cover;
+    background: linear-gradient(to top, #000, #00000000),url("https://i.pinimg.com/1200x/ad/e1/be/ade1be28ffa073ca118fc0fe413b566f.jpg") no-repeat center/cover;
     background-attachment: fixed;
     display: grid;
     grid-template-columns: 2fr 1fr;
+    padding-bottom:10px;
     width: 100%;
     max-width: 1200px;
     border-bottom: 3px solid var(--gold);
 }
 
 .content-grid {
-    padding: 2rem 1.5rem;
+    padding: 0;
     position: relative;
     overflow: hidden; /* clips the fixed pseudo-element to this box only */
 }
@@ -326,12 +327,9 @@ section {
 .products h2 {
     position: relative;
     display: inline-block;
-    color: #1a1a1a;
-    font-size: clamp(1.4rem, 2vw, 1.4rem);
     font-weight: 700;
     letter-spacing: 4px;
     margin-bottom: 0.6rem;
-    font-family: 'Georgia', serif;
 }
 
 .products h2::before {
@@ -467,7 +465,7 @@ section {
     width: 120px;
     height: 350px;
     object-fit: contain;
-    filter: drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.493));
+    filter: drop-shadow(-3px 5px 5px rgba(151, 151, 151, 0.493));
 }
 
 .watch-item .product-name {
@@ -482,18 +480,17 @@ section {
 /* ===== MESSAGE PANEL ===== */
 .message {
     text-align: center;
-    padding: 2.5rem 2rem;
+    padding: 2rem;
     background: #0d0d0d;
-    border: 3px solid var(--gold);
+    border-left: 1px solid var(--gold);
 }
 
 .message h2 {
-    font-size: clamp(1rem, 2vw, 1.4rem);
-    font-weight: 700;
-    letter-spacing: 4px;
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
     color: var(--gold);
     font-family: 'Georgia', serif;
     margin-bottom: 0.4rem;
+    opacity: .85;
 }
 
 .message p {
@@ -575,8 +572,8 @@ footer {
 
 .footer-contact .whatsapp-row {
     display: flex;
-    align-items: center;
     gap: 0.5rem;
+    padding:0 .75rem ;
 }
 
 .footer-contact .whatsapp-row img {
@@ -601,7 +598,7 @@ footer {
 }
 
 .footer-contact .social-row p {
-    font-size: .95rem;
+    font-size: .75rem;
     color: var(--text-muted);
     letter-spacing: 0.5px;
     font-family: Arial, Helvetica, sans-serif;
@@ -611,8 +608,8 @@ footer {
     padding-left: .5rem ;
 }
 .footer-contact span img{
-    width: 24px;
-    height: 24px;
+    width: .9rem;
+    height: .9rem;
 }
 
 
@@ -680,16 +677,13 @@ footer {
     .content-grid {
     padding: 2rem .5rem;
     }
-    .products h2{
-        color: #fed;
-    }
     .perfumes{
     background: linear-gradient(to bottom, #000 20%, #00000000 10%, #fed 65%),url("https://i.pinimg.com/736x/10/f6/10/10f6103e0011705403a06fc8c429c155.jpg") no-repeat center/cover;
     background-attachment: fixed;
     padding: 1rem;
 }
 .watches{
-    background: linear-gradient(to bottom, #000 20%, #00000000 , #fed 90%),url("watch-bg.jpg") no-repeat center/cover;
+    background: linear-gradient(to bottom, #000 20%, #00000000 ),url("watch-bg.jpg") no-repeat center/cover;
     background-attachment: fixed;
 }
 
@@ -731,6 +725,9 @@ footer {
         flex-direction: column;
         min-height: 100vh;
     }
+    .menu-btn::before{
+        display: none;
+    }
     .side-bar{
         width: 80%;
     }
@@ -761,15 +758,10 @@ footer {
         width: 130px;
         height: 180px;
     }
-    .watches{
-        background: #fed;
-    }
     .to-hide{
         display: block;
     }
-    .watches h2{
-        color: #000;
-    }
+    
 
   .watches-grid{
     display: grid;

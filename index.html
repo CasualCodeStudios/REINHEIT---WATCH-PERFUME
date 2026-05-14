@@ -5,58 +5,399 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Reinheit Perfume and Watches - a perfect blend of luxury and style. Premium quality watches and perfumes, authentic brands and timeless elegance.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shop-styles.css">
     <title>Reinheit Perfume and Watches</title>
+
+    <style>
+        /* ================================================
+           ANIMATION & TRANSITION UPGRADE LAYER
+        ================================================ */
+
+        /* ── FADE-UP SYSTEM ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-up.d1 { transition-delay: 0.08s; }
+        .fade-up.d2 { transition-delay: 0.18s; }
+        .fade-up.d3 { transition-delay: 0.28s; }
+        .fade-up.d4 { transition-delay: 0.38s; }
+        .fade-up.d5 { transition-delay: 0.48s; }
+
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .fade-left.visible { opacity: 1; transform: translateX(0); }
+
+        .fade-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .fade-right.visible { opacity: 1; transform: translateX(0); }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.88);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .scale-in.visible { opacity: 1; transform: scale(1); }
+
+        /* ── HERO PAGE-LOAD ANIMATIONS ── */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes heroFadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        @keyframes shimmer {
+            0%   { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(189,151,48,0); }
+            50%       { box-shadow: 0 0 18px 4px rgba(189,151,48,0.18); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(-8px); }
+        }
+        @keyframes lineGrow {
+            from { transform: scaleX(0); transform-origin: left; }
+            to   { transform: scaleX(1); transform-origin: left; }
+        }
+
+        .top-logo       { animation: heroFadeUp 0.8s 0.1s both cubic-bezier(0.22,1,0.36,1); }
+        .taglines       { animation: heroFadeUp 0.8s 0.3s both cubic-bezier(0.22,1,0.36,1); }
+        .hero-content .subtext   { animation: heroFadeUp 0.8s 0.45s both cubic-bezier(0.22,1,0.36,1); }
+        .assurance      { animation: heroFadeUp 0.8s 0.6s both cubic-bezier(0.22,1,0.36,1); }
+        .img-placeholder { animation: heroFadeIn 1.2s 0.2s both; }
+
+        /* ── HERO H1 ── */
+        .hero-content h1 {
+            font-family: 'Cormorant Garamond', 'Georgia', serif !important;
+            letter-spacing: 8px !important;
+        }
+        
+        .img-placeholder img {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* ── MENU BTN ── */
+        .menu-btn {
+            background: rgba(0,0,0,0.4) !important;
+            backdrop-filter: blur(8px);
+            border-radius: 4px !important;
+            border: 1px solid rgba(189,151,48,0.2) !important;
+            transition: border-color 0.3s ease, background 0.3s ease !important;
+        }
+        .menu-btn:hover {
+            border-color: rgba(189,151,48,0.6) !important;
+            background: rgba(0,0,0,0.7) !important;
+        }
+
+        /* ── SIDEBAR LINKS ── */
+        .side-bar .side-nav a {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-weight: 300 !important;
+            letter-spacing: 6px !important;
+            font-size: 2.8rem !important;
+            position: relative;
+            transition: color 0.35s ease, letter-spacing 0.35s ease !important;
+        }
+        .side-bar .side-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.35s ease;
+        }
+        .side-bar .side-nav a:hover {
+            color: var(--gold) !important;
+            letter-spacing: 8px !important;
+        }
+        .side-bar .side-nav a:hover::after { width: 60%; }
+
+        .hero-content .first-p {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-style: italic !important;
+            letter-spacing: 4px !important;
+            font-weight: 300 !important;
+        }
+
+        .hero-content .tagline {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-weight: 300 !important;
+            letter-spacing: 5px !important;
+        }
+
+        /* ── ASSUR CARDS ── */
+        .assur-card {
+            position: relative;
+            padding: 0.6rem 0.4rem;
+            border: 1px solid rgba(189,151,48,0);
+            transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s ease !important;
+            border-radius: 2px;
+        }
+        .assur-card:hover {
+            border-color: rgba(189,151,48,0.25);
+            background: rgba(189,151,48,0.04);
+            transform: translateY(-4px);
+        }
+        .assur-card .icon img {
+            transition: transform 0.5s cubic-bezier(0.22,1,0.36,1) !important;
+        }
+        .assur-card:hover .icon img { transform: scale(1.15) rotate(-5deg); }
+
+        /* ── PERFUMES SECTION HEADING ── */
+        .perfumes-section-heading {
+            text-align: center;
+            padding: 1rem .2rem 0;
+        }
+        .perfumes-section-heading h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 900;
+            letter-spacing: 4px;
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            background: linear-gradient(90deg, #8a6e22, #bd9730, #d4af50, #bd9730, #8a6e22);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 6s linear infinite;
+            margin-bottom: 0.5rem;
+            margin-top: 1.2rem;
+        }
+        .watches-section-heading h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 900;
+            letter-spacing: 6px;
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            background: linear-gradient(90deg, #8a6e22, #bd9730, #d4af50, #bd9730, #8a6e22);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 6s linear infinite;
+            margin-bottom: 0.5rem;
+        }
+        .perfumes-section-heading .heading-deco {
+            display: block;
+            margin: 0 auto 0.5rem;
+            width: 120px;
+            opacity: 0.6;
+        }
+
+        /* ── FEATURED GRID – override margin for homepage context ── */
+        .featured-grid {
+            margin: 0 !important;
+            padding: 12px;
+            gap: 10px;
+        }
+        .featured-card {
+            background: none;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            group: true;
+        }
+         .featured-card .img-wrap {
+            border-radius: 22px;
+            border: 1px solid transparent;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem !important;
+            position: relative;
+            background: none !important;
+            transition: .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .featured-card:hover .img-wrap{
+            border:1px solid #bd97309a;
+        }
+
+        /* ── WATCHES SECTION ── */
+        .products h2 {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-weight: 300 !important;
+            letter-spacing: 6px !important;
+            background: linear-gradient(90deg, #8a6e22, #bd9730, #d4af50, #bd9730, #8a6e22);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 6s linear infinite;
+        }
+
+        .watch-item {
+            cursor: pointer;
+            transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+        }
+        .watch-item:hover { transform: translateY(-10px); }
+        .watch-item .product img {
+            transition: filter 0.5s ease !important;
+        }
+        .watch-item:hover .product img {
+            filter: drop-shadow(-10px 18px 20px rgba(238, 238, 238, 0.4)) !important;
+        }
+
+        /* ── MESSAGE PANEL ── */
+        .message {
+            position: relative;
+            overflow: hidden;
+        }
+        .message::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(189,151,48,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .message h2 {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-weight: 600 ;
+            letter-spacing: 4px ;
+        }
+        .message p {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: 1.15rem !important;
+            line-height: 1.8 !important;
+            font-style: italic;
+        }
+
+        .message-line {
+            width: 40px;
+            height: 1px;
+            background: var(--gold-dim);
+            margin: 1rem auto;
+            animation: lineGrow 1s ease both;
+        }
+
+        /* ── FOOTER ── */
+        .footer-shop h2 {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-weight: 300 !important;
+            letter-spacing: 8px !important;
+        }
+        .footer-contact .phone-number {
+            font-size: 26px !important;
+            transition: color 0.3s ease;
+        }
+        .footer-contact .phone-number:hover { color: var(--gold-light) !important; }
+
+        /* ── SECTION DIVIDER ── */
+        .section-divider {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.2rem 2rem;
+            background: var(--bg-color);
+        }
+        .section-divider span {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold-dim));
+        }
+        .section-divider span:last-child {
+            background: linear-gradient(to left, transparent, var(--gold-dim));
+        }
+        .section-divider i {
+            display: block;
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            transform: rotate(45deg);
+        }
+
+        /* ── SCROLL TO TOP ── */
+        .scroll-top-btn {
+            border-radius: 0 !important;
+            border: 1px solid rgba(189,151,48,0.4) !important;
+            animation: pulse-glow 3s ease-in-out infinite !important;
+        }
+
+        /* ── NOISE GRAIN OVERLAY ── */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9000;
+            opacity: 0.35;
+        }
+
+        /* ── HERO AMBIENT GLOW ── */
+        #hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 20%;
+            width: 60%;
+            height: 80px;
+            background: radial-gradient(ellipse, rgba(189,151,48,0.12) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+    </style>
 </head>
 
-<!-- NO BACKGROUND IMAGE FOR THE BODY, JUST BLACK COLOR -->
 <body>
 
-    <!-- SCROLL TO TOP BUTTON -->
+<!-- SCROLL TO TOP BUTTON -->
 <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
 </button>
 
-<script>
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-
-    window.addEventListener('scroll', function () {
-        if (window.scrollY > 300) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
-    });
-
-    scrollTopBtn.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-</script>
-
 <!-- ===== HERO SECTION ===== -->
-<section id="hero">\
+<section id="hero">
 
-    <!-- menu btn - sidebar -->
-     <div class="menu-btn">
+    <div class="menu-btn" id="menuBtn">
         <div></div>
         <div></div>
         <div></div>
-     </div>
+    </div>
 
-     <!-- SIDEBAR -->
-      <div class="side-bar" id="sidebar">
+    <!-- SIDEBAR -->
+    <div class="side-bar" id="sidebar">
         <ul class="side-nav">
-            <a href="#">Home</a>
+            <a href="index.html">Home</a>
             <a href="#">Shop</a>
             <a href="#">Contacts</a>
         </ul>
-      </div>
+    </div>
 
     <div class="hero-content">
         <div class="top-logo">
             <img src="logo.png" alt="Reinheit logo" class="logo">
-            <h1>REI<span>NH</span>EIT</h1>
+            <h1>REINHEIT</h1>
             <p class="first-p">PERFUMES &amp; WATCHES</p>
             <img src="underline.png" alt="" class="underline">
         </div>
@@ -72,152 +413,172 @@
         </p>
 
         <div class="assurance">
-
-            <div class="assur-card" >
-                <div class="icon">
-                    <img src="badge.png" alt="Authentic badge icon">
-                </div>
+            <div class="assur-card">
+                <div class="icon"><img src="badge.png" alt="Authentic badge icon"></div>
                 <p>100%</p>
                 <p>AUTHENTIC</p>
             </div>
-
             <div class="assur-card">
-                <div class="icon">
-                    <img src="gifting.png" alt="Gift package icon">
-                </div>
+                <div class="icon"><img src="gifting.png" alt="Gift package icon"></div>
                 <p>ELEGANTLY</p>
                 <p>PACKAGED</p>
             </div>
-
-            <div class="assur-card" >
-                <div class="icon">
-                    <img src="quality.png" alt="Quality badge icon">
-                </div>
+            <div class="assur-card">
+                <div class="icon"><img src="quality.png" alt="Quality badge icon"></div>
                 <p>QUALITY</p>
                 <p>GUARANTEED</p>
             </div>
-
             <div class="assur-card">
-                <div class="icon">
-                    <img src="delivery.png" alt="Delivery icon">
-                </div>
+                <div class="icon"><img src="delivery.png" alt="Delivery icon"></div>
                 <p>FAST &amp; RELIABLE</p>
                 <p>DELIVERY</p>
             </div>
         </div>
     </div>
 
-    <!-- Hero right image -->
     <div class="img-placeholder">
         <img src="hero-img.png" alt="Luxury perfumes and watches display">
     </div>
 </section>
 
+<!-- SECTION DIVIDER -->
+<div class="section-divider fade-up">
+    <span></span>
+    <i></i>
+    <i style="transform:rotate(45deg) scale(0.5); background:var(--gold-dim); display:block; width:4px; height:4px; margin: 0 -0.2rem;"></i>
+    <i></i>
+    <span></span>
+</div>
+
 <!-- ===== MAIN CONTENT ===== -->
 <section class="main-content">
+<div class="content-grid" >
+    <!-- PERFUMES HEADING -->
+    <div class="perfumes-section-heading fade-up products">
+        <h2>SIGNATURE SCENTS</h2>
+        <img src="underline.png" alt="decorative underline" class="heading-deco">
+    </div>
 
-    <!-- I WANT THE BACKGROUND ONLY INSIDE THE DIV WITH CLASS = "content-grid" -->
-    <div class="content-grid">
+    <!-- FEATURED PERFUMES GRID (shop-styles.css pattern) -->
+    <div class="featured-grid reveal">
 
-        <!-- PERFUMES -->
-        <div class="products perfumes">
-            <h2>OUR PERFUMES</h2>
-            <img src="underline.png" alt="stylish underline" class="heading-deco">
-            <div class="perfumes-grid">
-                <div class="perfume-item">
-                    <div class="product">
-                        <img src="perfume1.png" alt="Dolores Pour Femme perfume">
-                    </div>
-                    <p class="product-name">BLACK<br>OPIUM</p>
-                </div>
-                <div class="perfume-item">
-                    <div class="product">
-                        <img src="perfume2.png" alt="COCO CHANEL perfume">
-                    </div>
-                    <p class="product-name">COCO<br>CHANEL</p>
-                </div>
-                <div class="perfume-item">
-                    <div class="product">
-                        <img src="atoor.png" alt="Kayali Elixir 11 perfume">
-                    </div>
-                    <p class="product-name">ATOOR<br>POUR HOME</p>
-                </div>
+        <!-- BLACK OPIUM -->
+        <div class="featured-card" data-category="women">
+            <div class="img-wrap">
+                <div class="spotlight"></div>
+                <img src="perfume1.png" alt="Black Opium perfume">
+            </div>
+            <div class="card-body">
+                <h3 class="name">Black Opium</h3>
+                <p class="brand">Yves Saint Laurent</p>
+                <div class="card-divider"></div>
+                <button class="btn-shop" onclick="event.stopPropagation(); openWhatsApp('Black Opium by YSL')">Shop Now</button>
             </div>
         </div>
 
-        <!-- WATCHES -->
-        <div class="products watches">
-            <h2>OUR WATCHES</h2>
-            <img src="underline.png" alt="decorative underline" class="heading-deco">
-            <div class="watches-grid">
-                <div class="watch-item">
-                    <div class="product">
-                        <img src="silver-watch.png" alt="Casio watch">
-                    </div>
-                    <p class="product-name">CASIO</p>
-                </div>
-                <div class="watch-item">
-                    <div class="product">
-                        <img src="golden-watch.png" alt="Citizen watch" style="height: 350px; width: 110px;">
-                    </div>
-                    <p class="product-name">CITIZEN</p>
-                </div>
-                <div class="watch-item">
-                    <div class="product">
-                        <img src="black-rolex.png" alt="Tissot watch">
-                    </div>
-                    <p class="product-name">TISSOT</p>
-                </div>
-                <div class="watch-item">
-                    <div class="product">
-                        <img src="rose-ladies.png" alt="Fossil watch">
-                    </div>
-                    <p class="product-name">FOSSIL</p>
-                </div>
-                <div class="watch-item to-hide">
-                    <div class="product">
-                        <img src="golden-brown.png" alt="Naviforce watch">
-                    </div>
-                    <p class="product-name">NAVIFORCE</p>
-                </div>
-                <div class="watch-item">
-                    <div class="product">
-                        <img src="black-men1.png" alt="Naviforce watch">
-                    </div>
-                    <p class="product-name">NAVIFORCE</p>
-                </div>
+        <!-- COCO CHANEL -->
+        <div class="featured-card" data-category="women">
+            <span class="badge badge-best">Bestseller</span>
+            <div class="img-wrap">
+                <div class="spotlight"></div>
+                <img src="perfume2.png" alt="Coco Chanel perfume">
+            </div>
+            <div class="card-body">
+                <h3 class="name">Coco Chanel</h3>
+                <p class="brand">Chanel</p>
+                <div class="card-divider"></div>
+                <button class="btn-shop" onclick="event.stopPropagation(); openWhatsApp('Coco Chanel')">Shop Now</button>
+            </div>
+        </div>
+
+        <!-- ATOOR -->
+        <div class="featured-card" data-category="unisex">
+            <span class="badge badge-new">New</span>
+            <div class="img-wrap">
+                <div class="spotlight"></div>
+                <img src="atoor.png" alt="Atoor Pour Homme perfume">
+            </div>
+            <div class="card-body">
+                <h3 class="name">Pour Homme</h3>
+                <p class="brand">Atoor</p>
+                <div class="card-divider"></div>
+                <button class="btn-shop" onclick="event.stopPropagation(); openWhatsApp('Atoor Pour Homme')">Shop Now</button>
             </div>
         </div>
 
     </div>
+    <!-- END FEATURED PERFUMES GRID -->
 
+    <!-- WATCHES -->
+    <div class="products watches watches-section-heading">
+        <h2 class="fade-up">OUR WATCHES</h2>
+        <img src="underline.png" alt="decorative underline" class="heading-deco fade-up d1">
+        <div class="watches-grid">
+            <div class="watch-item fade-up d1">
+                <div class="product">
+                    <img src="silver-watch.png" alt="Casio watch">
+                </div>
+                <p class="product-name">CASIO</p>
+            </div>
+            <div class="watch-item fade-up d2">
+                <div class="product">
+                    <img src="golden-watch.png" alt="Citizen watch" style="height: 350px; width: 110px;">
+                </div>
+                <p class="product-name">CITIZEN</p>
+            </div>
+            <div class="watch-item fade-up d3">
+                <div class="product">
+                    <img src="black-rolex.png" alt="Tissot watch">
+                </div>
+                <p class="product-name">TISSOT</p>
+            </div>
+            <div class="watch-item fade-up d4">
+                <div class="product">
+                    <img src="rose-ladies.png" alt="Fossil watch">
+                </div>
+                <p class="product-name">FOSSIL</p>
+            </div>
+            <div class="watch-item to-hide fade-up d5">
+                <div class="product">
+                    <img src="golden-brown.png" alt="Naviforce watch">
+                </div>
+                <p class="product-name">NAVIFORCE</p>
+            </div>
+            <div class="watch-item fade-up d5">
+                <div class="product">
+                    <img src="black-men1.png" alt="Naviforce watch">
+                </div>
+                <p class="product-name">NAVIFORCE</p>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- OUR MESSAGE -->
-    <div class="message">
+    <div class="message fade-up">
         <h2>OUR MESSAGE</h2>
         <img src="underline.png" alt="stylish underline" class="underline">
+        <div class="message-line"></div>
         <p>At Reinheit, we bring you the perfect blend of luxury and style. Whether it's a signature scent that leaves a lasting impression or a timepiece that speaks class, we are here to elevate every moment of your life.</p>
         <span class="italic-gold" style="padding-top: 20px;">You deserve the best.</span>
         <span class="italic-gold">We deliver excellence.</span>
         <img src="message-heart.png" alt="Heart decoration" class="heart-img">
     </div>
+
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
-    <!-- Shop Now -->
-    <div class="footer-shop">
+    <div class="footer-shop fade-left">
         <h2>SHOP NOW</h2>
         <span class="tagline-footer">Indulge in Luxury</span>
     </div>
 
-    <!-- Contact -->
-    <div class="footer-contact">
-        
+    <div class="footer-contact fade-up d2">
         <div class="whatsapp-row">
             <img src="whatsapp.png" alt="WhatsApp icon">
             <div class="contact-no">
                 <p class="contact-label">CONTACT</p>
-            <p class="phone-number">0758810778</p>
+                <p class="phone-number">0758810778</p>
             </div>
         </div>
         <div class="social-row">
@@ -226,44 +587,71 @@
         </div>
     </div>
 
-    <!-- Badge -->
-    <div class="footer-badge">
+    <div class="footer-badge fade-right">
         <img src="footer-badge.png" alt="Authentic Quality Timeless Elegance badge">
     </div>
 </footer>
 
-</body>
-
-<!-- SCRIPTS -->
+<!-- ===== SCRIPTS ===== -->
 <script>
-    const menuBtn = document.querySelector('.menu-btn');
+    /* ── WHATSAPP HELPER ── */
+    function openWhatsApp(productName) {
+        const msg = encodeURIComponent(`Hello Reinheit! I'm interested in ${productName}. Could you share more details?`);
+        window.open(`https://wa.me/254758810778?text=${msg}`, '_blank');
+    }
+
+    /* ── SCROLL TO TOP ── */
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', function () {
+        scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
+    });
+    scrollTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ── SIDEBAR ── */
+    const menuBtn = document.getElementById('menuBtn');
     const sidebar = document.getElementById('sidebar');
 
-    function openSidebar() {
-        sidebar.classList.add('open');
-    }
-
-    function closeSidebar() {
-        sidebar.classList.remove('open');
-    }
-
-    function toggleSidebar() {
-        sidebar.classList.toggle('open');
-    }
+    function closeSidebar() { sidebar.classList.remove('open'); }
+    function toggleSidebar() { sidebar.classList.toggle('open'); }
 
     menuBtn.addEventListener('click', function (e) {
         e.stopPropagation();
         toggleSidebar();
     });
-
     document.addEventListener('click', function (e) {
-        if (sidebar.classList.contains('open') && !sidebar.contains(e.target)) {
-            closeSidebar();
-        }
+        if (sidebar.classList.contains('open') && !sidebar.contains(e.target)) closeSidebar();
     });
-
     sidebar.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', closeSidebar);
     });
+
+    /* ── INTERSECTION OBSERVER ── */
+    const animatedEls = document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-in, .reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    animatedEls.forEach(el => revealObserver.observe(el));
+
+    /* ── WATCH ITEM – WhatsApp on click ── */
+    document.querySelectorAll('.watch-item').forEach(function(item) {
+        item.addEventListener('click', function() {
+            const name = item.querySelector('.product-name')?.innerText || 'a watch';
+            openWhatsApp(name);
+        });
+    });
 </script>
+
+</body>
 </html>
