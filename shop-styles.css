@@ -1,81 +1,114 @@
+/* =============================================
+   REINHEIT — SHOP PAGE STYLES  (shop-styles.css)
+   Depends on: styles.css  (load that first)
+   ============================================= */
 
-*, 
-*::before,
-*::after { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
-}
-
-:root {
-    --bg: #080706;
-    --bg2: #0f0e0c;
-    --bg3: #161410;
-    --gold: #bd9730;
-    --gold-light: #d4af50;
-    --gold-dim: #8a6e22;
-    --gold-pale: #f0dfa0;
-    --text: #ffffff;
-    --text-muted: #b8b0a0;
-    --text-dim: #6a6050;
-    --cream: #f5f0e8;
-}
-
-html { scroll-behavior: smooth; font-size: 16px; }
-
-body {
-    background: var(--bg);
+/* =============================================
+   BODY
+   ============================================= */
+body.shop-body {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.48)),
+                url("https://images.unsplash.com/photo-1544006593-1a0b9255782d?q=80&w=1163&auto=format&fit=crop") no-repeat center/cover fixed;
     font-family: 'Montserrat', sans-serif;
     color: var(--text);
-    overflow-x: hidden;
     cursor: default;
-}
-
-        /* ── NOISE TEXTURE OVERLAY ── */
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.4;
-}
-
-
-        /* ── HERO ── */
-.hero {
-    height: 45vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+}
+
+section { background-color: #000; width: 1200px; }
+
+/* =============================================
+   HERO BANNER
+   ============================================= */
+.hero {
+    height: 52vh;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 4rem 2rem 0;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden removed — it was clipping the sidebar slide-in */
+    padding: 3rem ;
 }
 
 .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: transparent;
+    background: linear-gradient(to bottom, #000 5%, transparent 60%),linear-gradient(to top, #000000b6 5%, transparent 60%),
+                linear-gradient(to right, #000 0%, transparent 30%, transparent 70%, #000 100%),
+                url("hero-bg.jpg") no-repeat top/cover;
+    z-index: 0;
 }
+
+
+#menuBtn{
+     position: fixed;
+    top: 5px;
+    left: 20px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 2px;
+    cursor: pointer;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    border-radius: 4px;
+    border: 1px solid rgba(189, 151, 48, 0.2) !important;
+    transition: 0.3s ease;
+}
+#menuBtn:hover {
+    border-color: rgba(189, 151, 48, 0.6) !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+}
+#menuBtn::before {
+    position: absolute;
+    content: "MENU";
+    color: var(--gold);
+    font-size: 15px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    right: -55px;
+    font-family: "Dancing Script", cursive;
+}
+#menuBtn div {
+    height: 3px;
+    border-radius: 2px;
+    width: 100%;
+    background: #fed;
+    transition: 0.3s ease;
+}
+#menuBtn div:nth-child(2) { width: 75%; }
+#menuBtn div:nth-child(3) { width: 50%; }
+#menuBtn:hover div:nth-child(1) { width: 50%; }
+#menuBtn:hover div:nth-child(3) { width: 100%; }
+#menuBtn:active div { width: 100%; }
+
 
 .hero-eyebrow {
     font-size: 0.65rem;
-    letter-spacing: 5px;
-    color: var(--gold);
+    letter-spacing: 6px;
+    color: #fed;
     text-transform: uppercase;
-    margin-bottom: .5rem;
+    margin-bottom: 0.6rem;
     opacity: 0;
     animation: fadeUp 0.8s 0.2s forwards;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .hero h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(3rem, 7vw, 6rem);
+    font-size: clamp(2.8rem, 7vw, 6rem);
     font-weight: 600;
     color: var(--text);
     line-height: 1.1;
@@ -83,31 +116,21 @@ body::before {
     opacity: 0;
     animation: fadeUp 0.8s 0.4s forwards;
 }
-.hero h1 em { 
-    color: var(--gold); 
-    font-style: normal; 
+.hero h1 em {
+    color: var(--gold);
+    font-style: normal;
 }
 
 .hero-divider {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     opacity: 0;
     animation: fadeUp 0.8s 0.7s forwards;
 }
-.hero-divider span {
-    width: 120px; 
-    height: 1px; 
-    background: var(--gold-dim); 
-}
-.hero-divider i {
-    width: 6px; 
-    height: 6px; 
-    background: var(--gold); 
-    transform: rotate(45deg); 
-    display: block; 
-}
+.hero-divider span { width: 120px; height: 1px; background: var(--gold-dim); }
+.hero-divider i    { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); display: block; }
 
 .btn-discover {
     display: inline-block;
@@ -118,7 +141,7 @@ body::before {
     font-size: 0.65rem;
     letter-spacing: 4px;
     text-transform: uppercase;
-    transition: all 0.3s;
+    transition: color 0.3s, background 0.35s;
     opacity: 0;
     animation: fadeUp 0.8s 0.9s forwards;
     position: relative;
@@ -134,40 +157,101 @@ body::before {
     transition: transform 0.35s ease;
     z-index: -1;
 }
-.btn-discover:hover { 
-    color: #080706; 
+.btn-discover:hover { color: #080706; }
+.btn-discover:hover::before { transform: scaleX(1); }
+
+/* =============================================
+   SIDEBAR
+   ============================================= */
+.side-bar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 260px;
+    height: 100vh;
+    background: rgba(8, 7, 6, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-right: 1px solid rgba(189, 151, 48, 0.25);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 2rem;
+    transition: left 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.btn-discover:hover::before { 
-    transform: scaleX(1); 
+.side-bar.open {
+    left: 0;
+}
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.side-nav a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color 0.3s, letter-spacing 0.3s;
+    display: block;
+    border-bottom: 1px solid rgba(189, 151, 48, 0.1);
+    padding-bottom: 1rem;
+}
+.side-nav a:hover {
+    color: var(--gold);
+    letter-spacing: 5px;
 }
 
-        /* ── FILTER BAR ── */
+/* Sidebar overlay */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
+}
+.sidebar-overlay.active { display: block; }
+
+/* =============================================
+   FILTER BAR
+   ============================================= */
 .filter-section {
-    padding: 3rem 3rem 1.5rem;
+    padding: 0.6rem 2rem;
+    background-color: #000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(189,151,48,0.12);
+    border-radius: 2rem;
     gap: 1rem;
     flex-wrap: wrap;
+    margin: 1.5rem 0 0.8rem;
 }
 
 .filter-label {
     font-size: 0.6rem;
     letter-spacing: 4px;
-    color: var(--gold-dim);
+    color: #fed;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .filter-tags {
     display: flex;
-    gap: 0.6rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
 }
 
 .filter-tag {
-    padding: 0.4rem 1.1rem;
-    border: 1px solid rgba(189,151,48,0.25);
+    position: relative;
+    padding: 0.45rem 1.1rem;
+    border: none;
     background: transparent;
     color: var(--text-muted);
     font-family: 'Montserrat', sans-serif;
@@ -175,42 +259,56 @@ body::before {
     letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: color 0.3s, background 0.3s;
+    border-radius: 2px;
 }
-.filter-tag:hover, .filter-tag.active {
-    border-color: var(--gold);
+.filter-tag::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+.filter-tag:hover::before,
+.filter-tag.active::before { transform: scaleX(1); }
+.filter-tag:hover,
+.filter-tag.active {
     color: var(--gold);
-    background: rgba(189,151,48,0.06);
+    background: rgba(189, 151, 48, 0.12);
 }
 
 .results-count {
     font-size: 0.65rem;
     letter-spacing: 2px;
     color: var(--text-dim);
+    white-space: nowrap;
 }
 .results-count span { color: var(--gold); }
 
-        /* ── SIGNATURE SCENTS SECTION ── */
+/* =============================================
+   SECTION HEADER
+   ============================================= */
 .section-header {
     text-align: center;
-    padding: 4rem 2rem 3rem;
+    padding: 3rem 2rem 2rem;
     position: relative;
 }
-
 .section-header h2 {
     font-family: 'Dancing Script', cursive;
     font-size: clamp(2.2rem, 5vw, 3.5rem);
     color: var(--text);
     margin-bottom: 0.5rem;
 }
-
 .section-header .sub {
     font-size: 0.65rem;
     letter-spacing: 4px;
     color: var(--text-muted);
     text-transform: uppercase;
 }
-
 .section-header .ornament {
     display: flex;
     align-items: center;
@@ -218,476 +316,524 @@ body::before {
     gap: 0.8rem;
     margin: 1rem 0;
 }
-.section-header .ornament span { 
-    flex: 1; 
-    max-width: 80px; 
-    height: 1px; 
-    background: linear-gradient(to right, transparent, var(--gold-dim)); 
+.section-header .ornament span {
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dim));
 }
-.section-header .ornament span:last-child { 
-    background: linear-gradient(to left, transparent, var(--gold-dim)); 
+.section-header .ornament span:last-child {
+    background: linear-gradient(to left, transparent, var(--gold-dim));
 }
-.section-header .ornament i { 
-    width: 5px; 
-    height: 5px;
-    background: var(--gold); 
-    transform: rotate(45deg); 
-    display: block; 
+.section-header .ornament i {
+    width: 5px; height: 5px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    display: block;
 }
 
-        /* ── FEATURED 3-CARD ROW ── */
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: rgba(189,151,48,0.1);
-            margin: 0 3rem 4rem;
-        }
 
-        .featured-card {
-            background: var(--bg2);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            group: true;
-        }
 
-        .featured-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(189,151,48,0.12) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.5s;
-            z-index: 1;
-        }
-        .featured-card:hover::before { opacity: 1; }
+/* =============================================
+   ALL PERFUMES GRID
+   ============================================= */
+.all-perfumes { padding: 0 3rem 5rem; }
 
-        .featured-card .img-wrap {
-            height: 380px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem 2rem 1rem;
-            position: relative;
-            background: radial-gradient(ellipse at 50% 80%, rgba(189,151,48,0.05) 0%, transparent 70%);
-        }
+.perfumes-grid {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    min-width: 400px;
+    margin-bottom: 0.5rem;
+    transition: 1s ease;
+}
 
-        .featured-card .img-wrap img {
-            height: 280px;
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.7));
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .featured-card:hover .img-wrap img { transform: translateY(-12px) scale(1.04); }
+.perf-card {
+    border: none;
+    min-width: 360px;
+    background: var(--bg-color);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background 0.4s, transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.perf-card:hover {
+    background: var(--bg2);
+    transform: translateY(-4px);
+}
 
-        /* spotlight on hover */
-        .featured-card .spotlight {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(189,151,48,0.15), transparent 70%);
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: opacity 0.4s;
-            pointer-events: none;
-        }
-        .featured-card:hover .spotlight { opacity: 1; }
+.perf-card .img-area {
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.perf-card .img-area::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 20%; right: 20%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(189, 151, 48, 0.3), transparent);
+}
+.perf-card .img-area img {
+    
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 24px rgba(247, 247, 247, 0.6));
+    transition: transform 0.5s ease;
+}
+.perf-card:hover .img-area img { transform: translateY(-8px); }
 
-        .featured-card .card-body {
-            padding: 1.2rem 2rem 2rem;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
+.perf-card .info {
+    padding: 1rem .2rem 1.6rem;
+    text-align: center;
+}
+.perf-card .tag {
+    display: inline-block;
+    font-size: 0.5rem;
+    letter-spacing: 3px;
+    color: #ebb932;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.6rem;
+    background-color: rgba(255, 238, 221, 0.2);
+}
+.perf-card .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+.perf-card .brand {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+.perf-card .cta {
+    display: inline-block;
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(189, 151, 48, 0.3);
+    padding-bottom: 2px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s, transform 0.3s;
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+.perf-card:hover .cta { opacity: 1; transform: translateY(0); }
 
-        .featured-card .scent-family {
-            font-size: 0.55rem;
-            letter-spacing: 4px;
-            color: var(--gold-dim);
-            text-transform: uppercase;
-            margin-bottom: 0.4rem;
-        }
+/* =============================================
+   MID ADVERTS
+   ============================================= */
+.mid-advert {
+    border-left: 4px solid var(--gold-light);
+    border-radius: 20px;
+    min-width: 90%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    margin: 1rem .5rem;
+}
+.mid-advert .img-area {
+    height: 280px;
+    padding: 0;
+    overflow: hidden;
+}
+.mid-advert .img-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+.mid-advert:hover .img-area img { transform: scale(1.04); }
+.mid-advert .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem 2rem;
+}
+.mid-advert .info h2 {
+    font-size: clamp(1.8rem, 3.5vw, 3.5rem);
+    color: var(--gold);
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+.mid-advert .cta {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0.6rem 1.4rem;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid rgba(189, 151, 48, 0.4);
+    background: none;
+    transition: background 0.3s, color 0.3s;
+}
+.mid-advert .cta:hover {
+    background: var(--gold);
+    color: var(--bg-color);
+}
 
-        .featured-card .name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-            color: var(--text);
-            margin-bottom: 0.3rem;
-        }
+.mid-advert1 {
+    background-color: rgba(0, 0, 0, 0.6);
+    display: grid;
+    height: 300px;
+    overflow: hidden;
+}
+.mid-advert1 .img-area {
+    height: 100%;
+    padding: 0;
+}
+.mid-advert1 .img-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.55;
+    transition: transform 0.6s ease, opacity 0.4s;
+}
+.mid-advert1:hover .img-area img { transform: scale(1.03); opacity: 0.7; }
 
-        .featured-card .brand {
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 1.2rem;
-        }
+/* =============================================
+   KAYALI TITLE SEPARATOR
+   ============================================= */
+.kayali-title {
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 1rem .5rem;
+}
+.kayali-title::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+.kayali-title img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.kayali-title h2 {
+    position: absolute;
+    font-size: clamp(4rem, 10vw, 6.2rem);
+    letter-spacing: 0.8rem;
+    -webkit-text-stroke: 2px var(--gold-light);
+    color: transparent;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    white-space: nowrap;
+    font-family: 'Cormorant Garamond', serif;
+}
 
-        .featured-card .card-divider {
-            width: 30px;
-            height: 1px;
-            background: var(--gold);
-            margin: 0 auto 1.2rem;
-        }
+/* =============================================
+   NEWSLETTER
+   ============================================= */
+.newsletter {
+    background: var(--bg2);
+    border-top: 1px solid rgba(189, 151, 48, 0.15);
+    border-bottom: 1px solid rgba(189, 151, 48, 0.15);
+    padding: 5rem 3rem;
+    text-align: center;
+}
+.newsletter h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--text);
+    margin-bottom: 0.8rem;
+}
+.newsletter p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.newsletter-form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid rgba(189, 151, 48, 0.3);
+}
+.newsletter-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 1rem 1.5rem;
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+.newsletter-form input::placeholder { color: var(--text-dim); }
+.newsletter-form button {
+    background: var(--gold);
+    border: none;
+    padding: 1rem 1.8rem;
+    color: var(--bg-color);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+.newsletter-form button:hover { background: var(--gold-light); }
 
-        .featured-card .desc {
-            font-size: 0.72rem;
-            color: var(--text-dim);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-        }
+/* =============================================
+   WATCHES CTA
+   ============================================= */
+.watches-cta {
+    min-height: 18vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fed;
+    padding: 2rem;
+}
+.watches-cta a {
+    text-decoration: none;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    color: #000;
+    letter-spacing: 2px;
+    transition: color 0.3s, letter-spacing 0.3s;
+    font-family: 'Cormorant Garamond', serif;
+}
+.watches-cta a:hover {
+    color: #6a4e00;
+    letter-spacing: 4px;
+}
 
-        .btn-shop {
-            display: inline-block;
-            padding: 0.7rem 2rem;
-            border: 1px solid rgba(189,151,48,0.4);
-            color: var(--gold);
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-decoration: none;
-            cursor: pointer;
-            background: transparent;
-            font-family: 'Montserrat', sans-serif;
-            transition: all 0.3s;
-        }
-        .btn-shop:hover {
-            background: var(--gold);
-            color: var(--bg);
-            border-color: var(--gold);
-        }
+/* =============================================
+   SHOP FOOTER (overrides shared footer)
+   ============================================= */
+body.shop-body footer {
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(189, 151, 48, 0.08);
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: #080706;
+}
 
-        /* ── LUXURY BANNER ── */
-        .luxury-banner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 420px;
-            margin: 0 3rem 4rem;
-            border: 1px solid rgba(189,151,48,0.15);
-        }
+/* =============================================
+   RESPONSIVE — 800px
+   ============================================= */
+@media (max-width: 800px) {
+    .hero { height: 42vh; }
 
-        .luxury-text {
-            padding: 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: var(--bg3);
-        }
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 1.5rem 3rem;
+    }
+    .featured-card .img-wrap { height: 280px; }
 
-        .luxury-text .eyebrow {
-            font-size: 0.6rem;
-            letter-spacing: 4px;
-            color: var(--gold);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
+    .all-perfumes { padding: 0 1rem 3rem; }
+    .filter-section { padding: 0.5rem 1rem; border-radius: 1rem; }
+    .newsletter { padding: 3rem 1.5rem; }
 
-        .luxury-text h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--text);
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-        .luxury-text h2 em { color: var(--gold); font-style: normal; }
+    body.shop-body footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
 
-        .luxury-text p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.9;
-            margin-bottom: 2rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-        }
+    .mid-advert { grid-template-columns: 1fr; }
+    .mid-advert .img-area { height: 200px; }
+    .mid-advert .info { padding: 1.2rem 1.5rem; }
+    .mid-advert .info h2 { font-size: 2rem; }
 
-        .luxury-text p strong { color: var(--gold-pale); font-weight: 400; }
+    .kayali-title { grid-template-columns: 1fr; }
+    .kayali-title img:not(:first-child) { display: none; }
+    .kayali-title img { height: 200px; }
+}
 
-        .luxury-img {
-            position: relative;
-            overflow: hidden;
-            background: #0c0a08;
-        }
-        .luxury-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-            transition: transform 0.8s ease, opacity 0.5s;
-        }
-        .luxury-banner:hover .luxury-img img { transform: scale(1.03); opacity: 0.85; }
+/* =============================================
+   FILTER TOGGLE BUTTON (mobile, fixed left)
+   ============================================= */
+.filter-toggle-btn {
+    display: none; /* hidden on desktop */
+}
 
-        .luxury-img .overlay-text {
-            position: absolute;
-            bottom: 2rem; left: 2rem;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
-            color: var(--gold-pale);
-            opacity: 0.6;
-        }
+/* =============================================
+   RESPONSIVE — 480px
+   ============================================= */
+@media (max-width: 480px) {
+    .hero { height: auto; min-height: 55vw; padding: 3.5rem 1rem .5rem; }
 
-        /* ── ALL PERFUMES GRID ── */
-        .all-perfumes {
-            padding: 0 3rem 5rem;
-        }
+    /* ── Full-width perfume cards ── */
+    .perfumes-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 0;
+        background: transparent;
+    }
+    .perf-card {
+        width: 100vw;
+        min-width: unset;
+        border: none;
+        border-bottom: 1px solid rgba(189, 151, 48, 0.10);
+        padding: 1.8rem 2rem 1.4rem;
+        box-sizing: border-box;
+    }
+    .perf-card .img-area {
+        height: 260px;
+        margin-bottom: 0.5rem;
+    }
+    .perf-card .img-area img {
+        height: 230px;
+        width: auto;
+        max-width: 100%;
+    }
+    .perf-card .info {
+        padding: 0.8rem 0 1rem;
+    }
+    /* Always show the CTA on mobile (no hover needed) */
+    .perf-card .cta {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-        .perfumes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 1px;
-            background: rgba(189,151,48,0.08);
-        }
+    .all-perfumes { padding: 0 0 3rem; }
 
-        .perf-card {
-            background: var(--bg);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: background 0.4s;
-        }
-        .perf-card:hover { background: var(--bg2); }
+    /* Mid adverts stack */
+    .mid-advert {
+        grid-template-columns: 1fr;
+        min-width: 100vw;
+        border-radius: 0;
+        margin: 0.5rem 0;
+    }
+    .mid-advert .img-area { height: 200px; }
+    .mid-advert .cta { align-self: center; }
+    .mid-advert1 { height: 180px; }
 
-        .perf-card .img-area {
-            height: 260px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1.5rem 1rem;
-            position: relative;
-        }
+    /* Kayali banner compact */
+    .kayali-title {
+        grid-template-columns: 1fr;
+        width: 100vw !important;
+        margin: 0.5rem 0;
+        border-radius: 0;
+    }
+    .kayali-title img { height: 160px; }
 
-        .perf-card .img-area::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 20%; right: 20%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(189,151,48,0.3), transparent);
-        }
+    /* ── Filter: hidden by default, shown as dropdown ── */
+    .filter-section {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        padding: 1rem 1.2rem;
+        border-radius: 0 0 1rem 1rem;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 990;
+        background: rgba(8, 7, 6, 0.97);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(189, 151, 48, 0.25);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        padding-top: 3.5rem;
+    }
+    .filter-section.open {
+        display: flex;
+    }
+    .filter-tags {
+        gap: 0.4rem;
+        flex-wrap: wrap;
+    }
+    .filter-tag { padding: 0.45rem 1rem; font-size: 0.6rem; }
 
-        .perf-card .img-area img {
-            height: 200px;
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 12px 24px rgba(0,0,0,0.6));
-            transition: transform 0.5s ease;
-        }
-        .perf-card:hover .img-area img { transform: translateY(-8px); }
+    /* ── Fixed filter toggle button (bottom-left) ── */
+    .filter-toggle-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: fixed;
+        bottom: 1.5rem;
+        left: 1rem;
+        z-index: 995;
+        background: rgba(8, 7, 6, 0.9);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(189, 151, 48, 0.45);
+        color: var(--gold);
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.55rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 0.65rem 1.1rem;
+        border-radius: 2rem;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        transition: background 0.3s, border-color 0.3s;
+    }
+    .filter-toggle-btn:hover,
+    .filter-toggle-btn.active {
+        background: rgba(189, 151, 48, 0.15);
+        border-color: var(--gold);
+    }
+    .filter-toggle-btn svg {
+        width: 13px;
+        height: 13px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+    }
 
-        .perf-card .info {
-            padding: 1.2rem 1.5rem 1.8rem;
-            text-align: center;
-        }
+    .newsletter { padding: 2.5rem 1rem; }
+    .newsletter-form {
+        flex-direction: column;
+        max-width: 100%;
+        border: none;
+        gap: 0.5rem;
+    }
+    .newsletter-form input {
+        border: 1px solid rgba(189, 151, 48, 0.3);
+        width: 100%;
+        padding: 0.8rem 1rem;
+    }
+    .newsletter-form button {
+        width: 100%;
+        padding: 0.85rem;
+    }
 
-        .perf-card .tag {
-            display: inline-block;
-            font-size: 0.5rem;
-            letter-spacing: 3px;
-            color: var(--gold-dim);
-            text-transform: uppercase;
-            border: 1px solid rgba(189,151,48,0.2);
-            padding: 0.2rem 0.6rem;
-            margin-bottom: 0.7rem;
-        }
-
-        .perf-card .name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            color: var(--text);
-            margin-bottom: 0.2rem;
-        }
-
-        .perf-card .brand {
-            font-size: 0.55rem;
-            letter-spacing: 3px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .perf-card .cta {
-            display: inline-block;
-            font-size: 0.55rem;
-            letter-spacing: 3px;
-            color: var(--gold);
-            text-transform: uppercase;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(189,151,48,0.3);
-            padding-bottom: 2px;
-            opacity: 0;
-            transform: translateY(6px);
-            transition: opacity 0.3s, transform 0.3s;
-            background: transparent;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .perf-card:hover .cta { opacity: 1; transform: translateY(0); }
-
-        /* new / bestseller badge */
-        .badge {
-            position: absolute;
-            top: 1rem; right: 1rem;
-            font-size: 0.48rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 0.3rem 0.6rem;
-            z-index: 2;
-        }
-        .badge-new { background: var(--gold); color: var(--bg); }
-        .badge-best { border: 1px solid var(--gold); color: var(--gold); }
-
-        /* ── NEWSLETTER ── */
-        .newsletter {
-            background: var(--bg2);
-            border-top: 1px solid rgba(189,151,48,0.15);
-            border-bottom: 1px solid rgba(189,151,48,0.15);
-            padding: 5rem 3rem;
-            text-align: center;
-        }
-
-        .newsletter h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            color: var(--text);
-            margin-bottom: 0.8rem;
-        }
-
-        .newsletter p {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            margin-bottom: 2.5rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            border: 1px solid rgba(189,151,48,0.3);
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            outline: none;
-            padding: 1rem 1.5rem;
-            color: var(--text);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-        }
-        .newsletter-form input::placeholder { color: var(--text-dim); }
-
-        .newsletter-form button {
-            background: var(--gold);
-            border: none;
-            padding: 1rem 1.8rem;
-            color: var(--bg);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background 0.3s;
-            white-space: nowrap;
-        }
-        .newsletter-form button:hover { background: var(--gold-light); }
-
-        /* ── FOOTER ── */
-        footer {
-            padding: 2.5rem 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid rgba(189,151,48,0.08);
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        footer .foot-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: 6px;
-            color: var(--gold);
-        }
-        footer .foot-logo span { -webkit-text-stroke: 1px var(--gold); color: transparent; }
-
-        footer .foot-copy {
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            color: var(--text-dim);
-        }
-
-        footer .foot-contact {
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-        }
-        footer .foot-contact strong { color: var(--gold); }
-
-        /* ── SCROLL TO TOP ── */
-        .scroll-top-btn {
-            position: fixed;
-            bottom: 2rem; right: 1.5rem;
-            width: 44px; height: 44px;
-            background: var(--gold);
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(12px);
-            transition: opacity 0.3s, transform 0.3s, visibility 0.3s, background 0.2s;
-            z-index: 999;
-        }
-        .scroll-top-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
-        .scroll-top-btn:hover { background: var(--gold-light); }
-        .scroll-top-btn svg { width: 18px; height: 18px; stroke: #080706; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-
-        /* ── ANIMATIONS ── */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            .hero{
-                height: 35vh;
-            }
-            .featured-grid { grid-template-columns: 1fr 1fr 1fr; margin: 0 1.5rem 3rem; }
-            .luxury-banner { grid-template-columns: 1fr; margin: 0 1.5rem 3rem; }
-            .luxury-img { min-height: 280px; }
-            .all-perfumes { padding: 0 1.5rem 3rem; }
-            .filter-section { padding: 2rem 1.5rem 1.5rem; }
-            footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
-            .newsletter { padding: 3rem 1.5rem; }
-        }
-
-        @media (max-width: 600px) {
-            .luxury-text { padding: 2.5rem 1.5rem; }
-            .featured-grid { margin: 0 1rem 2rem; }
-            .perfumes-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+    body.shop-body footer { padding: 1.5rem 1rem; }
+}
