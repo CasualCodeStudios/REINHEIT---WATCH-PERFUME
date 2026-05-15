@@ -16,6 +16,7 @@ body.shop-body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 
 }
 
@@ -169,7 +170,7 @@ section { background-color: #000; width: 1200px; }
     left: -100%;
     width: 260px;
     height: 100vh;
-    background: linear-gradient(to left, #000, #0000003b);
+    background: rgba(8, 7, 6, 0.96);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-right: 1px solid rgba(189, 151, 48, 0.25);
@@ -674,10 +675,6 @@ body.shop-body footer {
     .mid-advert .img-area { height: 200px; }
     .mid-advert .info { padding: 1.2rem 1.5rem; }
     .mid-advert .info h2 { font-size: 2rem; }
-
-    .kayali-title { grid-template-columns: 1fr; }
-    .kayali-title img:not(:first-child) { display: none; }
-    .kayali-title img { height: 200px; }
 }
 
 /* =============================================
@@ -741,14 +738,6 @@ body.shop-body footer {
     .mid-advert .cta { align-self: center; }
     .mid-advert1 { height: 180px; }
 
-    /* Kayali banner compact */
-    .kayali-title {
-        grid-template-columns: 1fr;
-        width: 100vw !important;
-        margin: 0.5rem 0;
-        border-radius: 0;
-    }
-    .kayali-title img { height: 160px; }
 
     /* ── Filter: hidden by default, shown as dropdown ── */
     .filter-section {
