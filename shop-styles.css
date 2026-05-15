@@ -169,7 +169,7 @@ section { background-color: #000; width: 1200px; }
     left: -100%;
     width: 260px;
     height: 100vh;
-    background: rgba(8, 7, 6, 0.96);
+    background: linear-gradient(to left, #000, #0000003b);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-right: 1px solid rgba(189, 151, 48, 0.25);
