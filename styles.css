@@ -53,11 +53,10 @@ p {
 /* =============================================
    SHARED: MENU BUTTON
    ============================================= */
-.menu-btn {
-    position: fixed;
-    top: 5px;
+#menuBtn{
+    position: fixed ;
+    top: 15px;
     left: 20px;
-    border: none;
     width: 40px;
     height: 40px;
     display: flex;
@@ -70,90 +69,109 @@ p {
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(8px);
     border-radius: 4px;
-    border: 1px solid rgba(189, 151, 48, 0.2) !important;
-    transition: border-color 0.3s ease, background 0.3s ease;
+    border: 1px solid rgba(189, 151, 48, 0.2) ;
+    transition: 0.3s ease;
 }
-.menu-btn:hover {
-    border-color: rgba(189, 151, 48, 0.6) !important;
-    background: rgba(0, 0, 0, 0.7) !important;
+
+#menuBtn:hover {
+    border-color: rgba(189, 151, 48, 0.6);
+    background: rgba(0, 0, 0, 0.7) ;
 }
-.menu-btn::before {
-    position: absolute;
-    content: "MENU";
-    color: var(--gold);
-    font-size: 15px;
-    font-weight: bolder;
-    letter-spacing: 2px;
-    right: -55px;
-    font-family: "Dancing Script", cursive;
-}
-.menu-btn div {
+
+#menuBtn div {
     height: 3px;
     border-radius: 2px;
     width: 100%;
     background: #fed;
     transition: 0.3s ease;
 }
-.menu-btn div:nth-child(2) { width: 75%; }
-.menu-btn div:nth-child(3) { width: 50%; }
-.menu-btn:hover div:nth-child(1) { width: 50%; }
-.menu-btn:hover div:nth-child(3) { width: 100%; }
-.menu-btn:active div { width: 100%; }
+#menuBtn div:nth-child(2) { 
+    width: 75%; 
+}
+#menuBtn div:nth-child(3) { 
+    width: 50%; 
+}
+#menuBtn:hover div:nth-child(1) { 
+    width: 50%; 
+}
+#menuBtn:hover div:nth-child(3) { 
+    width: 100%; 
+}
+#menuBtn:active div { 
+    width: 100%; 
+}
 
 /* =============================================
    SHARED: SIDEBAR
    ============================================= */
 .side-bar {
-    text-align: center;
     position: fixed;
     top: 0;
     left: -100%;
-    height: 100vh;
-    background: linear-gradient(to right, #000000ee, #000000bb, transparent);
     width: 50%;
+    height: 100vh;
+    background: rgba(8, 7, 6, 0.16);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(6px);
+    border-right: 1px solid rgba(189, 151, 48, 0.25);
     z-index: 999;
-    transition: left 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-    display: none;
-    align-items: center;
-}
-.side-bar.open { left: 0;  }
-
-.side-bar .side-nav {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    justify-content: center;
+    padding: 3rem 2rem;
+    transition: left 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.side-bar.open {
+    left: 0;
+}
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     list-style: none;
-    padding: 0 2rem;
+    padding: 0;
+    margin: 0;
 }
-.side-bar .side-nav a {
-    color: #fed;
-    text-decoration: none;
-    font-size: 2.8rem;
-    font-weight: 300;
-    letter-spacing: 6px;
-    cursor: pointer;
+.side-nav a {
     font-family: 'Cormorant Garamond', serif;
-    position: relative;
-    display: inline-block;
-    transition: color 0.35s ease, letter-spacing 0.35s ease;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color 0.3s, letter-spacing 0.3s;
+    display: block;
+    border-bottom: 1px solid rgba(189, 151, 48, 0.1);
+    padding-bottom: 1rem;
 }
-.side-bar .side-nav a::after {
+.side-nav a:hover {
+    color: var(--gold);
+    letter-spacing: 5px;
+}
+.side-bar .side-nav a::before {
     content: '';
     position: absolute;
     bottom: -4px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    height: 1px;
+    height: 2px;
     background: var(--gold);
-    transition: width 0.35s ease;
+    transition: 0.35s ease;
 }
-.side-bar .side-nav a:hover {
-    color: var(--gold);
-    letter-spacing: 8px;
+.side-bar .side-nav a:hover::before { width: 60%; }
+/* Sidebar overlay */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
 }
-.side-bar .side-nav a:hover::after { width: 60%; }
+.sidebar-overlay.active { 
+    display: block; 
+}
 
 /* =============================================
    SHARED: SCROLL-TO-TOP BUTTON

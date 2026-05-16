@@ -164,6 +164,9 @@ section {
 }
 
 .hero-eyebrow {
+    background-color: #bd973046;
+    padding: .2rem .5rem;
+    border-radius: 12px;
     font-size: 0.65rem;
     letter-spacing: 6px;
     color: #fed;
@@ -190,7 +193,7 @@ section {
 .btn-discover {
     display: inline-block;
     padding: 0.85rem 2.5rem;
-    border: none;
+    border: 1px solid var(--gold);
     border-radius: 32px;
     color: var(--gold);
     text-decoration: none;
