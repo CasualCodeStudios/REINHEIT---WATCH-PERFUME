@@ -576,7 +576,7 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        background: rgba(255,255,255,0.05);
+        background: #bd97305e;
         border-radius: 50%;
     }
     .product-img-wrap img {
