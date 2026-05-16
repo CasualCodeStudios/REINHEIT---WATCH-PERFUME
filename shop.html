@@ -6,9 +6,7 @@
     <meta name="description" content="Shop Reinheit Perfumes - Premium authentic fragrances. Elegantly packaged and delivered to you.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Shared base first, then shop-specific -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="shop-styles.css">
+    <link rel="stylesheet" href="shop-styles-2.css">
     <title>Shop Perfumes — Reinheit</title>
 </head>
 <body class="shop-body">
@@ -18,7 +16,15 @@
     <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
 </button>
 
-<!-- SIDEBAR OVERLAY -->
+
+    <!-- Menu btn -->
+    <div  id="menuBtn">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- SIDEBAR OVERLAY -->
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <!-- SIDEBAR (moved outside .hero so overflow:hidden can't clip it) -->
@@ -33,12 +39,9 @@
 <!-- HERO -->
 <section class="hero" id="hero">
 
-    <!-- Menu btn -->
-    <div  id="menuBtn">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+
+
+
 
 
     <p class="hero-eyebrow">Reinheit Collections</p>
@@ -53,22 +56,24 @@
 </section>
 
 <!-- FILTER TOGGLE (mobile only) -->
-<button class="filter-toggle-btn" id="filterToggleBtn" aria-label="Toggle filters">
+<!-- <button class="filter-toggle-btn" id="filterToggleBtn" aria-label="Toggle filters">
     <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
     Filter
-</button>
+</button> -->
 
 <!-- FILTER -->
 <div class="filter-section reveal" id="perfumes">
-    <p class="filter-label">Filter by</p>
+    <p class="filter-label">Filter <span id="count">0</span></p>
     <div class="filter-tags">
-        <button class="filter-tag active" data-filter="all">All</button>
-        <button class="filter-tag" data-filter="women">For Her</button>
-        <button class="filter-tag" data-filter="men">For Him</button>
-        <button class="filter-tag" data-filter="unisex">Unisex</button>
-        <button class="filter-tag" data-filter="oud">Oud &amp; Oriental</button>
+        <button class="filter-tag" data-filter="all">All</button>
+        <button class="filter-tag" data-filter="women"><img src="femenine.png" alt="femenine icon"></button>
+        <button class="filter-tag" data-filter="men"><img src="man.png" alt="male icon"></button>
+        <button class="filter-tag" data-filter="unisex"><img src="equality.png" alt="unisex icon"></button>
+        <button class="filter-tag" data-filter="oud"><img src="aroma.png" alt="oud icon"></button>
     </div>
-    <p class="results-count"><span id="count">6</span> fragrances</p>
+
+    <!-- THE COUNT SHOULD HAVE THE DEFAULT OF ALL -->
+    
 </div>
 
 <!-- ALL PERFUMES -->
@@ -85,7 +90,7 @@
         <div class="perf-card reveal" data-category="men">
             <span class="badge badge-best">Unique</span>
             <div class="img-area">
-                <img src="asad-lattafa.jpg" alt="asad lattafa">
+                <img src="asad-lattafa.png" alt="asad lattafa">
             </div>
             <div class="info">
                 <span class="tag">For Him</span>
@@ -165,7 +170,7 @@
         <!-- eclaire lattafa -->
         <div class="perf-card reveal" data-category="women">
             <div class="img-area">
-                <img src="eclair-lattafa.jpg" alt="Eclaire Lattafa">
+                <img src="eclair-lattafa.png" alt="Eclaire Lattafa">
             </div>
             <div class="info">
                 <span class="tag">For Her</span>
@@ -178,7 +183,7 @@
         <!-- Khair-Pistachio -->
         <div class="perf-card reveal" data-category="women">
             <div class="img-area">
-                <img src="khair-pistachio.jpg" alt="Khair - Pistachio">
+                <img src="khair-pistachio.png" alt="Khair - Pistachio">
             </div>
             <div class="info">
                 <span class="tag">For Her</span>
@@ -267,7 +272,7 @@
         </div>
 
         <!-- KAYALI SEPARATOR -->
-        <div class="kayali-title" style="width: 90%;">
+        <div class="kayali-title">
             <h2>KAYALI</h2>
             <img src="https://i.pinimg.com/1200x/6a/9d/a8/6a9da8c9ff0cf15c23f9f8735b63893d.jpg" alt="Kayali fragrance campaign">
             <img src="https://i.pinimg.com/736x/42/74/f7/4274f7feae892ae217b46381edf5d153.jpg" alt="Kayali bottles">
@@ -353,7 +358,7 @@
 <!-- WATCH SECTION CTA -->
 <section class="watches-cta reveal">
     <nav>
-        <a href="index.html#watches">Need a watch?</a>
+        <a href="index.html#watches">Need a Time-piece?</a>
     </nav>
 </section>
 
