@@ -23,7 +23,7 @@
         <ul class="side-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="watches.html">Watches</a></li>
-            <li><a href="shop.html">Perfumes</a></li>
+            <li><a href="Shop.html">Perfumes</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
@@ -39,7 +39,7 @@
     <section class="hero" style="width:100%;">
         <div class="hero-content">
             <p class="hero-eyebrow">Reinheit Collection</p>
-            <h1>Craft <span style="-webkit-text-stroke: 1px #d4af50; color: transparent;">&amp;</span> <em>Precision</em></h1>
+            <h1>Craft &amp; <em>Precision</em></h1>
             <div class="hero-divider">
                 <span></span><i></i><span></span>
             </div>
@@ -83,29 +83,56 @@
             </div>
 
             <div class="products-grid">
-                <div class="product-card fade-up d1">
+                <div class="product-card fade-up d1" data-card="danlex">
+                    <div class="card-feedback">
+                        <button class="fb-btn fb-up" data-brand="DANLEX" data-type="like" aria-label="Like DANLEX">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                        </button>
+                        <button class="fb-btn fb-down" data-brand="DANLEX" data-type="dislike" aria-label="Dislike DANLEX">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                        </button>
+                    </div>
                     <div class="product-img-wrap">
                         <img src="danlex.png" alt="Danlex watch">
                     </div>
                     <p class="product-name">DANLEX</p>
                     <p class="product-tag">New Arrival</p>
                     <p class="product-price">KES 5,499</p>
+                    <button class="details-link" onclick="openCard('danlex')">Details</button>
                 </div>
-                <div class="product-card fade-up d2">
+                <div class="product-card fade-up d2" data-card="hanilex">
+                    <div class="card-feedback">
+                        <button class="fb-btn fb-up" data-brand="HANILEX" data-type="like" aria-label="Like HANILEX">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                        </button>
+                        <button class="fb-btn fb-down" data-brand="HANILEX" data-type="dislike" aria-label="Dislike HANILEX">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                        </button>
+                    </div>
                     <div class="product-img-wrap">
                         <img src="hanilex.png" alt="Hanilex watch">
                     </div>
                     <p class="product-name">HANILEX</p>
                     <p class="product-tag">New Arrival</p>
                     <p class="product-price">KES 4,599</p>
+                    <button class="details-link" onclick="openCard('hanilex')">Details</button>
                 </div>
-                <div class="product-card fade-up d3">
+                <div class="product-card fade-up d3" data-card="longines">
+                    <div class="card-feedback">
+                        <button class="fb-btn fb-up" data-brand="LONGINES" data-type="like" aria-label="Like LONGINES">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                        </button>
+                        <button class="fb-btn fb-down" data-brand="LONGINES" data-type="dislike" aria-label="Dislike LONGINES">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                        </button>
+                    </div>
                     <div class="product-img-wrap">
                         <img src="longines.png" alt="Longines watch">
                     </div>
                     <p class="product-name">LONGINES</p>
                     <p class="product-tag">New Arrival</p>
                     <p class="product-price">KES 5,099</p>
+                    <button class="details-link" onclick="openCard('longines')">Details</button>
                 </div>
             </div>
 
@@ -138,29 +165,56 @@
             </div>
 
             <div class="products-grid">
-                <div class="product-card fade-up d1">
+                <div class="product-card fade-up d1" data-card="rolex">
+                    <div class="card-feedback">
+                        <button class="fb-btn fb-up" data-brand="ROLEX" data-type="like" aria-label="Like ROLEX">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                        </button>
+                        <button class="fb-btn fb-down" data-brand="ROLEX" data-type="dislike" aria-label="Dislike ROLEX">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                        </button>
+                    </div>
                     <div class="product-img-wrap">
                         <img src="rosy-black.png" alt="Rolex watch">
                     </div>
                     <p class="product-name">ROLEX</p>
                     <p class="product-tag">New Arrival</p>
                     <p class="product-price">KES 10,499</p>
+                    <button class="details-link" onclick="openCard('rolex')">Details</button>
                 </div>
-                <div class="product-card fade-up d2">
+                <div class="product-card fade-up d2" data-card="megir">
+                    <div class="card-feedback">
+                        <button class="fb-btn fb-up" data-brand="MEGIR" data-type="like" aria-label="Like MEGIR">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                        </button>
+                        <button class="fb-btn fb-down" data-brand="MEGIR" data-type="dislike" aria-label="Dislike MEGIR">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                        </button>
+                    </div>
                     <div class="product-img-wrap">
                         <img src="megir.png" alt="Megir watch">
                     </div>
                     <p class="product-name">MEGIR</p>
                     <p class="product-tag">New Arrival</p>
                     <p class="product-price">KES 4,599</p>
+                    <button class="details-link" onclick="openCard('megir')">Details</button>
                 </div>
-                <div class="product-card fade-up d3">
+                <div class="product-card fade-up d3" data-card="longines-black">
+                    <div class="card-feedback">
+                        <button class="fb-btn fb-up" data-brand="LONGINES" data-type="like" aria-label="Like LONGINES">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                        </button>
+                        <button class="fb-btn fb-down" data-brand="LONGINES" data-type="dislike" aria-label="Dislike LONGINES">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                        </button>
+                    </div>
                     <div class="product-img-wrap">
                         <img src="black-longines.png" alt="Longines watch">
                     </div>
                     <p class="product-name">LONGINES</p>
                     <p class="product-tag">New Arrival</p>
                     <p class="product-price">KES 7,199</p>
+                    <button class="details-link" onclick="openCard('longines')">Details</button>
                 </div>
             </div>
 
@@ -282,6 +336,232 @@
         </div>
     </footer>
 
+    <!-- =============================================
+         MODAL OVERLAY — all 5 detail cards live here
+    ============================================= -->
+    <div class="card-modal-overlay" id="cardOverlay" aria-hidden="true">
+        <div class="card-modal" id="cardModal" role="dialog" aria-modal="true">
+
+            <!-- CLOSE -->
+            <button class="modal-close" id="modalClose" aria-label="Close details">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+
+            <!-- ══ DANLEX ══ -->
+            <div class="card-inner" id="card-danlex" style="display:none">
+                <div class="product-image">
+                    <div class="img-placeholder">
+                        <img class="mainWatch" id="danlex-main" src="danlex.png" data-active-variant="silver" alt="Danlex — Silver"/>
+                    </div>
+                    <div class="product-choice">
+                        <div class="thumb-item active" data-card="danlex" data-color="silver" data-img-src="danlex.png" data-label="Silver" role="button" tabindex="0" aria-pressed="true"><img src="danlex.png" alt="Silver"/></div>
+                        <div class="thumb-item" data-card="danlex" data-color="gold" data-img-src="danlex-gold.png" data-label="Gold" role="button" tabindex="0" aria-pressed="false"><img src="danlex-gold.png" alt="Gold"/></div>
+                        <div class="thumb-item" data-card="danlex" data-color="black" data-img-src="danlex-black.png" data-label="Black" role="button" tabindex="0" aria-pressed="false"><img src="danlex-black.png" alt="Black"/></div>
+                        <div class="thumb-item" data-card="danlex" data-color="brown" data-img-src="danlex-brown.png" data-label="Brown" role="button" tabindex="0" aria-pressed="false"><img src="danlex-brown.png" alt="Brown"/></div>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <div class="details-eyebrow">PRODUCT DETAILS</div>
+                    <div class="details-body">
+                        <p class="modal-brand">DANLEX</p>
+                        <p class="modal-series">Classic Executive</p>
+                        <div class="modal-badges"><span class="mbadge new">New Arrival</span><span class="mbadge classic">Classic</span></div>
+                        <div class="modal-rule"></div>
+                        <div class="modal-color-selector" role="group" aria-label="Choose variant">
+                            <p class="modal-color-label">Dial — <span class="active-name">Silver</span></p>
+                            <div class="modal-color-options">
+                                <button class="color-btn active" data-card="danlex" data-color="silver" data-variant-name="Silver" aria-pressed="true"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="silver"></div></div><span class="swatch-lbl">Silver</span></button>
+                                <button class="color-btn" data-card="danlex" data-color="gold" data-variant-name="Gold" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="gold"></div></div><span class="swatch-lbl">Gold</span></button>
+                                <button class="color-btn" data-card="danlex" data-color="black" data-variant-name="Black" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="black"></div></div><span class="swatch-lbl">Black</span></button>
+                                <button class="color-btn" data-card="danlex" data-color="brown" data-variant-name="Brown" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="brown"></div></div><span class="swatch-lbl">Brown</span></button>
+                            </div>
+                        </div>
+                        <div class="modal-rule"></div>
+                        <p class="modal-price"><em>KES</em>5,499</p>
+                        <p class="modal-desc">The Danlex Classic Executive is a study in understated authority. Its slim stainless steel case pairs effortlessly with a textured leather strap, the minimalist dial carrying only what time demands — nothing more, nothing less. For the professional who lets precision speak.</p>
+                        <div class="modal-actions">
+                            <button class="btn-whatsapp" data-brand="DANLEX" data-price="5,499" onclick="enquireWhatsApp(this)">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                                Enquire on WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ HANILEX ══ -->
+            <div class="card-inner" id="card-hanilex" style="display:none">
+                <div class="product-image">
+                    <div class="img-placeholder">
+                        <img class="mainWatch" id="hanilex-main" src="hanilex.png" data-active-variant="silver" alt="Hanilex — Silver"/>
+                    </div>
+                    <div class="product-choice">
+                        <div class="thumb-item active" data-card="hanilex" data-color="silver" data-img-src="hanilex.png" data-label="Silver" role="button" tabindex="0" aria-pressed="true"><img src="hanilex.png" alt="Silver"/></div>
+                        <div class="thumb-item" data-card="hanilex" data-color="gold" data-img-src="hanilex-gold.png" data-label="Gold" role="button" tabindex="0" aria-pressed="false"><img src="hanilex-gold.png" alt="Gold"/></div>
+                        <div class="thumb-item" data-card="hanilex" data-color="rosy" data-img-src="hanilex-rosy.png" data-label="Rosy" role="button" tabindex="0" aria-pressed="false"><img src="hanilex-rosy.png" alt="Rosy"/></div>
+                        <div class="thumb-item" data-card="hanilex" data-color="black" data-img-src="hanilex-black.png" data-label="Black" role="button" tabindex="0" aria-pressed="false"><img src="hanilex-black.png" alt="Black"/></div>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <div class="details-eyebrow">PRODUCT DETAILS</div>
+                    <div class="details-body">
+                        <p class="modal-brand">HANILEX</p>
+                        <p class="modal-series">Urban Prestige</p>
+                        <div class="modal-badges"><span class="mbadge new">New Arrival</span><span class="mbadge urban">Urban</span></div>
+                        <div class="modal-rule"></div>
+                        <div class="modal-color-selector" role="group" aria-label="Choose variant">
+                            <p class="modal-color-label">Dial — <span class="active-name">Silver</span></p>
+                            <div class="modal-color-options">
+                                <button class="color-btn active" data-card="hanilex" data-color="silver" data-variant-name="Silver" aria-pressed="true"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="silver"></div></div><span class="swatch-lbl">Silver</span></button>
+                                <button class="color-btn" data-card="hanilex" data-color="gold" data-variant-name="Gold" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="gold"></div></div><span class="swatch-lbl">Gold</span></button>
+                                <button class="color-btn" data-card="hanilex" data-color="rosy" data-variant-name="Rosy" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="rosy"></div></div><span class="swatch-lbl">Rosy</span></button>
+                                <button class="color-btn" data-card="hanilex" data-color="black" data-variant-name="Black" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="black"></div></div><span class="swatch-lbl">Black</span></button>
+                            </div>
+                        </div>
+                        <div class="modal-rule"></div>
+                        <p class="modal-price"><em>KES</em>4,599</p>
+                        <p class="modal-desc">The Hanilex Urban Prestige was built for the city's pace. A bold yet refined dial, scratch-resistant mineral glass, and a versatile finish range make it the perfect companion from boardroom to bar. Wear the city on your wrist.</p>
+                        <div class="modal-actions">
+                            <button class="btn-whatsapp" data-brand="HANILEX" data-price="4,599" onclick="enquireWhatsApp(this)">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                                Enquire on WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ LONGINES ══ -->
+            <div class="card-inner" id="card-longines" style="display:none">
+                <div class="product-image">
+                    <div class="img-placeholder">
+                        <img class="mainWatch" id="longines-main" src="longines.png" data-active-variant="silver-gold" alt="Longines — Silver &amp; Gold"/>
+                    </div>
+                    <div class="product-choice">
+                        <div class="thumb-item active" data-card="longines" data-color="silver-gold" data-img-src="longines.png" data-label="Silver &amp; Gold" role="button" tabindex="0" aria-pressed="true"><img src="longines.png" alt="Silver Gold"/></div>
+                        <div class="thumb-item" data-card="longines" data-color="full-gold" data-img-src="longines-gold.png" data-label="Full Gold" role="button" tabindex="0" aria-pressed="false"><img src="longines-gold.png" alt="Full Gold"/></div>
+                        <div class="thumb-item" data-card="longines" data-color="brown" data-img-src="longines-brown.png" data-label="Brown" role="button" tabindex="0" aria-pressed="false"><img src="longines-brown.png" alt="Brown"/></div>
+                        <div class="thumb-item" data-card="longines" data-color="rosy" data-img-src="longines-rosy.png" data-label="Rosy" role="button" tabindex="0" aria-pressed="false"><img src="longines-rosy.png" alt="Rosy"/></div>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <div class="details-eyebrow">PRODUCT DETAILS</div>
+                    <div class="details-body">
+                        <p class="modal-brand">LONGINES</p>
+                        <p class="modal-series">Heritage Elegance</p>
+                        <div class="modal-badges"><span class="mbadge new">New Arrival</span><span class="mbadge heritage">Heritage</span></div>
+                        <div class="modal-rule"></div>
+                        <div class="modal-color-selector" role="group" aria-label="Choose variant">
+                            <p class="modal-color-label">Dial — <span class="active-name">Silver &amp; Gold</span></p>
+                            <div class="modal-color-options">
+                                <button class="color-btn active" data-card="longines" data-color="silver-gold" data-variant-name="Silver &amp; Gold" aria-pressed="true"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="silver-gold"></div></div><span class="swatch-lbl">S&amp;G</span></button>
+                                <button class="color-btn" data-card="longines" data-color="full-gold" data-variant-name="Full Gold" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="gold"></div></div><span class="swatch-lbl">Gold</span></button>
+                                <button class="color-btn" data-card="longines" data-color="brown" data-variant-name="Brown" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="brown"></div></div><span class="swatch-lbl">Brown</span></button>
+                                <button class="color-btn" data-card="longines" data-color="rosy" data-variant-name="Rosy" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="rosy"></div></div><span class="swatch-lbl">Rosy</span></button>
+                            </div>
+                        </div>
+                        <div class="modal-rule"></div>
+                        <p class="modal-price"><em>KES</em>5,099 – <em>KES</em>7,199</p>
+                        <p class="modal-desc">The Longines Heritage Elegance carries decades of Swiss watchmaking tradition in every curve of its case. Silver and gold accents weave across the dial like a signature, making it as timeless as the legacy it embodies. Sophistication, delivered.</p>
+                        <div class="modal-actions">
+                            <button class="btn-whatsapp" data-brand="LONGINES" data-price="5,099" onclick="enquireWhatsApp(this)">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                                Enquire on WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ ROLEX ══ -->
+            <div class="card-inner" id="card-rolex" style="display:none">
+                <div class="product-image">
+                    <div class="img-placeholder">
+                        <img class="mainWatch" id="rolex-main" src="rosy-black.png" data-active-variant="rosy" alt="Rolex — Rosy Black"/>
+                    </div>
+                    <div class="product-choice">
+                        <div class="thumb-item active" data-card="rolex" data-color="rosy" data-img-src="rosy-black.png" data-label="Rosy Black" role="button" tabindex="0" aria-pressed="true"><img src="rosy-metal-rolex-for-her.png" alt="Rosy Black"/></div>
+                        <div class="thumb-item" data-card="rolex" data-color="silver" data-img-src="silver-metal-rolex-for-her.png" data-label="Silver Metal" role="button" tabindex="0" aria-pressed="false"><img src="silver-metal-rolex-for-her.png" alt="Silver Metal"/></div>
+                        <div class="thumb-item" data-card="rolex" data-color="arctic" data-img-src="blue-black-for-her.png" data-label="Arctic Blue" role="button" tabindex="0" aria-pressed="false"><img src="blue-black-for-her.png" alt="Arctic Blue"/></div>
+                        <div class="thumb-item" data-card="rolex" data-color="midnight" data-img-src="silver-black-for-her.png" data-label="Midnight Black" role="button" tabindex="0" aria-pressed="false"><img src="silver-black-for-her.png" alt="Midnight Black"/></div>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <div class="details-eyebrow">PRODUCT DETAILS</div>
+                    <div class="details-body">
+                        <p class="modal-brand">ROLEX</p>
+                        <p class="modal-series">Cosmograph Daytona</p>
+                        <div class="modal-badges"><span class="mbadge her">For Her</span><span class="mbadge luxury">Luxury</span></div>
+                        <div class="modal-rule"></div>
+                        <div class="modal-color-selector" role="group" aria-label="Choose variant">
+                            <p class="modal-color-label">Dial — <span class="active-name">Rosy Black</span></p>
+                            <div class="modal-color-options">
+                                <button class="color-btn active" data-card="rolex" data-color="rosy" data-variant-name="Rosy Black" aria-pressed="true"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="rosy"></div></div><span class="swatch-lbl">Rosy</span></button>
+                                <button class="color-btn" data-card="rolex" data-color="silver" data-variant-name="Silver Metal" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="silver"></div></div><span class="swatch-lbl">Silver</span></button>
+                                <button class="color-btn" data-card="rolex" data-color="arctic" data-variant-name="Arctic Blue" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="arctic"></div></div><span class="swatch-lbl">Arctic</span></button>
+                                <button class="color-btn" data-card="rolex" data-color="midnight" data-variant-name="Midnight Black" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="midnight"></div></div><span class="swatch-lbl">Midnight</span></button>
+                            </div>
+                        </div>
+                        <div class="modal-rule"></div>
+                        <p class="modal-price"><em>KES</em>10,499</p>
+                        <p class="modal-desc">A watch born to race. The Rolex Cosmograph Daytona in 18 ct Everose gold, 40 mm case, meteorite and black dial, an Oysterflex bracelet — precision engineering shaped for her wrist. The pinnacle of haute horlogerie.</p>
+                        <div class="modal-actions">
+                            <button class="btn-whatsapp" data-brand="ROLEX" data-price="10,499" onclick="enquireWhatsApp(this)">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                                Enquire on WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ MEGIR ══ -->
+            <div class="card-inner" id="card-megir" style="display:none">
+                <div class="product-image">
+                    <div class="img-placeholder">
+                        <img class="mainWatch" id="megir-main" src="megir.png" data-active-variant="black" alt="Megir — Black Steel"/>
+                    </div>
+                    <div class="product-choice">
+                        <div class="thumb-item active" data-card="megir" data-color="black" data-img-src="megir.png" data-label="Black Steel" role="button" tabindex="0" aria-pressed="true"><img src="megir.png" alt="Black Steel"/></div>
+                        <div class="thumb-item" data-card="megir" data-color="silver" data-img-src="megir-silver.png" data-label="Silver" role="button" tabindex="0" aria-pressed="false"><img src="megir-silver.png" alt="Silver"/></div>
+                        <div class="thumb-item" data-card="megir" data-color="brown" data-img-src="megir-brown.png" data-label="Brown" role="button" tabindex="0" aria-pressed="false"><img src="megir-brown.png" alt="Brown"/></div>
+                        <div class="thumb-item" data-card="megir" data-color="olive" data-img-src="megir-olive.png" data-label="Olive" role="button" tabindex="0" aria-pressed="false"><img src="megir-olive.png" alt="Olive"/></div>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <div class="details-eyebrow">PRODUCT DETAILS</div>
+                    <div class="details-body">
+                        <p class="modal-brand">MEGIR</p>
+                        <p class="modal-series">Sport Chronograph</p>
+                        <div class="modal-badges"><span class="mbadge new">New Arrival</span><span class="mbadge sport">Sport</span></div>
+                        <div class="modal-rule"></div>
+                        <div class="modal-color-selector" role="group" aria-label="Choose variant">
+                            <p class="modal-color-label">Dial — <span class="active-name">Black Steel</span></p>
+                            <div class="modal-color-options">
+                                <button class="color-btn active" data-card="megir" data-color="black" data-variant-name="Black Steel" aria-pressed="true"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="black"></div></div><span class="swatch-lbl">Black</span></button>
+                                <button class="color-btn" data-card="megir" data-color="silver" data-variant-name="Silver" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="silver"></div></div><span class="swatch-lbl">Silver</span></button>
+                                <button class="color-btn" data-card="megir" data-color="brown" data-variant-name="Brown" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="brown"></div></div><span class="swatch-lbl">Brown</span></button>
+                                <button class="color-btn" data-card="megir" data-color="olive" data-variant-name="Olive" aria-pressed="false"><div class="swatch-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#bd9730" stroke-width="1.4" stroke-dasharray="4 3" stroke-linecap="round"/></svg><div class="swatch-dot" data-color="olive"></div></div><span class="swatch-lbl">Olive</span></button>
+                            </div>
+                        </div>
+                        <div class="modal-rule"></div>
+                        <p class="modal-price"><em>KES</em>4,599</p>
+                        <p class="modal-desc">Bold precision at an accessible price. The Megir Sport Chronograph features a stainless steel case, multi-function dial with sub-counters, genuine leather strap, and 30 m water resistance — engineered for the everyday adventurer who refuses to compromise.</p>
+                        <div class="modal-actions">
+                            <button class="btn-whatsapp" data-brand="MEGIR" data-price="4,599" onclick="enquireWhatsApp(this)">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                                Enquire on WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /card-modal -->
+    </div><!-- /card-modal-overlay -->
+
     <script>
     /* ── Menu / Sidebar ── */
     const menuBtn = document.getElementById('menuBtn');
@@ -304,17 +584,140 @@
     });
     scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    /* ── Intersection Observer: fade-up / fade-left / fade-right / scale-in ── */
+    /* ── Intersection Observer ── */
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('visible');
-                observer.unobserve(e.target);
-            }
+            if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
         });
     }, { threshold: 0.12 });
-
     document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-in').forEach(el => observer.observe(el));
+
+    /* ══════════════════════════════════════════════════
+       MODAL SYSTEM
+    ══════════════════════════════════════════════════ */
+    const modalOverlay = document.getElementById('cardOverlay');
+    const modal        = document.getElementById('cardModal');
+    const modalClose   = document.getElementById('modalClose');
+    let   currentCard  = null;
+
+    function openCard(id) {
+        if (currentCard) document.getElementById('card-' + currentCard).style.display = 'none';
+        currentCard = id;
+        document.getElementById('card-' + id).style.display = 'grid';
+        modalOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCard() {
+        modalOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+        if (currentCard) {
+            setTimeout(() => {
+                document.getElementById('card-' + currentCard).style.display = 'none';
+                currentCard = null;
+            }, 380);
+        }
+    }
+
+    modalClose.addEventListener('click', closeCard);
+    modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeCard(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCard(); });
+
+    /* click anywhere on a product-card (not feedback/details btn) also opens modal */
+    document.querySelectorAll('.product-card[data-card]').forEach(card => {
+        card.addEventListener('click', e => {
+            if (e.target.closest('.fb-btn') || e.target.closest('.details-link')) return;
+            openCard(card.dataset.card);
+        });
+    });
+
+    /* ══════════════════════════════════════════════════
+       VARIANT SWAP — scoped per card
+    ══════════════════════════════════════════════════ */
+    function swapVariant(cardId, color) {
+        const cardEl  = document.getElementById('card-' + cardId);
+        const mainImg = cardEl.querySelector('.mainWatch');
+        const nameEl  = cardEl.querySelector('.active-name');
+        const thumb   = cardEl.querySelector(`.thumb-item[data-color="${color}"]`);
+        if (!thumb) return;
+
+        mainImg.classList.add('swapping');
+        setTimeout(() => {
+            mainImg.src = thumb.dataset.imgSrc;
+            mainImg.dataset.activeVariant = color;
+            mainImg.classList.remove('swapping');
+        }, 220);
+
+        if (nameEl) nameEl.textContent = thumb.dataset.label;
+
+        cardEl.querySelectorAll('.thumb-item').forEach(t => {
+            const on = t.dataset.color === color;
+            t.classList.toggle('active', on);
+            t.setAttribute('aria-pressed', on);
+        });
+        cardEl.querySelectorAll('.color-btn').forEach(b => {
+            const on = b.dataset.color === color;
+            b.classList.toggle('active', on);
+            b.setAttribute('aria-pressed', on);
+        });
+
+        const waBtn = cardEl.querySelector('.btn-whatsapp');
+        if (waBtn) waBtn.dataset.variant = thumb.dataset.label;
+    }
+
+    /* delegate thumb + color-btn clicks inside the modal */
+    modal.addEventListener('click', e => {
+        const thumb = e.target.closest('.thumb-item[data-card]');
+        const cBtn  = e.target.closest('.color-btn[data-card]');
+        if (thumb) swapVariant(thumb.dataset.card, thumb.dataset.color);
+        if (cBtn)  swapVariant(cBtn.dataset.card,  cBtn.dataset.color);
+    });
+
+    /* ══════════════════════════════════════════════════
+       WHATSAPP ENQUIRY
+    ══════════════════════════════════════════════════ */
+    const WA_NUMBER = '254758810778';
+
+    function enquireWhatsApp(btn) {
+        const brand      = btn.dataset.brand   || 'a watch';
+        const price      = btn.dataset.price   || '';
+        const variant    = btn.dataset.variant || '';
+        const variantStr = variant ? ` (${variant})` : '';
+        const msg = encodeURIComponent(
+            `Hello REINHEIT 👋\n\nI'm interested in the *${brand}${variantStr}* — KES ${price}.\n\nCould you please share more details and availability? Thank you!`
+        );
+        window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+    }
+
+    /* ══════════════════════════════════════════════════
+       FEEDBACK — thumbs up / down
+       Replace FEEDBACK_ENDPOINT with your Make.com /
+       n8n / Google Apps Script webhook URL.
+    ══════════════════════════════════════════════════ */
+    const FEEDBACK_ENDPOINT = 'https://your-webhook-endpoint.com/feedback';
+
+    document.querySelectorAll('.fb-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.stopPropagation();
+            const brand  = btn.dataset.brand;
+            const type   = btn.dataset.type;
+            const parent = btn.closest('.card-feedback');
+
+            btn.classList.toggle('active');
+            const sibling = btn.classList.contains('fb-up')
+                ? parent.querySelector('.fb-down')
+                : parent.querySelector('.fb-up');
+            sibling.classList.remove('active');
+
+            try {
+                fetch(FEEDBACK_ENDPOINT, {
+                    method: 'POST', mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ brand, type, ts: new Date().toISOString() })
+                });
+            } catch (_) { /* fail silently */ }
+        });
+    });
     </script>
 
 </body>
