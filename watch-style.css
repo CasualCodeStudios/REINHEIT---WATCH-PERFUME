@@ -268,7 +268,7 @@
         inset: 0;
         background:
             linear-gradient(to right, #000 0%, transparent 25%, transparent 75%, #000 100%),
-            linear-gradient(to bottom, transparent,#00000075 , transparent),
+            linear-gradient(to bottom, transparent,#000 , transparent),
             url("https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=1400&auto=format&fit=crop") no-repeat center/cover;
         z-index: 0;
     }

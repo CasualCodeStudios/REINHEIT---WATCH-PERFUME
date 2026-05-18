@@ -37,8 +37,6 @@ body.shop-body {
     position: relative;
 }
 
-/* Fixed bg via pseudo-element — prevents background-attachment:fixed
-   from breaking position:fixed on iOS Safari / mobile browsers */
 body.shop-body::before {
     content: '';
     position: fixed;
@@ -228,7 +226,9 @@ section {
     transform: scaleX(1); 
 }
 
-    /* SIDEBAR */
+/* =============================================
+   SIDEBAR
+   ============================================= */
 .side-bar {
     position: fixed;
     top: 0;
@@ -286,6 +286,35 @@ section {
     transition: 0.35s ease;
 }
 .side-bar .side-nav a:hover::before { width: 60%; }
+
+/* Favourites nav link */
+.side-nav .fav-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    position: relative;
+}
+.side-nav .fav-nav-link svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+.fav-count-badge {
+    display: none;
+    background: var(--gold);
+    color: #0a0a0a;
+    font-size: 0.55rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    letter-spacing: 0;
+    margin-left: auto;
+}
+.fav-count-badge.has-items {
+    display: inline-block;
+}
+
 /* Sidebar overlay */
 .sidebar-overlay {
     display: none;
@@ -298,7 +327,9 @@ section {
     display: block; 
 }
 
-/* FILTER BAR */
+/* =============================================
+   FILTER BAR
+   ============================================= */
 .filter-section {
     padding: 0.5rem 1rem;
     background-color: #000;
@@ -369,7 +400,6 @@ section {
     text-align: center;
 }
 
-
 /* =============================================
    SECTION HEADER
    ============================================= */
@@ -421,17 +451,222 @@ section {
 
 .perfumes-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
     width: 100%;
     margin-bottom: 0.5rem;
     transition: 1s ease;
 }
 
-.perf-card {
+/* =============================================
+   SCANDAL 21K — UNIQUE HERO CARD
+   ============================================= */
+.dolores {
+    position: relative;
+    background: radial-gradient(circle at 40% 30%, #5a0a0a 0%, #1c0202 45%, #000000 80%);
+    border: 1px solid rgba(220, 30, 30, 0.35);
+    border-radius: 16px;
+    grid-column: span 2;
+    display: grid;
+    grid-template-rows: auto;
+    padding-top: .5rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.3s;
+}
+.dolores::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 70% 80%, rgba(189,30,30,0.18) 0%, transparent 55%),
+        radial-gradient(circle at 20% 10%, rgba(255,120,50,0.09) 0%, transparent 40%);
+    z-index: 0;
+    pointer-events: none;
+}
+.dolores::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(220,60,60,0.8), var(--gold), rgba(220,60,60,0.8), transparent);
+    z-index: 1;
+}
+.dolores:hover {
+    transform: translateY(-5px);
+    border-color: rgba(220, 80, 80, 0.65);
+}
+.dolores > * { position: relative; z-index: 2; }
+
+/* Scandal "EXCLUSIVE" ribbon */
+.dolores .scandal-ribbon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.scandal-ribbon .ribbon-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    background: linear-gradient(to left, #33120e, #8b0000);
+    color: #ffd6cc;
+    border-radius: 24px;
+}
+.scandal-ribbon .ribbon-price-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
     border: none;
+    color: #fed;
+    border-radius: 24px;
+    width: fit-content;
+    background: rgba(0,0,0,0.5);
+}
+
+.dolores .img-area-1 {
+    background: none;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.dolores .img-area-1 img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 18px rgba(114, 113, 113, 0.65)) drop-shadow(0 0 30px rgba(180,30,30,0.3));
+    transition: transform 0.5s ease;
+}
+.dolores:hover .img-area-1 img {
+    transform: translateY(-8px) scale(1.03);
+}
+.dolores-info {
+    padding: 1rem .2rem 1.6rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Scandal card info overrides */
+.dolores .dolores-info .tag {
+    display: inline-block;
+    font-size: 0.5rem;
+    letter-spacing: 3px;
+    color: #ff9999;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.5rem;
+    background-color: rgba(255, 100, 100, 0.12);
+}
+.dolores .dolores-info .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+.dolores .dolores-info .brand {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    color: rgba(189,151,48,0.6);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+/* Scandal bottom row: price left, whatsapp right */
+.dolores .card-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     width: 100%;
-    min-width: 0;
+    padding: 0 0.5rem;
+    gap: 0.5rem;
+}
+.dolores .card-bottom-row .perfume-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+    border: none;
+    padding: 0;
+}
+.dolores .card-bottom-row .wa-btn {
+    background: rgba(37,211,102,0.12);
+    border: 1px solid rgba(37,211,102,0.35);
+    border-radius: 8px;
+    padding: 0.4rem 0.55rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    flex-shrink: 0;
+}
+.dolores .card-bottom-row .wa-btn:hover {
+    background: rgba(37,211,102,0.25);
+    border-color: rgba(37,211,102,0.7);
+    transform: scale(1.08);
+}
+.dolores .card-bottom-row .wa-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Scandal fav btn */
+.dolores .fav-btn {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(220,60,60,0.3);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    backdrop-filter: blur(6px);
+}
+.dolores .fav-btn:hover {
+    background: rgba(220,60,60,0.2);
+    border-color: rgba(220,60,60,0.7);
+    transform: scale(1.12);
+}
+.dolores .fav-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: #ff7070;
+    fill: none;
+    transition: fill 0.25s, stroke 0.25s;
+}
+.dolores .fav-btn.active svg {
+    fill: #e53e3e;
+    stroke: #e53e3e;
+}
+
+/* =============================================
+   PERF CARD (standard)
+   ============================================= */
+.perf-card {
+    height: fit-content;
     background: var(--bg-color);
     position: relative;
     overflow: hidden;
@@ -458,11 +693,10 @@ section {
     background: linear-gradient(to right, transparent, rgba(189, 151, 48, 0.3), transparent);
 }
 .perf-card .img-area img {
-    
     height: 100%;
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 12px 24px rgba(247, 247, 247, 0.6));
+    filter: drop-shadow(0 4px 8px rgba(247, 247, 247, 0.6));
     transition: transform 0.5s ease;
 }
 .perf-card:hover .img-area img { transform: translateY(-8px); }
@@ -470,6 +704,10 @@ section {
 .perf-card .info {
     padding: 1rem .2rem 1.6rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .perf-card .tag {
     display: inline-block;
@@ -496,8 +734,91 @@ section {
     letter-spacing: 3px;
     color: var(--text-dim);
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
+
+/* --- Card bottom row: price left, whatsapp right --- */
+.card-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 0.3rem;
+    gap: 0.4rem;
+    margin-top: 0.2rem;
+}
+.card-bottom-row .perfume-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+.card-bottom-row .wa-btn {
+    background: rgba(37,211,102,0.1);
+    border: 1px solid rgba(37,211,102,0.3);
+    border-radius: 8px;
+    padding: 0.4rem 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    flex-shrink: 0;
+}
+.card-bottom-row .wa-btn:hover {
+    background: rgba(37,211,102,0.22);
+    border-color: rgba(37,211,102,0.65);
+    transform: scale(1.08);
+}
+.card-bottom-row .wa-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* --- Favourite button on perf-card --- */
+.fav-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 5;
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(189,151,48,0.2);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    backdrop-filter: blur(6px);
+}
+.fav-btn:hover {
+    background: rgba(189,151,48,0.15);
+    border-color: rgba(189,151,48,0.6);
+    transform: scale(1.12);
+}
+.fav-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--gold);
+    fill: none;
+    transition: fill 0.25s, stroke 0.25s;
+}
+.fav-btn.active svg {
+    fill: var(--gold);
+    stroke: var(--gold);
+}
+@keyframes fav-pop {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.35); }
+    70%  { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+.fav-btn.pop { animation: fav-pop 0.35s cubic-bezier(0.22,1,0.36,1); }
+
+/* Keep old .cta for any element not yet converted */
 .perf-card .cta {
     display: inline-block;
     font-size: 0.55rem;
@@ -506,9 +827,6 @@ section {
     text-transform: uppercase;
     border-bottom: 1px solid rgba(189, 151, 48, 0.3);
     padding-bottom: 2px;
-    opacity: 0;
-    transform: translateY(6px);
-    transition: opacity 0.3s, transform 0.3s;
     background: transparent;
     border-top: none;
     border-left: none;
@@ -525,15 +843,16 @@ section {
 .mid-advert {
     border-left: 4px solid var(--gold-light);
     border-radius: 20px;
-    grid-column: 1 / -1;   /* span all columns */
+    grid-column: span 1; 
+    grid-row: span 2;
     background-color: rgba(0, 0, 0, 0.6);
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     overflow: hidden;
     margin: 1rem .5rem;
 }
 .mid-advert .img-area {
-    height: 280px;
+    height: 100%;
     padding: 0;
     overflow: hidden;
 }
@@ -601,7 +920,7 @@ section {
     border-radius: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-column: 1 / -1;   /* span all columns */
+    grid-column: 1 / -1;
     position: relative;
     overflow: hidden;
     margin: 1rem .5rem;
@@ -725,12 +1044,8 @@ section {
     animation: scaling 1.5s infinite alternate;
 }
 @keyframes scaling{
-    from{
-        transform: scale(0);
-    }
-    to{
-        transform: scale(1);
-    }
+    from{ transform: scale(0); }
+    to{ transform: scale(1); }
 }
 
 .watches-cta a:hover {
@@ -773,10 +1088,299 @@ footer .foot-contact {
 footer .foot-contact strong { color: var(--gold); }
 
 
+/* =============================================
+   FAVOURITES DASHBOARD OVERLAY
+   ============================================= */
+#fav-dashboard {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: flex;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+#fav-dashboard.open {
+    opacity: 1;
+    pointer-events: all;
+}
+.fav-dash-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px);
+}
+.fav-dash-panel {
+    position: relative;
+    margin-left: auto;
+    width: min(520px, 100vw);
+    height: 100vh;
+    background: linear-gradient(180deg, #0e0c09 0%, #0a0a0a 100%);
+    border-left: 1px solid rgba(189,151,48,0.2);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow: hidden;
+}
+#fav-dashboard.open .fav-dash-panel {
+    transform: translateX(0);
+}
 
+/* top accent line */
+.fav-dash-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
 
+.fav-dash-header {
+    padding: 2rem 1.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(189,151,48,0.1);
+    flex-shrink: 0;
+}
+.fav-dash-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.fav-dash-header-left .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.5rem;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+.fav-dash-header-left h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 1px;
+}
+.fav-dash-close {
+    background: none;
+    border: 1px solid rgba(189,151,48,0.2);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+.fav-dash-close:hover {
+    background: rgba(189,151,48,0.1);
+    border-color: rgba(189,151,48,0.5);
+    color: var(--gold);
+}
+.fav-dash-close svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
 
+.fav-dash-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.4rem 1.8rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(189,151,48,0.2) transparent;
+}
+.fav-dash-body::-webkit-scrollbar { width: 4px; }
+.fav-dash-body::-webkit-scrollbar-track { background: transparent; }
+.fav-dash-body::-webkit-scrollbar-thumb { background: rgba(189,151,48,0.25); border-radius: 2px; }
 
+/* Empty state */
+.fav-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem;
+}
+.fav-empty svg {
+    width: 48px;
+    height: 48px;
+    stroke: rgba(189,151,48,0.3);
+    fill: none;
+}
+.fav-empty p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--text-dim);
+    font-style: italic;
+}
+.fav-empty span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+/* Fav item rows */
+.fav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(189,151,48,0.07);
+    animation: fadeUp 0.35s ease;
+}
+.fav-item-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.04);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(189,151,48,0.1);
+}
+.fav-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+}
+.fav-item-info {
+    flex: 1;
+    min-width: 0;
+}
+.fav-item-info .fav-item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.fav-item-info .fav-item-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 2px;
+}
+.fav-item-info .fav-item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--gold);
+    margin-top: 4px;
+}
+.fav-item-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+.fav-item-wa {
+    background: rgba(37,211,102,0.1);
+    border: 1px solid rgba(37,211,102,0.3);
+    border-radius: 7px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+.fav-item-wa:hover {
+    background: rgba(37,211,102,0.2);
+    border-color: rgba(37,211,102,0.6);
+}
+.fav-item-wa svg {
+    width: 16px;
+    height: 16px;
+}
+.fav-item-remove {
+    background: rgba(255,50,50,0.07);
+    border: 1px solid rgba(255,50,50,0.18);
+    border-radius: 7px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+.fav-item-remove:hover {
+    background: rgba(255,50,50,0.18);
+    border-color: rgba(255,50,50,0.5);
+}
+.fav-item-remove svg {
+    width: 14px;
+    height: 14px;
+    stroke: #ff6b6b;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.fav-dash-footer {
+    padding: 1.2rem 1.8rem;
+    border-top: 1px solid rgba(189,151,48,0.1);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.fav-total-count {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+.fav-total-count span {
+    color: var(--gold);
+    font-size: 0.75rem;
+}
+.fav-enquire-all {
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+    border: none;
+    padding: 0.65rem 1.3rem;
+    color: #0a0a0a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: opacity 0.25s, transform 0.2s;
+    font-weight: 500;
+}
+.fav-enquire-all:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+.fav-enquire-all:disabled {
+    opacity: 0.3;
+    cursor: default;
+    transform: none;
+}
 
 
 /* =============================================
@@ -784,35 +1388,17 @@ footer .foot-contact strong { color: var(--gold); }
    ============================================= */
 
 /* --- Tablet: 2 columns --- */
-@media (max-width: 800px) {
-    section {
-        width: 100%;
-    }
-
-    .perfumes-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .all-perfumes {
-        padding: 0 0.5rem 4rem;
-    }
-
-    /* Mid-advert stacks vertically on tablet */
-    .mid-advert {
-        grid-template-columns: 1fr;
-    }
-    .mid-advert .img-area {
-        height: 220px;
-    }
-
-
-
+@media (max-width: 900px) {
+    section { width: 100%; }
+    .perfumes-grid { grid-template-columns: repeat(2, 1fr); }
+    .all-perfumes { padding: 0 0.5rem 4rem; }
+    .mid-advert { grid-template-columns: 1fr; }
+    .mid-advert .img-area { height: 220px; }
     .side-bar {
         width: 70%;
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
     }
-
     #menuBtn {
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
@@ -822,90 +1408,94 @@ footer .foot-contact strong { color: var(--gold); }
         text-align: center;
         padding: 2rem 1.5rem;
     }
+    .fav-dash-panel { width: min(460px, 100vw); }
 }
 
-/* --- Mobile: 1 column --- */
+/* --- Mobile: 2 columns, small images --- */
 @media (max-width: 480px) {
-    #menuBtn::before {
-        display: none;
-    }
-
-    /* Force compositing layer so position:fixed works on iOS Safari */
+    #menuBtn::before { display: none; }
     #menuBtn {
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
     }
-
     .side-bar {
         width: 85%;
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
     }
-
     .filter-section {
         width: 100%;
         margin: 0.5rem 0;
     }
+    .filter-tag { padding: .4rem; }
+    section { width: 100%; }
 
-    .filter-tag {
-        padding: .4rem;
-    }
-
-    section {
-        width: 100%;
-    }
-
+    /* 2-column grid on mobile */
     .perfumes-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
     }
+    .all-perfumes { padding: 0 0.4rem 3rem; }
 
-    .all-perfumes {
-        padding: 0 0 4rem;
-    }
-
-    /* Cards fill full width on mobile */
+    /* Smaller images to fit 2 per row */
     .perf-card .img-area {
-        height: 280px;
+        height: 140px;
+    }
+    .perf-card .name {
+        font-size: 1.1rem;
+    }
+    .perf-card .brand {
+        margin-bottom: 0.5rem;
+    }
+    .perf-card .info {
+        padding: 0.6rem 0.2rem 1rem;
     }
 
-    /* Mid-advert: stack and make image taller */
+    /* Scandal card on mobile: full width, compact image */
+    .dolores {
+        grid-column: 1 / -1;
+    }
+    .dolores .img-area-1 {
+        height: 190px;
+    }
+
+    /* Mid-advert stacks */
     .mid-advert {
         grid-template-columns: 1fr;
-        margin: 1rem 0;
-        margin-left: 0.5rem;
-        border-radius: 20px;
+        margin: 0.5rem 0;
+        border-radius: 12px;
     }
-    .mid-advert .img-area {
-        height: 200px;
+    .mid-advert .img-area { height: 200px; }
+
+    /* Fav dashboard full width on mobile */
+    #fav-dashboard.open .fav-dash-panel {
+        width: 100vw;
     }
 
-    .newsletter {
-        padding: 3rem 1.2rem;
-    }
-
+    .newsletter { padding: 3rem 1.2rem; }
     .newsletter-form {
         flex-direction: column;
         max-width: 100%;
     }
     .newsletter-form input,
-    .newsletter-form button {
-        width: 100%;
-    }
+    .newsletter-form button { width: 100%; }
 
-    .hero {
-        padding: 3rem 1rem;
-    }
-
-    .section-header {
-        padding: 2rem 1rem 1.5rem;
-    }
+    .hero { padding: 3rem 1rem; }
+    .section-header { padding: 2rem 1rem 1.5rem; }
     footer { padding: 1.5rem 1rem; }
+
+    /* Smaller price / wa row on mobile */
+    .card-bottom-row .perfume-price {
+        font-size: 0.9rem;
+    }
+    .card-bottom-row .wa-btn {
+        padding: 0.3rem 0.4rem;
+    }
+    .card-bottom-row .wa-btn svg {
+        width: 15px;
+        height: 15px;
+    }
 }
-
-
-
-
-
 
 
 /* =============================================
@@ -922,8 +1512,47 @@ footer .foot-contact strong { color: var(--gold); }
     z-index: 2;
     font-family: 'Montserrat', sans-serif;
 }
-.badge-new  { background: var(--gold); color: var(--bg-color); }
-.badge-best { border: 1px solid var(--gold); color: var(--gold); }
+.badge-new  { 
+    background: var(--gold);
+    border-radius: 24px; 
+    color: var(--bg-color); 
+    position: absolute;
+    top: 1rem;
+    left: .5rem;
+    font-size: 0.48rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    z-index: 2;
+    font-family: 'Montserrat', sans-serif; 
+}
+.badge-best { 
+    border-radius: 24px;
+    border: 1px solid var(--gold); color: var(--gold); 
+    position: absolute;
+    top: 1rem;
+    left: .5rem;
+    font-size: 0.48rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    z-index: 2;
+    font-family: 'Montserrat', sans-serif;
+}
+.badge-now { 
+    border: 1px solid pink; color: pink; 
+    border-radius: 24px;
+    position: absolute;
+    top: 1rem; 
+    left: .5rem;
+    font-size: 0.48rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    z-index: 2;
+    font-family: 'Montserrat', sans-serif;
+    background: #00000094;backdrop-filter: blur(12px);
+}
 
 /* =============================================
    SHARED: SECTION DIVIDER
