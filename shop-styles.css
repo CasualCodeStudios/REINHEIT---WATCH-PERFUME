@@ -331,13 +331,13 @@ section {
    FILTER BAR
    ============================================= */
 .filter-section {
+    width: 100%;
     padding: 0.5rem 1rem;
     background-color: #000;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    border-radius: 2rem;
-    margin: 0.8rem;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .filter-label {
@@ -345,6 +345,8 @@ section {
     letter-spacing: 4px;
     color: #fed;
     text-transform: uppercase;
+    border: 2px solid var(--gold);
+    padding: .3rem;
 }
 
 .filter-tags {
@@ -363,13 +365,7 @@ section {
     transition: color 0.3s, background 0.3s;
     border-radius: 2px;
 }
-.filter-tag:nth-child(4){
-    padding: 0 .5rem;
-}
-.filter-tag:nth-child(4) img{
-    width: 48px;
-    height: 48px;
-}
+
 .filter-tag img{
     width: 24px;
     height: 24px;
@@ -598,7 +594,7 @@ section {
 }
 .dolores .card-bottom-row .perfume-price {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--gold);
     letter-spacing: 1px;
@@ -606,8 +602,8 @@ section {
     padding: 0;
 }
 .dolores .card-bottom-row .wa-btn {
-    background: rgba(37,211,102,0.12);
-    border: 1px solid rgba(37,211,102,0.35);
+    background: #8b000038;
+    border: 1px solid #8b0000;
     border-radius: 8px;
     padding: 0.4rem 0.55rem;
     cursor: pointer;
@@ -631,13 +627,13 @@ section {
 .dolores .fav-btn {
     position: absolute;
     top: 0.85rem;
-    right: 0.85rem;
+    right: 10%;
     z-index: 10;
     background: rgba(0,0,0,0.5);
-    border: 1px solid rgba(220,60,60,0.3);
+    border: 1px solid rgba(220,60,60,0.6);
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -651,8 +647,8 @@ section {
     transform: scale(1.12);
 }
 .dolores .fav-btn svg {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     stroke: #ff7070;
     fill: none;
     transition: fill 0.25s, stroke 0.25s;
@@ -679,6 +675,8 @@ section {
 }
 
 .perf-card .img-area {
+    border: 1px solid var(--gold-dim);
+    border-radius: 12px;
     height: 240px;
     display: flex;
     align-items: center;
@@ -717,14 +715,14 @@ section {
     text-transform: uppercase;
     border: none;
     border-radius: 10px;
-    padding: 0.2rem 0.6rem;
-    margin-bottom: 0.6rem;
-    background-color: rgba(255, 238, 221, 0.2);
+    padding: 0.1rem 0.6rem;
+    margin-bottom: 0.4rem;
+    background: none;
 }
 .perf-card .name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.35rem;
+    font-weight: 600;
     letter-spacing: 2px;
     color: var(--text);
     margin-bottom: 0.2rem;
@@ -780,10 +778,10 @@ section {
 .fav-btn {
     position: absolute;
     top: 0.75rem;
-    right: 0.75rem;
+    right: 10%;
     z-index: 5;
     background: rgba(0,0,0,0.45);
-    border: 1px solid rgba(189,151,48,0.2);
+    border: 1px solid rgba(255, 217, 0, 0.281);
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -792,7 +790,7 @@ section {
     justify-content: center;
     cursor: pointer;
     transition: background 0.25s, border-color 0.25s, transform 0.2s;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(16px);
 }
 .fav-btn:hover {
     background: rgba(189,151,48,0.15);
@@ -841,18 +839,19 @@ section {
    MID ADVERTS
    ============================================= */
 .mid-advert {
-    border-left: 4px solid var(--gold-light);
+    border-right: 4px solid var(--gold-light);
     border-radius: 20px;
-    grid-column: span 1; 
-    grid-row: span 2;
+    grid-column: span 2; 
+    grid-row: span 1;
     background-color: rgba(0, 0, 0, 0.6);
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     overflow: hidden;
     margin: 1rem .5rem;
 }
 .mid-advert .img-area {
     height: 100%;
+    width: 100%;
     padding: 0;
     overflow: hidden;
 }
@@ -913,6 +912,19 @@ section {
 }
 .mid-advert1:hover .img-area img { transform: scale(1.03); opacity: 0.7; }
 
+.mid-advert .wa-btn {
+    position: relative;
+    width: 40px;
+    background: rgba(37,211,102,0.12);
+    border: 1px solid rgba(37,211,102,0.35);
+    border-radius: 8px;
+    padding: 0.4rem 0.55rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    flex-shrink: 0;
+}
 /* =============================================
    KAYALI TITLE SEPARATOR
    ============================================= */
@@ -1390,9 +1402,9 @@ footer .foot-contact strong { color: var(--gold); }
 /* --- Tablet: 2 columns --- */
 @media (max-width: 900px) {
     section { width: 100%; }
-    .perfumes-grid { grid-template-columns: repeat(2, 1fr); }
+    .perfumes-grid { grid-template-columns: repeat(2, 1fr); padding: 1rem; }
     .all-perfumes { padding: 0 0.5rem 4rem; }
-    .mid-advert { grid-template-columns: 1fr; }
+    .mid-advert { grid-template-columns: 1fr 1fr; }
     .mid-advert .img-area { height: 220px; }
     .side-bar {
         width: 70%;
@@ -1461,7 +1473,7 @@ footer .foot-contact strong { color: var(--gold); }
 
     /* Mid-advert stacks */
     .mid-advert {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         margin: 0.5rem 0;
         border-radius: 12px;
     }
@@ -1518,7 +1530,7 @@ footer .foot-contact strong { color: var(--gold); }
     color: var(--bg-color); 
     position: absolute;
     top: 1rem;
-    left: .5rem;
+    left: 10%;
     font-size: 0.48rem;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1531,7 +1543,7 @@ footer .foot-contact strong { color: var(--gold); }
     border: 1px solid var(--gold); color: var(--gold); 
     position: absolute;
     top: 1rem;
-    left: .5rem;
+    left: 10%;
     font-size: 0.48rem;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1544,7 +1556,7 @@ footer .foot-contact strong { color: var(--gold); }
     border-radius: 24px;
     position: absolute;
     top: 1rem; 
-    left: .5rem;
+    left: 10%;
     font-size: 0.48rem;
     letter-spacing: 2px;
     text-transform: uppercase;
