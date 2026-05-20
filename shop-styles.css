@@ -454,6 +454,827 @@ section {
     transition: 1s ease;
 }
 
+
+/* =============================================
+   BLEU DE CHANEL 32K — UNIQUE HERO CARD
+   ============================================= */
+.blue-de-chanel {
+    position: relative;
+    background: radial-gradient(circle at 40% 30%, rgb(0, 0, 0) 0%, rgb(4, 4, 58) 45%, #000000 80%);
+    border: 1px solid rgb(11, 11, 179);
+    border-radius: 16px;
+    grid-column: span 2;
+    display: grid;
+    grid-template-rows: auto;
+    padding-top: .5rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.3s;
+}
+.blue-de-chanel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 70% 80%, rgb(4, 4, 58) 0%, transparent 55%),
+        radial-gradient(circle at 20% 10%, rgba(255,120,50,0.09) 0%, transparent 40%);
+    z-index: 0;
+    pointer-events: none;
+}
+.blue-de-chanel::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(220,60,60,0.8), var(--gold), rgba(220,60,60,0.8), transparent);
+    z-index: 1;
+}
+.blue-de-chanel:hover {
+    transform: translateY(-5px);
+    border-color: rgb(0, 0, 255);
+}
+.blue-de-chanel > * { position: relative; z-index: 2; }
+
+/* BLEU DE CHANEL "EXCLUSIVE" ribbon */
+.blue-de-chanel .scandal-ribbon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.scandal-ribbon .ribbon-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    background: linear-gradient(to left, #33120e, #8b0000);
+    color: #ffd6cc;
+    border-radius: 24px;
+}
+.scandal-ribbon .ribbon-price-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border: none;
+    color: #fed;
+    border-radius: 24px;
+    width: fit-content;
+    background: rgba(0,0,0,0.5);
+}
+
+.blue-de-chanel .img-area-1 {
+    background: none;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.blue-de-chanel .img-area-1 img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 18px rgba(255, 238, 221, 0.384)) drop-shadow(0 0 30px rgba(4,4,58,0.3));
+    transition: transform 0.5s ease;
+}
+.blue-de-chanel:hover .img-area-1 img {
+    transform: translateY(-8px) scale(1.03);
+}
+.blue-de-chanel-info {
+    padding: 1rem .2rem 1.6rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BLEU DE CHANEL card info overrides */
+.blue-de-chanel .blue-de-chanel-info .tag {
+    display: inline-block;
+    font-size: 0.5rem;
+    letter-spacing: 3px;
+    color: #02e2ff;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.5rem;
+    background-color: rgba(255, 100, 100, 0.12);
+}
+.blue-de-chanel .blue-de-chanel-info .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgb(255, 226, 197);
+    margin-bottom: 0.2rem;
+}
+.blue-de-chanel .blue-de-chanel-info .brand {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    color: rgba(189,151,48,0.6);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+/* BLEU DE CHANEL bottom row: price left, whatsapp right */
+.blue-de-chanel .card-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 0.5rem;
+    gap: 0.5rem;
+}
+.blue-de-chanel .card-bottom-row .perfume-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+    border: none;
+    padding: 0;
+}
+.blue-de-chanel .card-bottom-row .wa-btn {
+    background: #02e1ff21;
+    border: 1px solid #02e1ff8e;
+    border-radius: 8px;
+    padding: 0.4rem 0.55rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    flex-shrink: 0;
+}
+.blue-de-chanel .card-bottom-row .wa-btn:hover {
+    background: rgba(37,211,102,0.25);
+    border-color: rgba(37,211,102,0.7);
+    transform: scale(1.08) rotate(8deg);
+}
+.blue-de-chanel .card-bottom-row .wa-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* BLEU DE CHANEL fav btn */
+.blue-de-chanel .fav-btn {
+    position: absolute;
+    top: 0.85rem;
+    right: 10%;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #02e1ff8e;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    backdrop-filter: blur(6px);
+}
+.blue-de-chanel .fav-btn:hover {
+    background: #02e1ff31;
+    border-color: #02e1ff4f;
+    transform: scale(1.12);
+}
+.blue-de-chanel .fav-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ff7070;
+    fill: none;
+    transition: fill 0.25s, stroke 0.25s;
+}
+.blue-de-chanel .fav-btn.active svg {
+    fill: #e53e3e;
+    stroke: #e53e3e;
+}
+
+
+/* =============================================
+   CLUB DE NUIT 31K — UNIQUE HERO CARD
+   ============================================= */
+.club-de-nuit {
+    position: relative;
+    background: radial-gradient(circle at 40% 30%, rgb(0, 0, 0) 0%, #494949 45%, #000000 80%);
+    border: 1px solid #494949;
+    border-radius: 16px;
+    grid-column: span 2;
+    display: grid;
+    grid-template-rows: auto;
+    padding-top: .5rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.3s;
+}
+.club-de-nuit::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 70% 80%, rgb(0, 0, 0) 0%, transparent 55%),
+        radial-gradient(circle at 20% 10%, #494949 0%, transparent 40%);
+    z-index: 0;
+    pointer-events: none;
+}
+.club-de-nuit::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(220,60,60,0.8), var(--gold), rgba(220,60,60,0.8), transparent);
+    z-index: 1;
+}
+.club-de-nuit:hover {
+    transform: translateY(-5px);
+    border-color: #616161;
+}
+.club-de-nuit > * { position: relative; z-index: 2; }
+
+/* CLUB DE NUIT "EXCLUSIVE" ribbon */
+.club-de-nuit .scandal-ribbon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.scandal-ribbon .ribbon-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    background: linear-gradient(to left, #33120e, #8b0000);
+    color: #ffd6cc;
+    border-radius: 24px;
+}
+.scandal-ribbon .ribbon-price-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border: none;
+    color: #fed;
+    border-radius: 24px;
+    width: fit-content;
+    background: rgba(0,0,0,0.5);
+}
+
+.club-de-nuit .img-area-1 {
+    background: none;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.club-de-nuit .img-area-1 img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 18px rgba(255, 238, 221, 0.384)) drop-shadow(0 0 30px #383838);
+    transition: transform 0.5s ease;
+}
+.club-de-nuit:hover .img-area-1 img {
+    transform: translateY(-8px) scale(1.03);
+}
+.club-de-nuit-info {
+    padding: 1rem .2rem 1.6rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CLUB DE NUIT card info overrides */
+.club-de-nuit .club-de-nuit-info .tag {
+    display: inline-block;
+    font-size: 0.5rem;
+    letter-spacing: 3px;
+    color: #02e2ff;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.5rem;
+    background-color: rgba(255, 100, 100, 0.12);
+}
+.club-de-nuit .club-de-nuit-info .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #dadada;
+    margin-bottom: 0.2rem;
+}
+.club-de-nuit .club-de-nuit-info .brand {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    color: rgba(189,151,48,0.6);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+/* CLUB DE NUIT bottom row: price left, whatsapp right */
+.club-de-nuit .card-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 0.5rem;
+    gap: 0.5rem;
+}
+.club-de-nuit .card-bottom-row .perfume-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+    border: none;
+    padding: 0;
+}
+.club-de-nuit .card-bottom-row .wa-btn {
+    background: #02e1ff21;
+    border: 1px solid #686868;
+    border-radius: 8px;
+    padding: 0.4rem 0.55rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+    flex-shrink: 0;
+}
+.club-de-nuit .card-bottom-row .wa-btn:hover {
+    background: rgba(37,211,102,0.25);
+    border-color: rgba(37,211,102,0.7);
+    transform: scale(1.08) rotate(8deg);
+}
+.club-de-nuit .card-bottom-row .wa-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* CLUB DE NUIT fav btn */
+.club-de-nuit .fav-btn {
+    position: absolute;
+    top: 0.85rem;
+    right: 10%;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #686868;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    backdrop-filter: blur(6px);
+}
+.club-de-nuit .fav-btn:hover {
+    background: #02e1ff31;
+    border-color: #02e1ff4f;
+    transform: scale(1.12);
+}
+.club-de-nuit .fav-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ff7070;
+    fill: none;
+    transition: fill 0.25s, stroke 0.25s;
+}
+.club-de-nuit .fav-btn.active svg {
+    fill: #e53e3e;
+    stroke: #e53e3e;
+}
+
+
+/* =============================================
+   JEAN PAUL GAULTIER — UNIQUE HERO CARD
+   ============================================= */
+.jean-paul-gaultier {
+    position: relative;
+    background: radial-gradient(circle at 40% 30%, rgb(0, 0, 0) 0%, #494949 45%, #000000 80%);
+    border: 1px solid var(--gold-dim);
+    border-radius: 16px;
+    grid-column: span 2;
+    display: grid;
+    grid-template-rows: auto;
+    padding-top: .5rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.3s;
+}
+.jean-paul-gaultier::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 70% 80%, rgb(0, 0, 0) 0%, transparent 55%),
+        radial-gradient(circle at 20% 10%, var(--gold-dim) 0%, transparent 40%);
+    z-index: 0;
+    pointer-events: none;
+}
+.jean-paul-gaultier::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(220,60,60,0.8), var(--gold), rgba(220,60,60,0.8), transparent);
+    z-index: 1;
+}
+.jean-paul-gaultier:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold-light);
+}
+.jean-paul-gaultier > * { position: relative; z-index: 2; }
+
+/* JEAN PAUL GAULTIER "EXCLUSIVE" ribbon */
+.jean-paul-gaultier .scandal-ribbon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.scandal-ribbon .ribbon-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    background: linear-gradient(to left, #33120e, #8b0000);
+    color: #ffd6cc;
+    border-radius: 24px;
+}
+.scandal-ribbon .ribbon-price-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border: none;
+    color: #fed;
+    border-radius: 24px;
+    width: fit-content;
+    background: rgba(0,0,0,0.5);
+}
+
+.jean-paul-gaultier .img-area-1 {
+    background: none;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.jean-paul-gaultier .img-area-1 img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 18px rgba(255, 238, 221, 0.384)) drop-shadow(0 0 30px var(--gold-dim));
+    transition: transform 0.5s ease;
+}
+.jean-paul-gaultier:hover .img-area-1 img {
+    transform: translateY(-8px) scale(1.03);
+}
+.jean-paul-gaultier-info {
+    padding: 1rem .2rem 1.6rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* JEAN PAUL GAULTIER card info overrides */
+.jean-paul-gaultier .jean-paul-gaultier-info .tag {
+    display: inline-block;
+    font-size: 0.5rem;
+    letter-spacing: 3px;
+    color: #02e2ff;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.5rem;
+    background-color: rgba(255, 100, 100, 0.12);
+}
+.jean-paul-gaultier .jean-paul-gaultier-info .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #dadada;
+    margin-bottom: 0.2rem;
+}
+.jean-paul-gaultier .jean-paul-gaultier-info .brand {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    color: rgba(189,151,48,0.6);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+/* JEAN PAUL GAULTIER bottom row: price left, whatsapp right */
+.jean-paul-gaultier .card-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 0.5rem;
+    gap: 0.5rem;
+}
+.jean-paul-gaultier .card-bottom-row .perfume-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+    border: none;
+    padding: 0;
+}
+.jean-paul-gaultier .card-bottom-row .wa-btn {
+    background: #02e1ff21;
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 0.4rem 0.55rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+    flex-shrink: 0;
+}
+.jean-paul-gaultier .card-bottom-row .wa-btn:hover {
+    background: rgba(37,211,102,0.25);
+    border-color: rgba(37,211,102,0.7);
+    transform: scale(1.08) rotate(8deg);
+}
+.jean-paul-gaultier .card-bottom-row .wa-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* JEAN PAUL GAULTIER fav btn */
+.jean-paul-gaultier .fav-btn {
+    position: absolute;
+    top: 0.85rem;
+    right: 10%;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    backdrop-filter: blur(6px);
+}
+.jean-paul-gaultier .fav-btn:hover {
+    background: #02e1ff31;
+    border-color: #02e1ff4f;
+    transform: scale(1.12);
+}
+.jean-paul-gaultier .fav-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ff7070;
+    fill: none;
+    transition: fill 0.25s, stroke 0.25s;
+}
+.jean-paul-gaultier .fav-btn.active svg {
+    fill: #e53e3e;
+    stroke: #e53e3e;
+}
+
+
+/* =============================================
+   LIBRE EDP — UNIQUE HERO CARD
+   ============================================= */
+.libre-edp {
+    position: relative;
+    background: radial-gradient(circle at 40% 30%, rgb(0, 0, 0) 0%, #494949 45%, #000000 80%);
+    border: 1px solid rgba(255, 166, 0, 0.5);
+    border-radius: 16px;
+    grid-column: span 2;
+    display: grid;
+    grid-template-rows: auto;
+    padding-top: .5rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.3s;
+}
+.libre-edp::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 70% 80%, rgb(0, 0, 0) 0%, transparent 55%),
+        radial-gradient(circle at 20% 10%, rgba(255, 166, 0, 0.5) 0%, transparent 40%);
+    z-index: 0;
+    pointer-events: none;
+}
+.libre-edp::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(220,60,60,0.8), rgba(255, 166, 0, 0.7), rgba(220,60,60,0.8), transparent);
+    z-index: 1;
+}
+.libre-edp:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 166, 0, 0.9);
+}
+.libre-edp > * { position: relative; z-index: 2; }
+
+/* LIBRE EDP "EXCLUSIVE" ribbon */
+.libre-edp .scandal-ribbon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.scandal-ribbon .ribbon-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    background: linear-gradient(to left, #33120e, #8b0000);
+    color: #ffd6cc;
+    border-radius: 24px;
+}
+.scandal-ribbon .ribbon-price-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border: none;
+    color: #fed;
+    border-radius: 24px;
+    width: fit-content;
+    background: rgba(0,0,0,0.5);
+}
+
+.libre-edp .img-area-1 {
+    background: none;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.libre-edp .img-area-1 img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 18px rgba(255, 238, 221, 0.384)) drop-shadow(0 0 30px rgba(255, 166, 0, 0.3));
+    transition: transform 0.5s ease;
+}
+.libre-edp:hover .img-area-1 img {
+    transform: translateY(-8px) scale(1.03);
+}
+.libre-edp-info {
+    padding: 1rem .2rem 1.6rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LIBRE EDP card info overrides */
+.libre-edp .libre-edp-info .tag {
+    display: inline-block;
+    font-size: 0.5rem;
+    letter-spacing: 3px;
+    color: rgba(255, 166, 0, 0.9);
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.5rem;
+    background-color: rgba(112, 92, 92, 0.3);
+}
+.libre-edp .libre-edp-info .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #dadada;
+    margin-bottom: 0.2rem;
+}
+.libre-edp .libre-edp-info .brand {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    color: rgba(189,151,48,0.6);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+/* LIBRE EDP bottom row: price left, whatsapp right */
+.libre-edp .card-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 0.5rem;
+    gap: 0.5rem;
+}
+.libre-edp .card-bottom-row .perfume-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+    border: none;
+    padding: 0;
+}
+.libre-edp .card-bottom-row .wa-btn {
+    background: #02e1ff21;
+    border: 1px solid rgba(255, 166, 0, 0.7);
+    border-radius: 8px;
+    padding: 0.4rem 0.55rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+    flex-shrink: 0;
+}
+.libre-edp .card-bottom-row .wa-btn:hover {
+    background: rgba(37,211,102,0.25);
+    border-color: rgba(37,211,102,0.7);
+    transform: scale(1.08) rotate(8deg);
+}
+.libre-edp .card-bottom-row .wa-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* LIBRE EDP fav btn */
+.libre-edp .fav-btn {
+    position: absolute;
+    top: 0.85rem;
+    right: 10%;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 166, 0, 0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    backdrop-filter: blur(6px);
+}
+.libre-edp .fav-btn:hover {
+    background: #02e1ff31;
+    border-color: #02e1ff4f;
+    transform: scale(1.12);
+}
+.libre-edp .fav-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ff7070;
+    fill: none;
+    transition: fill 0.25s, stroke 0.25s;
+}
+.libre-edp .fav-btn.active svg {
+    fill: #e53e3e;
+    stroke: #e53e3e;
+}
+
+
 /* =============================================
    SCANDAL 21K — UNIQUE HERO CARD
    ============================================= */
@@ -616,7 +1437,7 @@ section {
 .dolores .card-bottom-row .wa-btn:hover {
     background: rgba(37,211,102,0.25);
     border-color: rgba(37,211,102,0.7);
-    transform: scale(1.08);
+    transform: scale(1.08) rotate(8deg);
 }
 .dolores .card-bottom-row .wa-btn svg {
     width: 20px;
@@ -658,6 +1479,215 @@ section {
     stroke: #e53e3e;
 }
 
+
+/* =============================================
+   CLUB DE NUIT 31K — UNIQUE HERO CARD
+   ============================================= */
+.versace-eros {
+    position: relative;
+    background: radial-gradient(circle at 40% 30%, rgb(0, 0, 0) 0%, #494949 45%, #000000 80%);
+    border: 1px solid #02e1ff81;
+    border-radius: 16px;
+    grid-column: span 2;
+    display: grid;
+    grid-template-rows: auto;
+    padding-top: .5rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.3s;
+}
+.versace-eros::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 70% 80%, rgb(0, 0, 0) 0%, transparent 55%),
+        radial-gradient(circle at 20% 10%, var(--gold) 0%, transparent 40%);
+    z-index: 0;
+    pointer-events: none;
+}
+.versace-eros::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(220,60,60,0.8), var(--gold), rgba(220,60,60,0.8), transparent);
+    z-index: 1;
+}
+.versace-eros:hover {
+    transform: translateY(-5px);
+    border-color: #02e2ff;
+}
+.versace-eros > * { position: relative; z-index: 2; }
+
+/* CLUB DE NUIT "EXCLUSIVE" ribbon */
+.versace-eros .scandal-ribbon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.scandal-ribbon .ribbon-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    background: linear-gradient(to left, #33120e, #8b0000);
+    color: #ffd6cc;
+    border-radius: 24px;
+}
+.scandal-ribbon .ribbon-price-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border: none;
+    color: #fed;
+    border-radius: 24px;
+    width: fit-content;
+    background: rgba(0,0,0,0.5);
+}
+
+.versace-eros .img-area-1 {
+    background: none;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.versace-eros .img-area-1 img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 18px rgba(255, 238, 221, 0.384)) drop-shadow(0 0 10px #02e1ff69);
+    transition: transform 0.5s ease;
+}
+.versace-eros:hover .img-area-1 img {
+    transform: translateY(-8px) scale(1.03);
+}
+.versace-eros-info {
+    padding: 1rem .2rem 1.6rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CLUB DE NUIT card info overrides */
+.versace-eros .versace-eros-info .tag {
+    display: inline-block;
+    font-size: 0.5rem;
+    letter-spacing: 3px;
+    color: #02e2ff;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.5rem;
+    background-color: rgba(255, 100, 100, 0.12);
+}
+.versace-eros .versace-eros-info .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #dadada;
+    margin-bottom: 0.2rem;
+}
+.versace-eros .versace-eros-info .brand {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    color: rgba(189,151,48,0.6);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+/* CLUB DE NUIT bottom row: price left, whatsapp right */
+.versace-eros .card-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 0.5rem;
+    gap: 0.5rem;
+}
+.versace-eros .card-bottom-row .perfume-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+    border: none;
+    padding: 0;
+}
+.versace-eros .card-bottom-row .wa-btn {
+    background: #02e1ff21;
+    border: 1px solid #02e1ff98;
+    border-radius: 8px;
+    padding: 0.4rem 0.55rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+    flex-shrink: 0;
+}
+.versace-eros .card-bottom-row .wa-btn:hover {
+    background: rgba(37,211,102,0.25);
+    border-color: rgba(37,211,102,0.7);
+    transform: scale(1.08) rotate(8deg);
+}
+.versace-eros .card-bottom-row .wa-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* CLUB DE NUIT fav btn */
+.versace-eros .fav-btn {
+    position: absolute;
+    top: 0.85rem;
+    right: 10%;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #02e1ff98;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    backdrop-filter: blur(6px);
+}
+.versace-eros .fav-btn:hover {
+    background: #02e1ff31;
+    border-color: #02e1ffc2;
+    transform: scale(1.12);
+}
+.versace-eros .fav-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ff7070;
+    fill: none;
+    transition: fill 0.25s, stroke 0.25s;
+}
+.versace-eros .fav-btn.active svg {
+    fill: #e53e3e;
+    stroke: #e53e3e;
+}
+
+
+
+
+
 /* =============================================
    PERF CARD (standard)
    ============================================= */
@@ -668,7 +1698,6 @@ section {
     overflow: hidden;
     cursor: pointer;
     transition: 0.4s, transform 0.35s cubic-bezier(0.22,1,0.36,1);
-    border-radius: 12px;
 }
 .perf-card:hover {
     background: var(--bg2);
