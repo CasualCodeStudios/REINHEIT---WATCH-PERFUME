@@ -165,7 +165,7 @@ section {
     background-color: #bd973046;
     padding: .2rem .5rem;
     border-radius: 12px;
-    font-size: 0.65rem;
+    font-size: clamp(0.65rem, 3vw, 2rem);
     letter-spacing: 6px;
     color: #fed;
     text-transform: uppercase;
@@ -176,7 +176,7 @@ section {
 }
 .hero h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-size: clamp(2.4rem, 6.6vw, 5.6rem);
     font-weight: 600;
     color: var(--text);
     line-height: 1.1;
