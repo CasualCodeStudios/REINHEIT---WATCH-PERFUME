@@ -163,6 +163,7 @@ section {
     /* CONTENT */
 .hero-eyebrow {
     background-color: #bd973046;
+    backdrop-filter: blur(20px);
     padding: .2rem .5rem;
     border-radius: 12px;
     font-size: clamp(0.65rem, 3vw, 2rem);
