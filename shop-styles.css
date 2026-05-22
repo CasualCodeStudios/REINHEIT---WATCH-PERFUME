@@ -192,6 +192,7 @@ section {
     background: #00000094;
     padding: 0 .5rem;
     border-radius: 12px;
+    backdrop-filter: blur(20px);
 
 }
 .btn-discover {
