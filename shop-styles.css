@@ -188,6 +188,7 @@ section {
 .hero h1 em {
     color: var(--gold);
     font-style: normal;
+    background: #00000094;
 }
 .btn-discover {
     display: inline-block;
