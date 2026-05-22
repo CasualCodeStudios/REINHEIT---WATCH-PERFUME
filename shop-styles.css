@@ -186,9 +186,13 @@ section {
     animation: fadeUp 0.8s 0.4s forwards;
 }
 .hero h1 em {
+    display: inline-block;
     color: var(--gold);
     font-style: normal;
     background: #00000094;
+    padding: 0 .5rem;
+    border-radius: 12px;
+
 }
 .btn-discover {
     display: inline-block;
