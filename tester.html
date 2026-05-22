@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+<!-- FILTER -->
+<div class="filter-section reveal" id="perfumes">
+  <p class="filter-label">Filter <span id="count">0</span></p>
+
+  <div class="dropdown-wrap">
+    <button class="dropdown-trigger" id="filterTrigger" aria-haspopup="listbox" aria-expanded="false">
+      <span class="trigger-left">
+        <span id="triggerIconWrap"></span>
+        <span id="triggerLabel">All</span>
+      </span>
+      <i class="ti ti-chevron-down" id="filterChevron" aria-hidden="true"></i>
+    </button>
+
+    <div class="dropdown-menu" id="filterMenu" role="listbox">
+      <button class="dropdown-item active" data-filter="all">All</button>
+      <button class="dropdown-item" data-filter="unisex">Unisex</button>
+      <button class="dropdown-item" data-filter="women">
+        <img src="femenine.png" alt=""> Women
+      </button>
+      <button class="dropdown-item" data-filter="men">
+        <img src="man.png" alt=""> Men
+      </button>
+      <button class="dropdown-item" data-filter="oud">
+        <img src="aroma.png" alt=""> Oud
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+</body>
+</html>

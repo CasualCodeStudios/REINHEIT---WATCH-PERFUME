@@ -71,7 +71,9 @@ body.shop-body::before {
     visibility: visible;
     transform: translateY(0);
 }
-.scroll-top-btn:hover { background: var(--gold); }
+.scroll-top-btn:hover { 
+    background: var(--gold); 
+}
 .scroll-top-btn:hover svg{
     stroke: #1a1a1a;
     transition: .3s ease;
@@ -88,7 +90,7 @@ body.shop-body::before {
 
 section { 
     background-color: #000; 
-    width: min(1200px, 100%);
+    width: 100%;
     color: var(--text); 
 }
 
@@ -132,12 +134,10 @@ section {
     border: 1px solid rgba(189, 151, 48, 0.2) ;
     transition: 0.3s ease;
 }
-
 #menuBtn:hover {
     border-color: rgba(189, 151, 48, 0.6);
     background: rgba(0, 0, 0, 0.7) ;
 }
-
 #menuBtn div {
     height: 3px;
     border-radius: 2px;
@@ -160,7 +160,7 @@ section {
 #menuBtn:active div { 
     width: 100%; 
 }
-
+    /* CONTENT */
 .hero-eyebrow {
     background-color: #bd973046;
     padding: .2rem .5rem;
@@ -285,7 +285,9 @@ section {
     background: var(--gold);
     transition: 0.35s ease;
 }
-.side-bar .side-nav a:hover::before { width: 60%; }
+.side-bar .side-nav a:hover::before { 
+    width: 60%; 
+}
 
 /* Favourites nav link */
 .side-nav .fav-nav-link {
@@ -328,72 +330,368 @@ section {
 }
 
 /* =============================================
-   FILTER BAR
+   PREMIUM FILTER DROPDOWN
    ============================================= */
+
+/* outer wrapper — same width as the rest of the page */
 .filter-section {
+    position: sticky;
+    top: 0;
     width: 100%;
-    padding: 0.5rem 1rem;
     background-color: #000;
+    padding: 0 1.5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 10;
+}
+
+/* inner bar — meta left, dropdown right */
+.filter-bar {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* left meta */
+.filter-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.filter-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+}
+.filter-count-line {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(255,237,221,0.5);
+    letter-spacing: 1px;
+}
+.filter-count-line span {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* ---- dropdown positioning root ---- */
+.fd-wrap {
+    position: relative;
+}
+
+/* ---- TRIGGER ---- */
+.fd-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    height: 46px;
+    padding: 0 16px;
+    min-width: 220px;
+    background: #0e0c09;
+    border: none;
+    border-right: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.25s, border-radius 0.18s;
+    color: #fed;
+    font-family: 'Montserrat', sans-serif;
+}
+.fd-trigger:hover {
+    border-color: rgba(189,151,48,0.75);
+}
+
+.fd-trigger-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.fd-trigger-icon {
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    color: var(--gold);
+    flex-shrink: 0;
 }
-
-.filter-label {
-    font-size: 0.6rem;
-    letter-spacing: 4px;
-    color: #fed;
-    text-transform: uppercase;
-    border: 2px solid var(--gold);
-    padding: .3rem;
+.fd-trigger-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--gold);
 }
-
-.filter-tags {
+.fd-trigger-icon img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    filter: brightness(1.2);
+}
+.fd-trigger-text {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1px;
+    text-align: left;
 }
-
-.filter-tag {
+.fd-trigger-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
     color: #fed;
-    position: relative;
-    padding: 0.45rem 1.1rem;
-    border: none;
-    background: transparent;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: color 0.3s, background 0.3s;
-    border-radius: 2px;
+    line-height: 1;
 }
-
-.filter-tag img{
-    width: 24px;
-    height: 24px;
+.fd-trigger-sub {
+    font-size: 0.6rem;
+    letter-spacing: 0.3px;
+    color: var(--text-dim);
+    line-height: 1;
 }
-
-.filter-tag::before {
-    position: absolute;
-    content: "";
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
+.fd-trigger-right {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+}
+/* active filter dot */
+.fd-active-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
     background: var(--gold);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+    display: none;
 }
-.filter-tag:hover::before,
-.filter-tag.active::before { transform: scaleX(1); }
-.filter-tag:hover,
-.filter-tag.active {
-    color: var(--gold);
-    background: rgba(189, 151, 48, 0.12);
+.fd-active-dot.show {
+    display: block;
 }
-.filter-label span { 
-    color: var(--gold);
-    font-size: 0.8rem;
-    border-radius: 7px;
-    text-align: center;
+/* chevron SVG */
+.fd-chevron {
+    width: 14px;
+    height: 14px;
+    stroke: var(--text-dim);
+    transition: transform 0.22s ease, stroke 0.2s;
+    flex-shrink: 0;
+}
+.fd-chevron.open {
+    transform: rotate(180deg);
+    stroke: var(--gold);
+}
+
+/* ---- MENU PANEL ---- */
+.fd-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 220px;
+    background: #0e0c09;
+    border: none;
+    z-index: 500;
+    padding-bottom: 4px;
+    /* animate open */
+    animation: fdSlideIn 0.18s ease forwards;
+}
+.fd-menu.open {
+    display: block;
+}
+@keyframes fdSlideIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- SEARCH ROW ---- */
+.fd-search-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(189,151,48,0.12);
+    margin-bottom: 4px;
+}
+.fd-search-row svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--text-dim);
+    flex-shrink: 0;
+}
+.fd-search {
+    background: none;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.5px;
+    color: #fed;
+    width: 100%;
+    padding: 0;
+}
+.fd-search::placeholder { color: var(--text-dim); }
+
+/* ---- GROUP LABEL ---- */
+.fd-group-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 8px 14px 4px;
+    margin: 0;
+}
+
+/* ---- DIVIDER ---- */
+.fd-divider {
+    height: 1px;
+    background: rgba(189,151,48,0.1);
+    margin: 6px 14px;
+}
+
+/* ---- MENU ITEMS ---- */
+.fd-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    padding: 9px 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.15s;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+}
+/* gold left-bar on active */
+.fd-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 18%;
+    bottom: 18%;
+    width: 2px;
+    background: var(--gold);
+    border-radius: 0 2px 2px 0;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+.fd-item.active::before { opacity: 1; }
+.fd-item:hover { background: rgba(189,151,48,0.07); }
+.fd-item.active { background: rgba(189,151,48,0.1); }
+
+/* icon box */
+.fd-item-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background: #1a1610;
+    border: 1px solid rgba(189,151,48,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.15s;
+}
+.fd-item:hover  .fd-item-icon,
+.fd-item.active .fd-item-icon {
+    border-color: rgba(189,151,48,0.5);
+}
+.fd-item-icon svg {
+    width: 15px;
+    height: 15px;
+    stroke: rgba(255,237,221,0.5);
+    transition: stroke 0.15s;
+}
+.fd-item.active .fd-item-icon svg { stroke: var(--gold); }
+.fd-item:hover  .fd-item-icon svg { stroke: var(--gold-light); }
+.fd-item-icon img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    opacity: 0.6;
+    transition: opacity 0.15s;
+}
+.fd-item.active .fd-item-icon img,
+.fd-item:hover  .fd-item-icon img { opacity: 1; }
+
+/* text */
+.fd-item-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+.fd-item-name {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(255,237,221,0.85);
+    letter-spacing: 0.3px;
+    line-height: 1;
+    transition: color 0.15s;
+}
+.fd-item.active .fd-item-name { color: #fed; }
+.fd-item-desc {
+    font-size: 0.58rem;
+    letter-spacing: 0.3px;
+    color: var(--text-dim);
+    line-height: 1;
+    transition: color 0.15s;
+}
+.fd-item.active .fd-item-desc { color: rgba(189,151,48,0.65); }
+
+/* check mark */
+.fd-item-check {
+    width: 13px;
+    height: 13px;
+    stroke: var(--gold);
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+.fd-item.active .fd-item-check { opacity: 1; }
+
+/* ---- MENU FOOTER ---- */
+.fd-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 14px 5px;
+    border-top: 1px solid rgba(189,151,48,0.1);
+    margin-top: 4px;
+}
+.fd-footer-count {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.58rem;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
+}
+.fd-footer-count span { color: var(--gold); font-weight: 600; }
+.fd-clear {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.5px;
+    color: var(--text-dim);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 3px;
+    transition: color 0.15s, background 0.15s;
+    visibility: hidden;
+}
+.fd-clear.visible  { visibility: visible; }
+.fd-clear:hover { color: #fed; background: rgba(255,237,221,0.07); }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 520px) {
+    .filter-section { padding: 0.8rem 1rem; }
+    .fd-trigger { min-width: 180px; height: 42px; padding: 0 12px; }
+    .fd-menu { right: 0; min-width: 200px; }
+    .filter-meta { display: none; }
 }
 
 /* =============================================
@@ -443,8 +741,9 @@ section {
 /* =============================================
    ALL PERFUMES GRID
    ============================================= */
-.all-perfumes { padding: 0 1.5rem 5rem; }
-
+.all-perfumes { 
+    padding: 0 1.5rem 5rem; 
+}
 .perfumes-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -453,7 +752,6 @@ section {
     margin-bottom: 0.5rem;
     transition: 1s ease;
 }
-
 
 /* =============================================
    BLEU DE CHANEL 32K — UNIQUE HERO CARD
@@ -493,7 +791,10 @@ section {
     transform: translateY(-5px);
     border-color: rgb(0, 0, 255);
 }
-.blue-de-chanel > * { position: relative; z-index: 2; }
+.blue-de-chanel > * { 
+    position: relative; 
+    z-index: 2; 
+}
 
 /* BLEU DE CHANEL "EXCLUSIVE" ribbon */
 .blue-de-chanel .scandal-ribbon {
@@ -504,28 +805,6 @@ section {
     display: flex;
     flex-direction: column;
     gap: 8px;
-}
-.scandal-ribbon .ribbon-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    background: linear-gradient(to left, #33120e, #8b0000);
-    color: #ffd6cc;
-    border-radius: 24px;
-}
-.scandal-ribbon .ribbon-price-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    border: none;
-    color: #fed;
-    border-radius: 24px;
-    width: fit-content;
-    background: rgba(0,0,0,0.5);
 }
 
 .blue-de-chanel .img-area-1 {
@@ -698,7 +977,10 @@ section {
     transform: translateY(-5px);
     border-color: #616161;
 }
-.club-de-nuit > * { position: relative; z-index: 2; }
+.club-de-nuit > * { 
+    position: relative; 
+    z-index: 2; 
+}
 
 /* CLUB DE NUIT "EXCLUSIVE" ribbon */
 .club-de-nuit .scandal-ribbon {
@@ -710,29 +992,6 @@ section {
     flex-direction: column;
     gap: 8px;
 }
-.scandal-ribbon .ribbon-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    background: linear-gradient(to left, #33120e, #8b0000);
-    color: #ffd6cc;
-    border-radius: 24px;
-}
-.scandal-ribbon .ribbon-price-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    border: none;
-    color: #fed;
-    border-radius: 24px;
-    width: fit-content;
-    background: rgba(0,0,0,0.5);
-}
-
 .club-de-nuit .img-area-1 {
     background: none;
     height: 280px;
@@ -903,7 +1162,10 @@ section {
     transform: translateY(-5px);
     border-color: var(--gold-light);
 }
-.jean-paul-gaultier > * { position: relative; z-index: 2; }
+.jean-paul-gaultier > * { 
+    position: relative; 
+    z-index: 2; 
+}
 
 /* JEAN PAUL GAULTIER "EXCLUSIVE" ribbon */
 .jean-paul-gaultier .scandal-ribbon {
@@ -915,29 +1177,6 @@ section {
     flex-direction: column;
     gap: 8px;
 }
-.scandal-ribbon .ribbon-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    background: linear-gradient(to left, #33120e, #8b0000);
-    color: #ffd6cc;
-    border-radius: 24px;
-}
-.scandal-ribbon .ribbon-price-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    border: none;
-    color: #fed;
-    border-radius: 24px;
-    width: fit-content;
-    background: rgba(0,0,0,0.5);
-}
-
 .jean-paul-gaultier .img-area-1 {
     background: none;
     height: 280px;
@@ -1108,7 +1347,10 @@ section {
     transform: translateY(-5px);
     border-color: rgba(255, 166, 0, 0.9);
 }
-.libre-edp > * { position: relative; z-index: 2; }
+.libre-edp > * { 
+    position: relative; 
+    z-index: 2; 
+}
 
 /* LIBRE EDP "EXCLUSIVE" ribbon */
 .libre-edp .scandal-ribbon {
@@ -1120,29 +1362,6 @@ section {
     flex-direction: column;
     gap: 8px;
 }
-.scandal-ribbon .ribbon-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    background: linear-gradient(to left, #33120e, #8b0000);
-    color: #ffd6cc;
-    border-radius: 24px;
-}
-.scandal-ribbon .ribbon-price-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    border: none;
-    color: #fed;
-    border-radius: 24px;
-    width: fit-content;
-    background: rgba(0,0,0,0.5);
-}
-
 .libre-edp .img-area-1 {
     background: none;
     height: 280px;
@@ -1278,7 +1497,7 @@ section {
 /* =============================================
    SCANDAL 21K — UNIQUE HERO CARD
    ============================================= */
-.dolores {
+.scandal-21k {
     position: relative;
     background: radial-gradient(circle at 40% 30%, #5a0a0a 0%, #1c0202 45%, #000000 80%);
     border: 1px solid rgba(220, 30, 30, 0.35);
@@ -1291,7 +1510,7 @@ section {
     cursor: pointer;
     transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.3s;
 }
-.dolores::before {
+.scandal-21k::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -1301,7 +1520,7 @@ section {
     z-index: 0;
     pointer-events: none;
 }
-.dolores::after {
+.scandal-21k::after {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
@@ -1309,14 +1528,17 @@ section {
     background: linear-gradient(to right, transparent, rgba(220,60,60,0.8), var(--gold), rgba(220,60,60,0.8), transparent);
     z-index: 1;
 }
-.dolores:hover {
+.scandal-21k:hover {
     transform: translateY(-5px);
     border-color: rgba(220, 80, 80, 0.65);
 }
-.dolores > * { position: relative; z-index: 2; }
+.scandal-21k > * { 
+    position: relative; 
+    z-index: 2; 
+}
 
 /* Scandal "EXCLUSIVE" ribbon */
-.dolores .scandal-ribbon {
+.scandal-21k .scandal-ribbon {
     position: absolute;
     top: 1rem;
     left: 1rem;
@@ -1348,7 +1570,7 @@ section {
     background: rgba(0,0,0,0.5);
 }
 
-.dolores .img-area-1 {
+.scandal-21k .img-area-1 {
     background: none;
     height: 280px;
     display: flex;
@@ -1356,17 +1578,17 @@ section {
     justify-content: center;
     position: relative;
 }
-.dolores .img-area-1 img {
+.scandal-21k .img-area-1 img {
     height: 100%;
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 8px 18px rgba(114, 113, 113, 0.65)) drop-shadow(0 0 30px rgba(180,30,30,0.3));
     transition: transform 0.5s ease;
 }
-.dolores:hover .img-area-1 img {
+.scandal-21k:hover .img-area-1 img {
     transform: translateY(-8px) scale(1.03);
 }
-.dolores-info {
+.scandal-21k-info {
     padding: 1rem .2rem 1.6rem;
     text-align: center;
     display: flex;
@@ -1376,7 +1598,7 @@ section {
 }
 
 /* Scandal card info overrides */
-.dolores .dolores-info .tag {
+.scandal-21k .scandal-21k-info .tag {
     display: inline-block;
     font-size: 0.5rem;
     letter-spacing: 3px;
@@ -1388,7 +1610,7 @@ section {
     margin-bottom: 0.5rem;
     background-color: rgba(255, 100, 100, 0.12);
 }
-.dolores .dolores-info .name {
+.scandal-21k .scandal-21k-info .name {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
     font-weight: 700;
@@ -1396,7 +1618,7 @@ section {
     color: var(--text);
     margin-bottom: 0.2rem;
 }
-.dolores .dolores-info .brand {
+.scandal-21k .scandal-21k-info .brand {
     font-size: 0.55rem;
     letter-spacing: 3px;
     color: rgba(189,151,48,0.6);
@@ -1405,7 +1627,7 @@ section {
 }
 
 /* Scandal bottom row: price left, whatsapp right */
-.dolores .card-bottom-row {
+.scandal-21k .card-bottom-row {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -1413,7 +1635,7 @@ section {
     padding: 0 0.5rem;
     gap: 0.5rem;
 }
-.dolores .card-bottom-row .perfume-price {
+.scandal-21k .card-bottom-row .perfume-price {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
     font-weight: 600;
@@ -1422,7 +1644,7 @@ section {
     border: none;
     padding: 0;
 }
-.dolores .card-bottom-row .wa-btn {
+.scandal-21k .card-bottom-row .wa-btn {
     background: #8b000038;
     border: 1px solid #8b0000;
     border-radius: 8px;
@@ -1434,18 +1656,18 @@ section {
     transition: background 0.25s, border-color 0.25s, transform 0.2s;
     flex-shrink: 0;
 }
-.dolores .card-bottom-row .wa-btn:hover {
+.scandal-21k .card-bottom-row .wa-btn:hover {
     background: rgba(37,211,102,0.25);
     border-color: rgba(37,211,102,0.7);
     transform: scale(1.08) rotate(8deg);
 }
-.dolores .card-bottom-row .wa-btn svg {
+.scandal-21k .card-bottom-row .wa-btn svg {
     width: 20px;
     height: 20px;
 }
 
 /* Scandal fav btn */
-.dolores .fav-btn {
+.scandal-21k .fav-btn {
     position: absolute;
     top: 0.85rem;
     right: 10%;
@@ -1462,19 +1684,19 @@ section {
     transition: background 0.25s, border-color 0.25s, transform 0.2s;
     backdrop-filter: blur(6px);
 }
-.dolores .fav-btn:hover {
+.scandal-21k .fav-btn:hover {
     background: rgba(220,60,60,0.2);
     border-color: rgba(220,60,60,0.7);
     transform: scale(1.12);
 }
-.dolores .fav-btn svg {
+.scandal-21k .fav-btn svg {
     width: 20px;
     height: 20px;
     stroke: #ff7070;
     fill: none;
     transition: fill 0.25s, stroke 0.25s;
 }
-.dolores .fav-btn.active svg {
+.scandal-21k .fav-btn.active svg {
     fill: #e53e3e;
     stroke: #e53e3e;
 }
@@ -1518,7 +1740,10 @@ section {
     transform: translateY(-5px);
     border-color: #02e2ff;
 }
-.versace-eros > * { position: relative; z-index: 2; }
+.versace-eros > * { 
+    position: relative; 
+    z-index: 2; 
+}
 
 /* CLUB DE NUIT "EXCLUSIVE" ribbon */
 .versace-eros .scandal-ribbon {
@@ -1552,7 +1777,6 @@ section {
     width: fit-content;
     background: rgba(0,0,0,0.5);
 }
-
 .versace-eros .img-area-1 {
     background: none;
     height: 280px;
@@ -1685,9 +1909,6 @@ section {
 }
 
 
-
-
-
 /* =============================================
    PERF CARD (standard)
    ============================================= */
@@ -1707,11 +1928,12 @@ section {
 .perf-card .img-area {
     border: 1px solid var(--gold-dim);
     border-radius: 12px;
-    height: 240px;
+    height: 340px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
 }
 .perf-card .img-area::after {
     content: '';
@@ -1727,7 +1949,9 @@ section {
     filter: drop-shadow(0 4px 8px rgba(247, 247, 247, 0.6));
     transition: transform 0.5s ease;
 }
-.perf-card:hover .img-area img { transform: translateY(-8px); }
+.perf-card:hover .img-area img { 
+    transform: translateY(-8px); 
+}
 
 .perf-card .info {
     padding: 1rem .2rem 1.6rem;
@@ -1838,13 +2062,17 @@ section {
     fill: var(--gold);
     stroke: var(--gold);
 }
+
 @keyframes fav-pop {
     0%   { transform: scale(1); }
     40%  { transform: scale(1.35); }
     70%  { transform: scale(0.9); }
     100% { transform: scale(1); }
 }
-.fav-btn.pop { animation: fav-pop 0.35s cubic-bezier(0.22,1,0.36,1); }
+
+.fav-btn.pop { 
+    animation: fav-pop 0.35s cubic-bezier(0.22,1,0.36,1); 
+}
 
 /* Keep old .cta for any element not yet converted */
 .perf-card .cta {
@@ -1862,7 +2090,10 @@ section {
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
 }
-.perf-card:hover .cta { opacity: 1; transform: translateY(0); }
+.perf-card:hover .cta { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
 
 
 /* =============================================
@@ -1891,7 +2122,9 @@ section {
     object-fit: cover;
     transition: transform 0.6s ease;
 }
-.mid-advert:hover .img-area img { transform: scale(1.04); }
+.mid-advert:hover .img-area img { 
+    transform: scale(1.04); 
+}
 .mid-advert .info {
     display: flex;
     flex-direction: column;
@@ -1922,7 +2155,6 @@ section {
     background: var(--gold);
     color: var(--bg-color);
 }
-
 .mid-advert1 {
     background-color: rgba(0, 0, 0, 0.6);
     display: grid;
@@ -1940,8 +2172,10 @@ section {
     opacity: 0.55;
     transition: transform 0.6s ease, opacity 0.4s;
 }
-.mid-advert1:hover .img-area img { transform: scale(1.03); opacity: 0.7; }
-
+.mid-advert1:hover .img-area img { 
+    transform: scale(1.03); 
+    opacity: 0.7; 
+}
 .mid-advert .wa-btn {
     position: relative;
     width: 40px;
@@ -1955,6 +2189,8 @@ section {
     transition: background 0.25s, border-color 0.25s, transform 0.2s;
     flex-shrink: 0;
 }
+
+
 /* =============================================
    KAYALI TITLE SEPARATOR
    ============================================= */
@@ -2035,7 +2271,9 @@ section {
     font-size: 0.7rem;
     letter-spacing: 2px;
 }
-.newsletter-form input::placeholder { color: var(--text-dim); }
+.newsletter-form input::placeholder { 
+    color: var(--text-dim); 
+}
 .newsletter-form button {
     background: var(--gold);
     border: none;
@@ -2049,7 +2287,9 @@ section {
     transition: background 0.3s;
     white-space: nowrap;
 }
-.newsletter-form button:hover { background: var(--gold-light); }
+.newsletter-form button:hover { 
+    background: var(--gold-light); 
+}
 
 /* =============================================
    WATCHES CTA
@@ -2085,6 +2325,7 @@ section {
     background-color: #8a6e22;
     animation: scaling 1.5s infinite alternate;
 }
+
 @keyframes scaling{
     from{ transform: scale(0); }
     to{ transform: scale(1); }
@@ -2127,7 +2368,9 @@ footer .foot-contact {
     letter-spacing: 2px;
     color: var(--text-muted);
 }
-footer .foot-contact strong { color: var(--gold); }
+footer .foot-contact strong { 
+    color: var(--gold); 
+}
 
 
 /* =============================================
@@ -2232,7 +2475,6 @@ footer .foot-contact strong { color: var(--gold); }
     stroke-width: 2;
     stroke-linecap: round;
 }
-
 .fav-dash-body {
     flex: 1;
     overflow-y: auto;
@@ -2240,9 +2482,16 @@ footer .foot-contact strong { color: var(--gold); }
     scrollbar-width: thin;
     scrollbar-color: rgba(189,151,48,0.2) transparent;
 }
-.fav-dash-body::-webkit-scrollbar { width: 4px; }
-.fav-dash-body::-webkit-scrollbar-track { background: transparent; }
-.fav-dash-body::-webkit-scrollbar-thumb { background: rgba(189,151,48,0.25); border-radius: 2px; }
+.fav-dash-body::-webkit-scrollbar { 
+    width: 4px; 
+}
+.fav-dash-body::-webkit-scrollbar-track { 
+    background: transparent; 
+}
+.fav-dash-body::-webkit-scrollbar-thumb { 
+    background: rgba(189,151,48,0.25); 
+    border-radius: 2px; 
+}
 
 /* Empty state */
 .fav-empty {
@@ -2379,7 +2628,6 @@ footer .foot-contact strong { color: var(--gold); }
     stroke-width: 2;
     stroke-linecap: round;
 }
-
 .fav-dash-footer {
     padding: 1.2rem 1.8rem;
     border-top: 1px solid rgba(189,151,48,0.1);
@@ -2451,6 +2699,12 @@ footer .foot-contact strong { color: var(--gold); }
         padding: 2rem 1.5rem;
     }
     .fav-dash-panel { width: min(460px, 100vw); }
+    .mini-container.mini-container2{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row: span 1;
+        grid-column: span 2;
+    }
 }
 
 /* --- Mobile: 2 columns, small images --- */
@@ -2467,7 +2721,7 @@ footer .foot-contact strong { color: var(--gold); }
     }
     .filter-section {
         width: 100%;
-        margin: 0.5rem 0;
+        margin-bottom: 0.5rem;
     }
     .filter-tag { padding: .4rem; }
     section { width: 100%; }
@@ -2481,6 +2735,9 @@ footer .foot-contact strong { color: var(--gold); }
 
     /* Smaller images to fit 2 per row */
     .perf-card .img-area {
+        height: 140px;
+    }
+    .mini-container .perf-card .img-area {
         height: 140px;
     }
     .perf-card .name {
@@ -2684,3 +2941,94 @@ footer .foot-contact strong { color: var(--gold); }
                 transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .scale-in.visible { opacity: 1; transform: scale(1); }
+
+
+/* =============================
+    MINI PERFUMES SECTION
+    ============================ */
+
+.mini-container{
+    position: relative;
+    border: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-row: span 2;
+    padding: .2rem;
+    border-radius: 12px;
+    background: #bd973070;
+    gap: 10px
+}
+.mini-container .perf-card{
+    border-radius: 12px;
+}
+.mini-container .mini-title{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-size: clamp(.8rem, 3vw, 1.8rem);
+    color: var(--gold-light);
+    background: linear-gradient(to left, black,rgba(255, 0, 0, 0.4), green);
+    backdrop-filter: blur(20px);
+    z-index: 10;
+    padding: .2rem;
+    border-radius: 10px;
+    transform: scale(.8);
+    animation: blink 1s infinite alternate;
+}
+
+.mini-container.pencil-container2{
+    grid-template-columns: repeat(2, 1fr);
+    grid-row: span 1;
+    grid-column: span 2;
+
+}
+.pencil-view-more{
+    text-decoration: none;
+    color: #fed;
+    font-size: .6rem;
+    position:absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    padding: .5rem;
+    background: #000;
+    box-shadow: 3px 3px 2px #fed;
+    transition: .3s ease;
+}
+.pencil-view-more:is(:hover,:focus){
+    box-shadow: 5px 5px 12px #fed;
+}
+.pencil-view-more:active{
+    box-shadow: none;
+}
+
+
+
+
+@keyframes blink{
+    from{
+        opacity: 0.5
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

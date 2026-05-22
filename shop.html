@@ -81,27 +81,145 @@
     <a href="#perfumes" class="btn-discover">Discover Now</a>
 </section>
 
-<!-- FILTER -->
-<div class="filter-section reveal" id="perfumes">
-    <p class="filter-label">Filter <span id="count">0</span></p>
-    <div class="filter-tags">
-        <button class="filter-tag" data-filter="all">All</button>
-        <button class="filter-tag" data-filter="unisex" style="border-left: 1px solid var(--gold);">UNISEX</button>
-        <button class="filter-tag" data-filter="women" style="border-left: 1px solid var(--gold);"><img src="femenine.png" alt="femenine icon"></button>
-        <button class="filter-tag" data-filter="men" style="border-left: 1px solid var(--gold);"><img src="man.png" alt="male icon"></button>
-        
-        <button class="filter-tag" data-filter="oud" style="border-left: 1px solid var(--gold);"><img src="aroma.png" alt="oud icon"></button>
-    </div>
-</div>
+
 
 <!-- ALL PERFUMES -->
 <section class="all-perfumes">
+
+
+<!-- FILTER -->
+<div class="filter-section reveal" id="perfumes">
+
+    <div class="filter-bar">
+
+        <div class="filter-meta">
+            <span class="filter-eyebrow">Collection</span>
+            <span class="filter-count-line">
+                <span id="count">0</span> fragrances
+            </span>
+        </div>
+
+        <div class="fd-wrap" id="fdWrap">
+
+            <!-- TRIGGER BUTTON -->
+            <button class="fd-trigger" id="fdTrigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="fd-trigger-left">
+                    <span class="fd-trigger-icon" id="fdTriggerIcon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    </span>
+                    <span class="fd-trigger-text">
+                        <span class="fd-trigger-label" id="fdTriggerLabel">All fragrances</span>
+                        <span class="fd-trigger-sub" id="fdTriggerSub">Complete collection</span>
+                    </span>
+                </span>
+                <span class="fd-trigger-right">
+                    <span class="fd-active-dot" id="fdActiveDot"></span>
+                    <svg class="fd-chevron" id="fdChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+            </button>
+
+            <!-- DROPDOWN MENU -->
+            <div class="fd-menu" id="fdMenu" role="listbox">
+
+                <!-- SEARCH -->
+                <div class="fd-search-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input class="fd-search" id="fdSearch" type="text" placeholder="Search categories..." autocomplete="off" spellcheck="false">
+                </div>
+
+                <!-- GROUP: Browse by -->
+                <p class="fd-group-label" data-group="browse">Browse by</p>
+
+                <button class="fd-item active" data-filter="all"
+                    data-label="All fragrances" data-sub="Complete collection"
+                    data-icon="grid" role="option" aria-selected="true">
+                    <span class="fd-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    </span>
+                    <span class="fd-item-text">
+                        <span class="fd-item-name">All fragrances</span>
+                        <span class="fd-item-desc">Complete collection</span>
+                    </span>
+                    <svg class="fd-item-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+
+                <button class="fd-item" data-filter="unisex"
+                    data-label="Unisex" data-sub="Gender-fluid blends"
+                    data-icon="unisex" role="option" aria-selected="false">
+                    <span class="fd-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 21v-2a6.5 6.5 0 0 1 13 0v2"/><line x1="12" y1="11" x2="12" y2="14"/></svg>
+                    </span>
+                    <span class="fd-item-text">
+                        <span class="fd-item-name">Unisex</span>
+                        <span class="fd-item-desc">Gender-fluid blends</span>
+                    </span>
+                    <svg class="fd-item-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+
+                <button class="fd-item" data-filter="women"
+                    data-label="For her" data-sub="Feminine florals &amp; musks"
+                    data-icon="women" role="option" aria-selected="false">
+                    <span class="fd-item-icon">
+                        <img src="femenine.png" alt="">
+                    </span>
+                    <span class="fd-item-text">
+                        <span class="fd-item-name">For her</span>
+                        <span class="fd-item-desc">Feminine florals &amp; musks</span>
+                    </span>
+                    <svg class="fd-item-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+
+                <button class="fd-item" data-filter="men"
+                    data-label="For him" data-sub="Bold woods &amp; spices"
+                    data-icon="men" role="option" aria-selected="false">
+                    <span class="fd-item-icon">
+                        <img src="man.png" alt="">
+                    </span>
+                    <span class="fd-item-text">
+                        <span class="fd-item-name">For him</span>
+                        <span class="fd-item-desc">Bold woods &amp; spices</span>
+                    </span>
+                    <svg class="fd-item-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+
+                <!-- DIVIDER -->
+                <div class="fd-divider" data-group="divider"></div>
+                <p class="fd-group-label" data-group="special">Special</p>
+
+                <button class="fd-item" data-filter="oud"
+                    data-label="Oud" data-sub="Rare resinous accords"
+                    data-icon="oud" role="option" aria-selected="false">
+                    <span class="fd-item-icon">
+                        <img src="aroma.png" alt="">
+                    </span>
+                    <span class="fd-item-text">
+                        <span class="fd-item-name">Oud</span>
+                        <span class="fd-item-desc">Rare resinous accords</span>
+                    </span>
+                    <svg class="fd-item-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+
+                <!-- FOOTER -->
+                <div class="fd-footer">
+                    <span class="fd-footer-count"><span id="fdMenuCount">0</span> fragrances</span>
+                    <button class="fd-clear" id="fdClear">Clear filter</button>
+                </div>
+
+            </div><!-- /fd-menu -->
+        </div><!-- /fd-wrap -->
+
+    </div><!-- /filter-bar -->
+
+</div>
+
+<!-- PERFUME SECTION CONTENT -->
     <div class="section-header reveal">
         <h2>The Art of Perfume</h2>
         <div class="ornament"><span></span><i></i><span></span></div>
         <p class="sub">Complete Collection</p>
     </div>
 
+<!-- PERFUME PRODUCTS GRID -->
     <div class="perfumes-grid" id="perfumes-grid">
 
         <!-- asad lattafa -->
@@ -133,7 +251,6 @@
             </div>
         </div>
 
-
         <!-- asad-499 -->
         <div class="perf-card reveal" data-category="men">
             <button class="fav-btn" aria-label="Add to favourites"
@@ -161,7 +278,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- atoor pour homme -->
         <div class="perf-card reveal atoor-pour-homme" data-category="unisex">
@@ -193,6 +309,72 @@
         </div>
 
 
+        <!-- START OF MINI-PERFUMES -->
+         <!-- mini perfumes container -->
+    <div class="reveal mini-container" >
+        <p class="mini-title">MINI FRAGRANCES</p>
+        <!-- HAYA mini -->
+        <div class="perf-card reveal" data-category="women">
+
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Haya EDP 35ml" 
+                data-price="kes 350" data-img="maya-mini.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+
+            <div class="img-area">
+                <img src="maya-mini.jpg" alt="haya edp">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">HAYA EDP 35ml</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 350</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Haya EDP 35ml', 'kes 350')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAYAr EDP MINI -->
+        <div class="perf-card reveal" data-category="women">
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Mayar EDP 35ml" data-brand="Arabian" data-price="kes 350" data-img="mayar-EDP-mini.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+            <div class="img-area">
+                <img src="mayar-EDP-mini.jpg" alt="bade'e al oud">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Mayar EDP 35ml</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 350</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Mayar EDP', 'kes 350')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+          
+    </div>
+
+
         <!-- Badee Al Oud -->
         <div class="perf-card reveal" data-category="women">
             <button class="fav-btn" aria-label="Add to favourites"
@@ -221,7 +403,6 @@
             </div>
         </div>
 
-
         <!-- Berries weekend-->
         <div class="perf-card reveal" data-category="women">
             <button class="fav-btn" aria-label="Add to favourites"
@@ -249,7 +430,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- black opium -->
         <div class="perf-card reveal black-opium" data-category="women">
@@ -343,7 +523,6 @@
             </div>
         </div>
 
-
         <!-- coco chanel -->
         <div class="perf-card reveal" data-category="women">
             <button class="fav-btn" aria-label="Add to favourites"
@@ -371,6 +550,136 @@
                 </div>
             </div>
         </div>
+
+         <!-- mini perfumes container -->
+    <div class="reveal mini-container mini-container2" >
+        <p class="mini-title">MINI FRAGRANCES</p>
+        <!-- YARA MINI ORANGE -->
+        <div class="perf-card reveal" data-category="women">
+
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Yara - 35ml" 
+                data-price="kes 350" data-img="yara-mini-orange.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+
+            <div class="img-area">
+                <img src="yara-mini-orange.jpg" alt="yara perfume">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Yara - 35ml</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 350</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Yara - orange 35ml', 'kes 350')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- YARA MINI PINK -->
+        <div class="perf-card reveal" data-category="women">
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Yara - 35ml" data-brand="Arabian" data-price="kes 350" data-img="yara-mini-pink.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+            <div class="img-area">
+                <img src="yara-mini-pink.jpg" alt="yara">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Yara - 35ml</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 350</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Yara - pink 35ml', 'kes 350')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+          
+    </div>
+        <!-- pencil fragrances container -->
+    <div class="reveal mini-container mini-container2" >
+        <p class="mini-title pencil">PENCIL FRAGRANCES</p>
+        <!-- 2I2 VIP ROSE PENCIL -->
+        <div class="perf-card reveal" data-category="women">
+
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="2i2 VIP Rose" 
+                data-price="kes 250" data-img="2i2-vip-rose-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+
+            <div class="img-area">
+                <img src="2i2-vip-rose-stick.jpg" alt="2i2 vip rose">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">2i2 VIP Rose</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('2i2 VIP Rose', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ASAD HARIZON PENCIL -->
+        <div class="perf-card reveal" data-category="women">
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Asad - Harizon kiss" data-brand="Arabian" data-price="kes 250" data-img="asad-harizon-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+            <div class="img-area">
+                <img src="asad-harizon-stick.jpg" alt="ASAD HARIZON PENCIL">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Asad - Harizon kiss</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Asad Harizon', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <a href="#pencil2" class="pencil-view-more">VIEW MORE</a>
+          
+    </div>
+
 
     <!-- CLUB DE NUIT — UNIQUE HERO CARD -->
         <div class="reveal club-de-nuit" data-category="men">
@@ -490,7 +799,6 @@
             </div>
         </div>
 
-
         <!-- Khamrah -->
         <div class="perf-card reveal" data-category="unisex">
             <span class=" badge-best" style="background: rgba(104, 44, 10, 0.692);">Unique</span>
@@ -521,7 +829,7 @@
         </div>
 
 
-        <!-- MID ADVERT -->
+    <!-- MID ADVERT -->
         <div class="reveal mid-advert">
             <div class="img-area">
                 <img src="https://i.pinimg.com/736x/99/79/7c/99797c08d55972012cd2975ecba4a411.jpg" alt="woman spraying perfume">
@@ -572,7 +880,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- Khamrah-499 -->
         <div class="perf-card reveal" data-category="unisex">
@@ -835,8 +1142,8 @@
         </div>
 
 
-        <!-- SCANDAL 21K — UNIQUE HERO CARD -->
-        <div class="reveal dolores" data-category="women">
+    <!-- SCANDAL 21K — UNIQUE HERO CARD -->
+        <div class="reveal scandal-21k" data-category="women">
             <!-- Ribbons -->
             <div class="scandal-ribbon">
                 <span class="ribbon-tag">Exclusive Offers</span>
@@ -852,7 +1159,7 @@
             <div class="img-area-1">
                 <img src="scandal-21k.png" alt="Scandal Jean Paul — 21k">
             </div>
-            <div class="dolores-info">
+            <div class="scandal-21k-info">
                 <span class="tag">For Her</span>
                 <p class="name">Scandal — Jean Paul</p>
                 <p class="brand">Jean Paul Gaultier</p>
@@ -904,7 +1211,7 @@
         </div>
 
         <!-- Rayan Black -->
-        <div class="perf-card reveal" data-category="men">
+        <div class="perf-card reveal" data-category="men" >
             <button class="fav-btn" aria-label="Add to favourites"
                 data-name="Rayan Black" data-brand="Al Rehab" data-price="kes 499" data-img="rayan-black-499.png">
                 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -932,8 +1239,74 @@
         </div>
 
 
+        <!-- pencil fragrances container -->
+    <div class="reveal mini-container pencil-container2" id="pencil2" >
+        <p class="mini-title pencil">PENCIL FRAGRANCES</p>
+        <!-- ASAD EDP PENCIL -->
+        <div class="perf-card reveal" data-category="women">
 
-        <!-- KAYALI SEPARATOR — untouched -->
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="ASAD EDP" 
+                data-price="kes 250" data-img="asad-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+
+            <div class="img-area">
+                <img src="asad-stick.jpg" alt="ASAD EDP">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">ASAD EDP</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('ASAD EDP', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HARAMAIN AMBER OUD -->
+        <div class="perf-card reveal" data-category="women">
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Haramain Amber oud" data-brand="Arabian" data-price="kes 250" data-img="haramain-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+            <div class="img-area">
+                <img src="haramain-stick.jpg" alt="Haramain Amber oud">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Haramain Amber</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Haramain Amber oud', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <a href="#pencil3" class="pencil-view-more">VIEW MORE</a>
+          
+    </div>
+
+
+    <!-- KAYALI SEPARATOR — untouched -->
         <div class="kayali-title">
             <h2>KAYALI</h2>
             <img src="https://i.pinimg.com/1200x/6a/9d/a8/6a9da8c9ff0cf15c23f9f8735b63893d.jpg" alt="Kayali fragrance campaign">
@@ -1081,7 +1454,257 @@
             </div>
         </div>
 
+
+    <!-- PENCIL PERFUME SEPARATOR — untouched -->
+        <div class="kayali-title" id="pencil3">
+            <h2>PENCIL</h2>
+            <img src="https://i.pinimg.com/736x/ed/d4/8a/edd48a743a00fe1e332de78b053c4040.jpg" alt="pencil fragrance campaign">
+            <img src="https://i.pinimg.com/736x/d0/54/e0/d054e0fda86191fc777513578171c356.jpg" alt="pencil fragrances">
+            <img src="https://i.pinimg.com/1200x/0c/34/73/0c34734a1f8aee4cd70cbeae97965cb7.jpg" alt="pencil perfume lifestyle">
+        </div>
+
+        <!-- HARIZON KISS 1 -->
+        <div class="perf-card reveal" data-category="women">
+
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="ASAD EDP" 
+                data-price="kes 250" data-img="harizon-snake-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+
+            <div class="img-area">
+                <img src="harizon-snake-stick.jpg" alt="Harizon Kiss">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Harizon Kiss EDP</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Harizon EDP Kiss - PINK', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HARIZON KISS 2 -->
+        <div class="perf-card reveal" data-category="women">
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Harizon kiss EDP" data-brand="Arabian" data-price="kes 250" data-img="harizon-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+            <div class="img-area">
+                <img src="harizon-stick.jpg" alt="Harizon kiss EDP">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Harizon kiss EDP</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Harizon kiss EDP - PURPLE', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HIS CONFESSION -->
+        <div class="perf-card reveal" data-category="men">
+
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="His Confession" 
+                data-price="kes 250" data-img="his-confession-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+
+            <div class="img-area">
+                <img src="his-confession-stick.jpg" alt="His Confession">
+            </div>
+            <div class="info">
+                <span class="tag">For Him</span>
+                <p class="name">His Confession</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('His Confession', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MALOW BLAZING -->
+        <div class="perf-card reveal" data-category="women">
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Malow Blazing" data-brand="Arabian" data-price="kes 250" data-img="malow-blazing-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+            <div class="img-area">
+                <img src="malow-blazing-stick.jpg" alt="Malow Blazing">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Malow Blazing</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Malow Blazing', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PINK CULIC -->
+        <div class="perf-card reveal" data-category="women">
+
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Pink Culic" 
+                data-price="kes 250" data-img="pink-culic-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+
+            <div class="img-area">
+                <img src="pink-culic-stick.jpg" alt="Pink Culic">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Pink Culic</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Pink Culic', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VELVETY EUPHORIA -->
+        <div class="perf-card reveal" data-category="women">
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Velvety Euphoria" data-brand="Arabian" data-price="kes 250" data-img="velvety-euphoria-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+            <div class="img-area">
+                <img src="velvety-euphoria-stick.jpg" alt="Velvety Euphoria">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Velvety Euphoria</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Velvety Euphoria', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- XERJOFF -->
+        <div class="perf-card reveal" data-category="women">
+
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Xerjoff" 
+                data-price="kes 250" data-img="xejof-blue-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+
+            <div class="img-area">
+                <img src="xejof-blue-stick.jpg" alt="Xerjoff">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Xerjoff</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Xerjoff', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- YARA EDP -->
+        <div class="perf-card reveal" data-category="women">
+            <button class="fav-btn" aria-label="Add to favourites"
+                data-name="Yara EDP" 
+                data-brand="Arabian" data-price="kes 250" data-img="yara-mini-stick.jpg">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </button>
+            <div class="img-area">
+                <img src="yara-mini-stick.jpg" alt="Yara EDP">
+            </div>
+            <div class="info">
+                <span class="tag">For Her</span>
+                <p class="name">Yara EDP</p>
+                <p class="brand">Arabian</p>
+                <div class="card-bottom-row">
+                    <span class="perfume-price">kes 250</span>
+                    <button class="wa-btn" aria-label="Enquire via WhatsApp"
+                        onclick="openWhatsApp('Yara EDP', 'kes 250')">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.1-1.33C8.52 21.55 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.77 0-3.41-.49-4.81-1.34l-.34-.2-3.03.79.81-2.96-.22-.35C3.49 14.74 3 13.43 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
+
+<!-- END OF PRODUCTS GRID -->
 </section>
 
 <!-- NEWSLETTER -->
@@ -1132,30 +1755,126 @@
     }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
 
-    /* ---- Filter tags ---- */
-    const filterTags = document.querySelectorAll('.filter-tag');
-    const cards = document.querySelectorAll('.perf-card');
-    const countEl = document.getElementById('count');
+    /* ---- Filter dropdown ---- */
+    const fdTrigger    = document.getElementById('fdTrigger');
+    const fdMenu       = document.getElementById('fdMenu');
+    const fdChevron    = document.getElementById('fdChevron');
+    const fdTriggerLabel = document.getElementById('fdTriggerLabel');
+    const fdTriggerSub   = document.getElementById('fdTriggerSub');
+    const fdTriggerIcon  = document.getElementById('fdTriggerIcon');
+    const fdActiveDot    = document.getElementById('fdActiveDot');
+    const fdSearch       = document.getElementById('fdSearch');
+    const fdClear        = document.getElementById('fdClear');
+    const fdMenuCount    = document.getElementById('fdMenuCount');
+    const countEl        = document.getElementById('count');
+    const cards          = document.querySelectorAll('.perf-card');
+    const fdItems        = document.querySelectorAll('.fd-item');
+
+    /* SVG icon templates keyed by data-icon value */
+    const svgIcons = {
+        grid: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>`,
+        unisex: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 21v-2a6.5 6.5 0 0 1 13 0v2"/><line x1="12" y1="11" x2="12" y2="14"/></svg>`,
+        women: `<img src="femenine.png" alt="" style="width:18px;height:18px;object-fit:contain;">`,
+        men:   `<img src="man.png"      alt="" style="width:18px;height:18px;object-fit:contain;">`,
+        oud:   `<img src="aroma.png"    alt="" style="width:18px;height:18px;object-fit:contain;">`
+    };
 
     function updateCount() {
         let visible = 0;
         cards.forEach(c => { if (c.style.display !== 'none') visible++; });
-        countEl.textContent = visible;
+        countEl.textContent      = visible;
+        fdMenuCount.textContent  = visible;
     }
-    updateCount();
 
-    filterTags.forEach(tag => {
-        tag.addEventListener('click', () => {
-            filterTags.forEach(t => t.classList.remove('active'));
-            tag.classList.add('active');
-            const filter = tag.dataset.filter;
-            cards.forEach(card => {
-                const match = filter === 'all' || card.dataset.category === filter;
-                card.style.display = match ? '' : 'none';
-            });
-            updateCount();
+    function openMenu() {
+        fdMenu.classList.add('open');
+        fdTrigger.classList.add('open');
+        fdChevron.classList.add('open');
+        fdTrigger.setAttribute('aria-expanded', 'true');
+        fdSearch.value = '';
+        applySearch('');
+        setTimeout(() => fdSearch.focus(), 60);
+    }
+
+    function closeMenu() {
+        fdMenu.classList.remove('open');
+        fdTrigger.classList.remove('open');
+        fdChevron.classList.remove('open');
+        fdTrigger.setAttribute('aria-expanded', 'false');
+    }
+
+    function selectFilter(btn) {
+        const filter = btn.dataset.filter;
+        const label  = btn.dataset.label;
+        const sub    = btn.dataset.sub;
+        const icon   = btn.dataset.icon;
+
+        /* update trigger face */
+        fdTriggerLabel.textContent  = label;
+        fdTriggerSub.textContent    = sub;
+        fdTriggerIcon.innerHTML     = svgIcons[icon] || svgIcons.grid;
+        fdActiveDot.classList.toggle('show', filter !== 'all');
+        fdClear.classList.toggle('visible', filter !== 'all');
+
+        /* mark active item */
+        fdItems.forEach(i => {
+            const on = i === btn;
+            i.classList.toggle('active', on);
+            i.setAttribute('aria-selected', on ? 'true' : 'false');
         });
+
+        /* filter cards */
+        cards.forEach(card => {
+            const match = filter === 'all' || card.dataset.category === filter;
+            card.style.display = match ? '' : 'none';
+        });
+
+        updateCount();
+        closeMenu();
+    }
+
+    /* Search inside menu */
+    function applySearch(q) {
+        const qn = q.toLowerCase().trim();
+        fdItems.forEach(btn => {
+            const name = (btn.dataset.label + ' ' + btn.dataset.sub).toLowerCase();
+            btn.style.display = name.includes(qn) ? '' : 'none';
+        });
+        /* hide group labels & dividers when searching */
+        document.querySelectorAll('.fd-group-label, .fd-divider').forEach(el => {
+            el.style.display = qn ? 'none' : '';
+        });
+    }
+
+    fdSearch.addEventListener('input', () => applySearch(fdSearch.value));
+
+    fdTrigger.addEventListener('click', e => {
+        e.stopPropagation();
+        fdMenu.classList.contains('open') ? closeMenu() : openMenu();
     });
+
+    fdItems.forEach(btn => btn.addEventListener('click', () => selectFilter(btn)));
+
+    fdClear.addEventListener('click', () => {
+        selectFilter(document.querySelector('.fd-item[data-filter="all"]'));
+    });
+
+    /* Close on outside click */
+    document.addEventListener('click', e => {
+        if (!e.target.closest('#fdWrap')) closeMenu();
+    });
+
+    /* Keyboard: Escape closes, arrows navigate */
+    document.addEventListener('keydown', e => {
+        if (!fdMenu.classList.contains('open')) return;
+        if (e.key === 'Escape') { closeMenu(); fdTrigger.focus(); return; }
+        const visible = [...fdItems].filter(b => b.style.display !== 'none');
+        const idx = visible.indexOf(document.activeElement);
+        if (e.key === 'ArrowDown') { visible[Math.min(idx + 1, visible.length - 1)]?.focus(); e.preventDefault(); }
+        if (e.key === 'ArrowUp')   { visible[Math.max(idx - 1, 0)]?.focus(); e.preventDefault(); }
+    });
+
+    updateCount();
 
     /* ---- WhatsApp — now includes price ---- */
     function openWhatsApp(product, price) {
@@ -1349,31 +2068,7 @@
         window.open(`https://wa.me/254758810778?text=${msg}`, '_blank');
     });
 
-    /* ---- Filter toggle (mobile) ---- */
-    const filterToggleBtn = document.getElementById('filterToggleBtn');
-    const filterSection = document.querySelector('.filter-section');
-
-    if (filterToggleBtn && filterSection) {
-        filterToggleBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            const isOpen = filterSection.classList.toggle('open');
-            filterToggleBtn.classList.toggle('active', isOpen);
-        });
-        document.addEventListener('click', function (e) {
-            if (filterSection.classList.contains('open') &&
-                !filterSection.contains(e.target) &&
-                e.target !== filterToggleBtn) {
-                filterSection.classList.remove('open');
-                filterToggleBtn.classList.remove('active');
-            }
-        });
-        document.querySelectorAll('.filter-tag').forEach(tag => {
-            tag.addEventListener('click', () => {
-                filterSection.classList.remove('open');
-                filterToggleBtn.classList.remove('active');
-            });
-        });
-    }
+    /* ---- Filter toggle (mobile) — handled by dropdown ---- */
 </script>
 
 </body>
